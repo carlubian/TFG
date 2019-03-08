@@ -25,14 +25,14 @@
            ColorScheme="Dark"/>
 
         <StackPanel Orientation="Vertical" Grid.Column="1">
-            <Button Width="128">
+            <Button Width="128" Click="Button_Click">
                 <StackPanel Orientation="Vertical">
                     <Image Source="Assets/Icons/add.png"
                            Width="64"/>
                     <TextBlock Text="Nuevo sensor"/>
                 </StackPanel>
             </Button>
-            <Button Width="128">
+            <Button Width="128" Click="Button_Click_1">
                 <StackPanel Orientation="Vertical">
                     <Image Source="Assets/Icons/settings.png"
                            Width="64"/>

@@ -27,9 +27,22 @@ namespace TFG.UWP
             this.InitializeComponent();
         }
 
+        // Hacer click sobre un marcador en el mapa
         private void MapControl1_MapElementClick(Windows.UI.Xaml.Controls.Maps.MapControl sender, Windows.UI.Xaml.Controls.Maps.MapElementClickEventArgs args)
         {
 
+        }
+
+        // Hacer click sobre el botón 'Nuevo sensor'
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(NuevoSensor));
+        }
+
+        // Hacer click sobre el botón 'Ajustes'
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Ajustes));
         }
     }
 }
