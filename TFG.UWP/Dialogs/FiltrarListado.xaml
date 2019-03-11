@@ -1,0 +1,59 @@
+﻿<ContentDialog
+    x:Class="TFG.UWP.Dialogs.FiltrarListado"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TFG.UWP.Dialogs"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    PrimaryButtonText="Aplicar"
+    SecondaryButtonText="Eliminar filtros"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
+    RequestedTheme="Dark" Background="#FF003C92">
+
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" FontSize="20"
+                   Text="Filtrar listado:"/>
+
+        <StackPanel Orientation="Vertical" Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Tipo de sensor"/>
+                <TextBox PlaceholderText="Sensor Gocator"
+                             x:Name="FieldTipo"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="País"/>
+                <TextBox PlaceholderText="España"
+                             x:Name="FieldPais"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Localización"/>
+                <TextBox PlaceholderText="Sensor Gocator"
+                             x:Name="FieldLugar"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Operaciones"/>
+                <TextBox PlaceholderText="Producción"
+                             x:Name="FieldOps"/>
+            </StackPanel>
+        </StackPanel>
+
+        <TextBlock Grid.Row="2" FontSize="20"
+                   Text="Ordenar listado:"/>
+
+        <StackPanel Orientation="Vertical" Grid.Row="3">
+            <RadioButton Content="Tipo de sensor" x:Name="RadioTipo" />
+            <RadioButton Content="País" x:Name="RadioPais" IsChecked="True" />
+            <RadioButton Content="Localización" x:Name="RadioLugar" />
+            <RadioButton Content="Operaciones" x:Name="RadioOps" />
+        </StackPanel>
+    </Grid>
+</ContentDialog>

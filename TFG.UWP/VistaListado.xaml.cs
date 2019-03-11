@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TFG.UWP.Dialogs;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -22,11 +23,18 @@ namespace TFG.UWP
     /// </summary>
     public sealed partial class VistaListado : Page
     {
+        // TODO Almacenar el criterio de filtrado y ordenación
+
         public VistaListado()
         {
             this.InitializeComponent();
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            // TODO Registrar y aplicar el criterio indicado
+        }
+        
         // Volver atrás
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -40,9 +48,13 @@ namespace TFG.UWP
         }
 
         // Mostrar diálogo de filtros
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private async void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            // TODO Pasar el criterio actual
+            var dialog = new FiltrarListado();
+            await dialog.ShowAsync();
 
+            var criteria = dialog.Criteria;
         }
     }
 }

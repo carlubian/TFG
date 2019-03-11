@@ -125,6 +125,9 @@
     <Compile Include="DetallesSensor.xaml.cs">
       <DependentUpon>DetallesSensor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\FiltrarListado.xaml.cs">
+      <DependentUpon>FiltrarListado.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\NuevoSensorNUE3.xaml.cs">
       <DependentUpon>NuevoSensorNUE3.xaml</DependentUpon>
     </Compile>
@@ -190,6 +193,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Dialogs\FiltrarListado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Dialogs\NuevoSensorNUE3.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -227,7 +234,12 @@
       <Version>6.2.2</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\TFG.Core\TFG.Core.csproj">
+      <Project>{2855905f-8737-47fa-b901-a96d941930ac}</Project>
+      <Name>TFG.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
