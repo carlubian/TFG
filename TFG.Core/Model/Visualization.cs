@@ -65,13 +65,13 @@ namespace TFG.Core.Model
             {
                 result.Append("Mostrando sensores ");
                 if (TipoSensor is PredicateCriteria ts)
-                    result.Append($"{ts.Title} ");
+                    result.Append($"{ts.Verbose} ");
                 if (Pais is PredicateCriteria pa)
-                    result.Append($"{pa.Title} ");
+                    result.Append($"{pa.Verbose} ");
                 if (Localizacion is PredicateCriteria lc)
-                    result.Append($"{lc.Title} ");
+                    result.Append($"{lc.Verbose} ");
                 if (Operaciones is PredicateCriteria op)
-                    result.Append($"{op.Title} ");
+                    result.Append($"{op.Verbose} ");
             }
 
             result.Append("ordenados por ");

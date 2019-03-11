@@ -22,6 +22,6 @@ namespace TFG.Core.Model.Criteria
         /// 'Mostrando sensores [TITLE]'. Por ejemplo,
         /// 'Mostrando sensores [de tipo Gocator]'.
         /// </summary>
-        public string Title { get; set; }
+        public string Verbose { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TFG.Core.Model;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -50,8 +51,7 @@ namespace TFG.UWP
         // Mostrar todos los sensores
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            // TODO Pasar criterio vacío para ver todos
-            Frame.Navigate(typeof(VistaListado), null);
+            Frame.Navigate(typeof(VistaListado), Visualization.Default);
         }
     }
 }
