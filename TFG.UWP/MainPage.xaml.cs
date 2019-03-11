@@ -7,6 +7,7 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Maps;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
@@ -28,9 +29,10 @@ namespace TFG.UWP
         }
 
         // Hacer click sobre un marcador en el mapa
-        private void MapControl1_MapElementClick(Windows.UI.Xaml.Controls.Maps.MapControl sender, Windows.UI.Xaml.Controls.Maps.MapElementClickEventArgs args)
+        private void MapControl1_MapElementClick(MapControl sender, MapElementClickEventArgs args)
         {
-
+            var clickedIcon = args.MapElements.FirstOrDefault(x => x is MapIcon) as MapIcon;
+            var country = clickedIcon.Title;
         }
 
         // Hacer click sobre el botón 'Nuevo sensor'
@@ -43,6 +45,13 @@ namespace TFG.UWP
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(Ajustes));
+        }
+
+        // Mostrar todos los sensores
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            // TODO Pasar criterio vacío para ver todos
+            Frame.Navigate(typeof(VistaListado), null);
         }
     }
 }

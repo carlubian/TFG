@@ -65,6 +65,20 @@
                     <TextBlock Text="Guardar"/>
                 </StackPanel>
             </Button>
+            <Button Width="128" Click="Button_Click_2">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="Assets/Icons/export.png"
+                           Width="64"/>
+                    <TextBlock Text="Exportar"/>
+                </StackPanel>
+            </Button>
+            <Button Width="128" Click="Button_Click_3">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="Assets/Icons/import.png"
+                           Width="64"/>
+                    <TextBlock Text="Importar"/>
+                </StackPanel>
+            </Button>
         </StackPanel>
     </Grid>
 </Page>

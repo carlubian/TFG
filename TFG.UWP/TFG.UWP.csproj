@@ -122,6 +122,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DetallesSensor.xaml.cs">
+      <DependentUpon>DetallesSensor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -129,6 +132,9 @@
       <DependentUpon>NuevoSensor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VistaListado.xaml.cs">
+      <DependentUpon>VistaListado.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -141,7 +147,11 @@
   <ItemGroup>
     <Content Include="Assets\Icons\add.png" />
     <Content Include="Assets\Icons\cancel.png" />
+    <Content Include="Assets\Icons\edit.png" />
+    <Content Include="Assets\Icons\export.png" />
+    <Content Include="Assets\Icons\import.png" />
     <Content Include="Assets\Icons\left-arrow.png" />
+    <Content Include="Assets\Icons\list.png" />
     <Content Include="Assets\Icons\save.png" />
     <Content Include="Assets\Icons\settings.png" />
     <Content Include="Properties\Default.rd.xml" />
@@ -162,11 +172,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DetallesSensor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="NuevoSensor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VistaListado.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

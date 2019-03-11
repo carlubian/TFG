@@ -6,6 +6,8 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
+using Windows.Storage.Pickers;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -47,7 +49,7 @@ namespace TFG.UWP
 
         private void PopulateSettings()
         {
-            var directory = Windows.Storage.ApplicationData.Current.LocalFolder.Path;
+            var directory = ApplicationData.Current.LocalFolder.Path;
 
             var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
             var attempts = config.AsTransferable().ReadAll().FirstOrDefault(s => s.Key.Equals("Global:Attempts")).Value;
@@ -83,6 +85,47 @@ namespace TFG.UWP
             var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
             config.Write("Global:Attempts", FieldAttempts.Text);
             config.Write("Global:Delay", FieldWait.Text);
+        }
+
+        // Exportar ajustes
+        private async void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            var savePicker = new FileSavePicker
+            {
+                SuggestedStartLocation = PickerLocationId.DocumentsLibrary,
+                SuggestedFileName = "Settings",
+                CommitButtonText = "Exportar"
+            };
+            savePicker.FileTypeChoices.Add("Archivo XML", new List<string>() { ".xml" });
+
+            var file = await savePicker.PickSaveFileAsync();
+
+            if (file != null)
+            {
+                 await FileIO.WriteLinesAsync(file, 
+                    await FileIO.ReadLinesAsync(await ApplicationData.Current.LocalFolder.GetFileAsync("Settings.xml")) as IEnumerable<string>);
+            }
+        }
+
+        // Importar ajustes
+        private async void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            var openPicker = new FileOpenPicker
+            {
+                SuggestedStartLocation = PickerLocationId.DocumentsLibrary,
+                CommitButtonText = "Importar"
+            };
+            openPicker.FileTypeFilter.Add(".xml");
+
+            var file = await openPicker.PickSingleFileAsync();
+
+            if (file != null)
+            {
+                await FileIO.WriteLinesAsync(await ApplicationData.Current.LocalFolder.GetFileAsync("Settings.xml"),
+                    await FileIO.ReadLinesAsync(file) as IEnumerable<string>);
+
+                PopulateSettings();
+            }
         }
     }
 }
