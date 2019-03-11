@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConfigAdapter.Xml;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,6 +8,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -63,10 +65,15 @@ namespace TFG.UWP
             {
                 if (rootFrame.Content == null)
                 {
-                    // Cuando no se restaura la pila de navegación, navegar a la primera página,
-                    // configurando la nueva página pasándole la información requerida como
-                    //parámetro de navegación
-                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                    // Determinar si es el primer uso (redirigir a NUE)
+                    var directory = ApplicationData.Current.LocalFolder.Path;
+                    var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
+                    var nueSetting = config.AsTransferable().ReadAll().FirstOrDefault(s => s.Key.Equals("ExistingUser"));
+
+                    if (nueSetting.Value is default(string))
+                        rootFrame.Navigate(typeof(NUE), e.Arguments);
+                    else
+                        rootFrame.Navigate(typeof(MainPage), e.Arguments);
                 }
                 // Asegurarse de que la ventana actual está activa.
                 Window.Current.Activate();

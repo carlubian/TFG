@@ -122,6 +122,15 @@
 
 ¡Todo está listo para funcionar!</value>
   </data>
+  <data name="NueIntroText.Text" xml:space="preserve">
+    <value>Bienvenido al Visualizador de Datos de Sensores. Parece que es la primera vez que usas esta aplicación.
+
+Si es así, pulsa el botón 'Continuar' para continuar la introducción y añadir un sensor nuevo.
+
+Si ya has usado la aplicación antes y tienes una copia de seguridad de los ajustes, pulsa el botón 'Importar' para recuperar la configuración anterior.
+
+Si prefieres empezar de cero, pulsa el botón 'Saltar' para saltarte la introducción.</value>
+  </data>
   <data name="NuevoSensorClasiText.Text" xml:space="preserve">
     <value>¡Estupendo! El servidor remoto parece estar funcionando correctamente.
 
@@ -139,5 +148,20 @@ Según el tipo de sensor, estos ajustes serán diferentes. Al igual que los deta
 
 Para empezar, introduce los siguientes datos básicos sobre el servidor remoto:
 </value>
+  </data>
+  <data name="NuevoSensorNUE1Text.Text" xml:space="preserve">
+    <value>Empecemos conectando un nuevo sensor al sistema.
+
+Sigue las instrucciones de esta ventana, y cuando termines pulsa el botón 'Siguiente'</value>
+  </data>
+  <data name="NuevoSensorNUE2Text.Text" xml:space="preserve">
+    <value>Ahora debes indicar cómo se clasifica el sensor que estás conectando.
+
+Estos parámetros no son necesarios para la conexión, pero ayudarán a la hora de filtrar y ordenar listados de sensores.</value>
+  </data>
+  <data name="NuevoSensorNUE3Text.Text" xml:space="preserve">
+    <value>Según el tipo de sensor que estés intentando conectar, puede que tengas que introducir datos adicionales. Si es así, sigue las instrucciones que se muestran en pantalla.
+
+Con esto termina la introducción a la aplicación. Si tienes más preguntas, consulta la documentación.</value>
   </data>
 </root>

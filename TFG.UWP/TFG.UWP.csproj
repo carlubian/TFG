@@ -125,8 +125,20 @@
     <Compile Include="DetallesSensor.xaml.cs">
       <DependentUpon>DetallesSensor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\NuevoSensorNUE3.xaml.cs">
+      <DependentUpon>NuevoSensorNUE3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\NuevoSensorNUE2.xaml.cs">
+      <DependentUpon>NuevoSensorNUE2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\NuevoSensorNUE1.xaml.cs">
+      <DependentUpon>NuevoSensorNUE1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NUE.xaml.cs">
+      <DependentUpon>NUE.xaml</DependentUpon>
     </Compile>
     <Compile Include="NuevoSensor.xaml.cs">
       <DependentUpon>NuevoSensor.xaml</DependentUpon>
@@ -149,9 +161,11 @@
     <Content Include="Assets\Icons\cancel.png" />
     <Content Include="Assets\Icons\edit.png" />
     <Content Include="Assets\Icons\export.png" />
+    <Content Include="Assets\Icons\filter.png" />
     <Content Include="Assets\Icons\import.png" />
     <Content Include="Assets\Icons\left-arrow.png" />
     <Content Include="Assets\Icons\list.png" />
+    <Content Include="Assets\Icons\right-arrow.png" />
     <Content Include="Assets\Icons\save.png" />
     <Content Include="Assets\Icons\settings.png" />
     <Content Include="Properties\Default.rd.xml" />
@@ -176,9 +190,25 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Dialogs\NuevoSensorNUE3.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\NuevoSensorNUE2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\NuevoSensorNUE1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NUE.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="NuevoSensor.xaml">
       <SubType>Designer</SubType>

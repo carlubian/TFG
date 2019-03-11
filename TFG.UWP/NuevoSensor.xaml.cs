@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TFG.UWP.Dialogs;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -22,6 +23,8 @@ namespace TFG.UWP
     /// </summary>
     public sealed partial class NuevoSensor : Page
     {
+        private bool ShowIntro = false;
+
         public NuevoSensor()
         {
             this.InitializeComponent();
@@ -30,6 +33,15 @@ namespace TFG.UWP
             GridStep3.Visibility = Visibility.Collapsed;
         }
 
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (true.Equals(e.Parameter))
+            {
+                ShowIntro = true;
+                await new NuevoSensorNUE1().ShowAsync();
+            }
+        }
+        
         // Hacer click sobre el botón 'Cancelar'
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -37,19 +49,25 @@ namespace TFG.UWP
         }
 
         // Avanzar al paso 2
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
             // TODO Validación
             GridStep1.Visibility = Visibility.Collapsed;
             GridStep2.Visibility = Visibility.Visible;
+
+            if (ShowIntro)
+                await new NuevoSensorNUE2().ShowAsync();
         }
 
         // Avanzar al paso 3
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private async void Button_Click_2(object sender, RoutedEventArgs e)
         {
             // TODO Validación
             GridStep2.Visibility = Visibility.Collapsed;
             GridStep3.Visibility = Visibility.Visible;
+
+            if (ShowIntro)
+                await new NuevoSensorNUE3().ShowAsync();
         }
 
         // Completar el proceso
