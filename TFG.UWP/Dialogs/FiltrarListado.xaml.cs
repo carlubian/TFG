@@ -56,7 +56,7 @@ namespace TFG.UWP.Dialogs
             else
                 Filters.TipoSensor = new PredicateCriteria
                 {
-                    Evaluate = str => str.ToUpperInvariant().Equals(FieldTipo.SelectedItem),
+                    Evaluate = str => str.Equals(FieldTipo.SelectedItem),
                     Verbose = $"de tipo {FieldTipo.SelectedItem}",
                     StringValue = FieldTipo.SelectedItem.ToString()
                 };
@@ -65,7 +65,7 @@ namespace TFG.UWP.Dialogs
             else
                 Filters.Pais = new PredicateCriteria
                 {
-                    Evaluate = str => str.ToUpperInvariant().Equals(FieldPais.SelectedItem),
+                    Evaluate = str => str.Equals(FieldPais.SelectedItem),
                     Verbose = $"de {FieldPais.SelectedItem}",
                     StringValue = FieldPais.SelectedItem.ToString()
                 };
@@ -74,7 +74,7 @@ namespace TFG.UWP.Dialogs
             else
                 Filters.Localizacion = new PredicateCriteria
                 {
-                    Evaluate = str => str.ToUpperInvariant().Equals(FieldLugar.SelectedItem),
+                    Evaluate = str => str.Equals(FieldLugar.SelectedItem),
                     Verbose = $"en {FieldLugar.SelectedItem}",
                     StringValue = FieldLugar.SelectedItem.ToString()
                 };
@@ -83,7 +83,7 @@ namespace TFG.UWP.Dialogs
             else
                 Filters.Operaciones = new PredicateCriteria
                 {
-                    Evaluate = str => str.ToUpperInvariant().Equals(FieldOps.SelectedItem),
+                    Evaluate = str => str.Equals(FieldOps.SelectedItem),
                     Verbose = $"en modo {FieldOps.SelectedItem}",
                     StringValue = FieldOps.SelectedItem.ToString()
                 };

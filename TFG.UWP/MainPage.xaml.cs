@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TFG.Core;
 using TFG.Core.Model;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -27,6 +28,10 @@ namespace TFG.UWP
         public MainPage()
         {
             this.InitializeComponent();
+
+            //TODO Colocar esto en otro sitio. De todas formas es provisional
+            //var client = KaomiClient.Connect();
+            //client.AttachProcess();
         }
 
         // Hacer click sobre un marcador en el mapa

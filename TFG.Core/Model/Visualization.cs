@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using TFG.Core.Model.Criteria;
 
@@ -93,6 +94,38 @@ namespace TFG.Core.Model
             }
 
             return result.ToString();
+        }
+
+        /// <summary>
+        /// Aplica los filtros y la ordenación a
+        /// una lista de sensores, y devuelve el
+        /// resultado listo para mostrar.
+        /// </summary>
+        /// <param name="input">Lista de entrada</param>
+        /// <returns>Lista de salida</returns>
+        public IEnumerable<Sensor> Apply(IEnumerable<Sensor> input)
+        {
+            var output = input;
+
+            if (TipoSensor is PredicateCriteria ts)
+                output = output.Where(s => ts.Evaluate(s.Tipo));
+            if (Pais is PredicateCriteria pa)
+                output = output.Where(s => pa.Evaluate(s.Pais));
+            if (Localizacion is PredicateCriteria lc)
+                output = output.Where(s => lc.Evaluate(s.Lugar));
+            if (Operaciones is PredicateCriteria op)
+                output = output.Where(s => op.Evaluate(s.Operaciones));
+
+            if (Ordenacion is Ordenacion.TipoSensor)
+                output = output.OrderBy(s => s.Tipo);
+            if (Ordenacion is Ordenacion.Pais)
+                output = output.OrderBy(s => s.Pais);
+            if (Ordenacion is Ordenacion.Localizacion)
+                output = output.OrderBy(s => s.Lugar);
+            if (Ordenacion is Ordenacion.Operaciones)
+                output = output.OrderBy(s => s.Operaciones);
+
+            return output;
         }
     }
 

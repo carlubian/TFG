@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TFG.Core.Model;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -27,6 +28,18 @@ namespace TFG.UWP
             this.InitializeComponent();
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var sensor = e.Parameter as Sensor;
+
+            FieldCountry.Text = sensor.Pais;
+            FieldIP.Text = sensor.IP;
+            FieldLocation.Text = sensor.Lugar;
+            FieldName.Text = sensor.Nombre;
+            FieldOps.Text = sensor.Operaciones;
+            FieldPort.Text = sensor.Puerto;
+            FieldType.Text = sensor.Tipo;
+        }
         // Volver atrás
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -35,6 +48,12 @@ namespace TFG.UWP
 
         // Editar datos del sensor
         private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        // Eliminar sensor
+        private void Button_Click_2(object sender, RoutedEventArgs e)
         {
 
         }

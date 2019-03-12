@@ -15,6 +15,67 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
+        <Grid Grid.Column="0"
+              Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <TextBlock Grid.Row="0"
+                       FontSize="36"
+                       Text="Detalles del sensor"
+                       HorizontalAlignment="Center"/>
+
+            <StackPanel Orientation="Vertical" Grid.Row="1">
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Nombre del sensor"
+                               Width="128"/>
+                    <TextBlock x:Name="FieldName"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Dirección IP"
+                               Width="128"/>
+                    <TextBlock x:Name="FieldIP"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Puerto"
+                               Width="128"/>
+                    <TextBlock x:Name="FieldPort"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Tipo del sensor"
+                               Width="128"/>
+                    <TextBlock x:Name="FieldType"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="País"
+                               Width="128"/>
+                    <TextBlock x:Name="FieldCountry"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Localización"
+                               Width="128"/>
+                    <TextBlock x:Name="FieldLocation"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Operaciones"
+                               Width="128"/>
+                    <TextBlock x:Name="FieldOps"/>
+                </StackPanel>
+
+            </StackPanel>
+            
+        </Grid>
+
         <StackPanel Orientation="Vertical" Grid.Column="1">
             <Button Width="128" Click="Button_Click">
                 <StackPanel Orientation="Vertical">
@@ -28,6 +89,13 @@
                     <Image Source="Assets/Icons/edit.png"
                            Width="64"/>
                     <TextBlock Text="Modificar"/>
+                </StackPanel>
+            </Button>
+            <Button Width="128" Click="Button_Click_2">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="Assets/Icons/delete.png"
+                           Width="64"/>
+                    <TextBlock Text="Eliminar"/>
                 </StackPanel>
             </Button>
         </StackPanel>

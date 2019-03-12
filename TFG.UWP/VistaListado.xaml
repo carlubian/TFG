@@ -27,12 +27,29 @@
                        Text="Lista de sensores"
                        HorizontalAlignment="Center"/>
 
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="1" Background="Transparent">
                 <TextBlock HorizontalAlignment="Left"
                            FontSize="20"
                            Text="Filtro actual: [ESPAÑA][PRODUCCIÓN]"
                            x:Name="LabelCriteria"/>
             </Grid>
+
+            <ListView Grid.Row="2" x:Name="ListaSensores"
+                      SelectionMode="Single">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding Nombre}"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Tipo}"/>
+                                <TextBlock Text="{Binding Pais}"/>
+                                <TextBlock Text="{Binding Lugar}"/>
+                                <TextBlock Text="{Binding Operaciones}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Grid>
 
         <StackPanel Orientation="Vertical" Grid.Column="1">

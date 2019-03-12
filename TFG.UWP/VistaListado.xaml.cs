@@ -25,16 +25,63 @@ namespace TFG.UWP
     public sealed partial class VistaListado : Page
     {
         private Visualization Filters;
+        private IEnumerable<Sensor> sensores;
 
         public VistaListado()
         {
             this.InitializeComponent();
+
+            // TODO Leer de configuración
+            sensores = new List<Sensor>
+            {
+                new Sensor
+                {
+                    Nombre = "Sensor de prueba 1",
+                    IP = "127.0.0.1",
+                    Puerto = "5000",
+                    Tipo = "Gocator",
+                    Pais = "España",
+                    Lugar = "Laboratorio",
+                    Operaciones = "Pruebas"
+                },
+                new Sensor
+                {
+                    Nombre = "Sensor de prueba 2",
+                    IP = "127.0.0.2",
+                    Puerto = "5000",
+                    Tipo = "Gocator",
+                    Pais = "Canadá",
+                    Lugar = "Planta",
+                    Operaciones = "Pruebas"
+                },
+                new Sensor
+                {
+                    Nombre = "Sensor de prueba 3",
+                    IP = "127.0.0.3",
+                    Puerto = "5000",
+                    Tipo = "Gocator",
+                    Pais = "Canadá",
+                    Lugar = "Planta",
+                    Operaciones = "Producción"
+                },
+                new Sensor
+                {
+                    Nombre = "Sensor de prueba 4",
+                    IP = "127.0.0.1",
+                    Puerto = "5000",
+                    Tipo = "Indefinido",
+                    Pais = "España",
+                    Lugar = "Planta",
+                    Operaciones = "Pruebas"
+                }
+            };
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             Filters = e.Parameter as Visualization;
             LabelCriteria.Text = Filters.ToString();
+            ListaSensores.ItemsSource = Filters.Apply(sensores);
         }
         
         // Volver atrás
@@ -57,6 +104,8 @@ namespace TFG.UWP
 
             Filters = dialog.Filters;
             LabelCriteria.Text = Filters.ToString();
+
+            ListaSensores.ItemsSource = Filters.Apply(sensores);
         }
     }
 }
