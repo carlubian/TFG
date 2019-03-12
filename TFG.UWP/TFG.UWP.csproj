@@ -163,6 +163,7 @@
     <Content Include="Assets\Icons\add.png" />
     <Content Include="Assets\Icons\cancel.png" />
     <Content Include="Assets\Icons\delete.png" />
+    <Content Include="Assets\Icons\details.png" />
     <Content Include="Assets\Icons\edit.png" />
     <Content Include="Assets\Icons\export.png" />
     <Content Include="Assets\Icons\filter.png" />

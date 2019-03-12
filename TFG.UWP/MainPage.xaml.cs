@@ -1,10 +1,12 @@
-﻿using System;
+﻿using DotNet.Misc.Extensions.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using TFG.Core;
 using TFG.Core.Model;
+using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -32,6 +34,26 @@ namespace TFG.UWP
             //TODO Colocar esto en otro sitio. De todas formas es provisional
             //var client = KaomiClient.Connect();
             //client.AttachProcess();
+
+            var elements = new List<MapElement>();
+            Coordinates.Country.ForEach(kvp =>
+            {
+                elements.Add(new MapIcon
+                {
+                    Location = new Geopoint(new BasicGeoposition
+                    {
+                        Latitude = kvp.Value.latitud,
+                        Longitude = kvp.Value.longitud
+                    }),
+                    ZIndex = 0,
+                    Title = kvp.Key
+                });
+            });
+            MapControl1.Layers.Add(new MapElementsLayer
+            {
+                ZIndex = 1,
+                MapElements = elements
+            });
         }
 
         // Hacer click sobre un marcador en el mapa

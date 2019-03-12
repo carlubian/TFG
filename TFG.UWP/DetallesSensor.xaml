@@ -28,52 +28,62 @@
                        Text="Detalles del sensor"
                        HorizontalAlignment="Center"/>
 
-            <StackPanel Orientation="Vertical" Grid.Row="1">
+            <Grid Grid.Row="1" Background="Transparent">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <StackPanel Orientation="Vertical" Grid.Column="0">
 
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Nombre del sensor"
-                               Width="128"/>
-                    <TextBlock x:Name="FieldName"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Nombre del sensor"
+                               Width="128" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="FieldName" FontSize="20"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Dirección IP"
+                               Width="128" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="FieldIP" FontSize="20"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Puerto"
+                               Width="128" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="FieldPort" FontSize="20"/>
+                    </StackPanel>
+
                 </StackPanel>
+                <StackPanel Orientation="Vertical" Grid.Column="1">
 
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Dirección IP"
-                               Width="128"/>
-                    <TextBlock x:Name="FieldIP"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Tipo del sensor"
+                               Width="128" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="FieldType" FontSize="20"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="País"
+                               Width="128" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="FieldCountry" FontSize="20"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Localización"
+                               Width="128" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="FieldLocation" FontSize="20"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Operaciones"
+                               Width="128" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="FieldOps" FontSize="20"/>
+                    </StackPanel>
+
                 </StackPanel>
+            </Grid>
 
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Puerto"
-                               Width="128"/>
-                    <TextBlock x:Name="FieldPort"/>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Tipo del sensor"
-                               Width="128"/>
-                    <TextBlock x:Name="FieldType"/>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="País"
-                               Width="128"/>
-                    <TextBlock x:Name="FieldCountry"/>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Localización"
-                               Width="128"/>
-                    <TextBlock x:Name="FieldLocation"/>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Operaciones"
-                               Width="128"/>
-                    <TextBlock x:Name="FieldOps"/>
-                </StackPanel>
-
-            </StackPanel>
-            
         </Grid>
 
         <StackPanel Orientation="Vertical" Grid.Column="1">

@@ -107,5 +107,18 @@ namespace TFG.UWP
 
             ListaSensores.ItemsSource = Filters.Apply(sensores);
         }
+
+        // Ver detalles del sensor seleccionado
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            if (ListaSensores.SelectedItem is null)
+            {
+                // TODO Mostrar notificación o mensaje de aviso
+                return;
+            }
+
+            var sensor = ListaSensores.SelectedItem as Sensor;
+            Frame.Navigate(typeof(DetallesSensor), sensor);
+        }
     }
 }
