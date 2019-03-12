@@ -25,24 +25,20 @@
 
         <StackPanel Orientation="Vertical" Grid.Row="1">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Tipo de sensor"/>
-                <TextBox PlaceholderText="Sensor Gocator"
-                             x:Name="FieldTipo"/>
+                <TextBlock Text="Tipo de sensor" Width="96"/>
+                <ComboBox x:Name="FieldTipo" Width="160"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="País"/>
-                <TextBox PlaceholderText="España"
-                             x:Name="FieldPais"/>
+                <TextBlock Text="País" Width="96"/>
+                <ComboBox x:Name="FieldPais" Width="160"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Localización"/>
-                <TextBox PlaceholderText="Sensor Gocator"
-                             x:Name="FieldLugar"/>
+                <TextBlock Text="Localización" Width="96"/>
+                <ComboBox x:Name="FieldLugar" Width="160"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Operaciones"/>
-                <TextBox PlaceholderText="Producción"
-                             x:Name="FieldOps"/>
+                <TextBlock Text="Operaciones" Width="96"/>
+                <ComboBox x:Name="FieldOps" Width="160"/>
             </StackPanel>
         </StackPanel>
 

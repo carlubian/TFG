@@ -19,5 +19,7 @@ namespace TFG.Core.Model.Criteria
         public AllEncompasingCriteria()
         {
         }
+
+        public override string ToString() => "";
     }
 }

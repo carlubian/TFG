@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DotNet.Misc.Extensions.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -27,43 +28,65 @@ namespace TFG.UWP.Dialogs
         {
             this.InitializeComponent();
             this.Filters = Filters;
+
+            FieldTipo.ItemsSource = "".Enumerate().Concat(ValoresCriterio.TipoSensor);
+            FieldTipo.SelectedItem = Filters.TipoSensor.ToString();
+            FieldPais.ItemsSource = "".Enumerate().Concat(ValoresCriterio.Pais);
+            FieldPais.SelectedItem = Filters.Pais.ToString();
+            FieldLugar.ItemsSource = "".Enumerate().Concat(ValoresCriterio.Localizacion);
+            FieldLugar.SelectedItem = Filters.Localizacion.ToString();
+            FieldOps.ItemsSource = "".Enumerate().Concat(ValoresCriterio.Operaciones);
+            FieldOps.SelectedItem = Filters.Operaciones.ToString();
+
+            if (Filters.Ordenacion is Ordenacion.Pais)
+                RadioPais.IsChecked = true;
+            if (Filters.Ordenacion is Ordenacion.TipoSensor)
+                RadioTipo.IsChecked = true;
+            if (Filters.Ordenacion is Ordenacion.Localizacion)
+                RadioLugar.IsChecked = true;
+            if (Filters.Ordenacion is Ordenacion.Operaciones)
+                RadioOps.IsChecked = true;
         }
 
         // Aplicar filtros y ordenación
         private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
-            if (FieldTipo.Text != "")
+            if (FieldTipo.SelectedItem.Equals(""))
+                Filters.TipoSensor = new AllEncompasingCriteria();
+            else
                 Filters.TipoSensor = new PredicateCriteria
                 {
-                    Evaluate = str => str.ToUpperInvariant().Equals(FieldTipo.Text),
-                    Verbose = $"de tipo {FieldTipo.Text}"
+                    Evaluate = str => str.ToUpperInvariant().Equals(FieldTipo.SelectedItem),
+                    Verbose = $"de tipo {FieldTipo.SelectedItem}",
+                    StringValue = FieldTipo.SelectedItem.ToString()
                 };
+            if (FieldPais.SelectedItem.Equals(""))
+                Filters.Pais = new AllEncompasingCriteria();
             else
-                Filters.TipoSensor = new AllEncompasingCriteria();
-            if (FieldPais.Text != "")
                 Filters.Pais = new PredicateCriteria
                 {
-                    Evaluate = str => str.ToUpperInvariant().Equals(FieldPais.Text),
-                    Verbose = $"de {FieldPais.Text}"
+                    Evaluate = str => str.ToUpperInvariant().Equals(FieldPais.SelectedItem),
+                    Verbose = $"de {FieldPais.SelectedItem}",
+                    StringValue = FieldPais.SelectedItem.ToString()
                 };
+            if (FieldLugar.SelectedItem.Equals(""))
+                Filters.Localizacion = new AllEncompasingCriteria();
             else
-                Filters.Pais = new AllEncompasingCriteria();
-            if (FieldLugar.Text != "")
                 Filters.Localizacion = new PredicateCriteria
                 {
-                    Evaluate = str => str.ToUpperInvariant().Equals(FieldLugar.Text),
-                    Verbose = $"en {FieldLugar.Text}"
+                    Evaluate = str => str.ToUpperInvariant().Equals(FieldLugar.SelectedItem),
+                    Verbose = $"en {FieldLugar.SelectedItem}",
+                    StringValue = FieldLugar.SelectedItem.ToString()
                 };
+            if (FieldOps.SelectedItem.Equals(""))
+                Filters.Operaciones = new AllEncompasingCriteria();
             else
-                Filters.Localizacion = new AllEncompasingCriteria();
-            if (FieldOps.Text != "")
                 Filters.Operaciones = new PredicateCriteria
                 {
-                    Evaluate = str => str.ToUpperInvariant().Equals(FieldOps.Text),
-                    Verbose = $"en modo {FieldOps.Text}"
+                    Evaluate = str => str.ToUpperInvariant().Equals(FieldOps.SelectedItem),
+                    Verbose = $"en modo {FieldOps.SelectedItem}",
+                    StringValue = FieldOps.SelectedItem.ToString()
                 };
-            else
-                Filters.Operaciones = new AllEncompasingCriteria();
 
             if (RadioPais.IsChecked is true)
                 Filters.Ordenacion = Ordenacion.Pais;

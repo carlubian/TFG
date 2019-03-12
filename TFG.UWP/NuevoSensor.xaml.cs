@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TFG.Core.Model;
 using TFG.UWP.Dialogs;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -31,6 +32,15 @@ namespace TFG.UWP
             GridStep1.Visibility = Visibility.Visible;
             GridStep2.Visibility = Visibility.Collapsed;
             GridStep3.Visibility = Visibility.Collapsed;
+
+            FieldCountry.ItemsSource = ValoresCriterio.Pais;
+            FieldCountry.SelectedIndex = 0;
+            FieldType.ItemsSource = ValoresCriterio.TipoSensor;
+            FieldType.SelectedIndex = 0;
+            FieldOps.ItemsSource = ValoresCriterio.Operaciones;
+            FieldOps.SelectedIndex = 0;
+            FieldLocation.ItemsSource = ValoresCriterio.Localizacion;
+            FieldLocation.SelectedIndex = 0;
         }
 
         protected async override void OnNavigatedTo(NavigationEventArgs e)

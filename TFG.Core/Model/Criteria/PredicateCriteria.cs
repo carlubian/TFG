@@ -23,5 +23,11 @@ namespace TFG.Core.Model.Criteria
         /// 'Mostrando sensores [de tipo Gocator]'.
         /// </summary>
         public string Verbose { get; set; }
+        /// <summary>
+        /// Nombre de la opción para mostrar en la interfaz.
+        /// </summary>
+        public string StringValue { get; set; }
+
+        public override string ToString() => StringValue;
     }
 }
