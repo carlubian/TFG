@@ -1,0 +1,110 @@
+﻿<Page
+    x:Class="TFG.UWP.EditarSensor"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TFG.UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    RequestedTheme="Dark"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0"
+              Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0"
+                       FontSize="36"
+                       Text="Modificar sensor"
+                       HorizontalAlignment="Center"/>
+
+            <StackPanel Orientation="Vertical" Grid.Row="1">
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Nombre"
+                               Width="128"/>
+                    <TextBox PlaceholderText="Sensor sin nombre"
+                             x:Name="FieldName" Width="192"/>
+                    <TextBlock Foreground="#FF889098"
+                               Text="Nombre que se mostrará asociado al sensor."/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Dirección IP"
+                               Width="128"/>
+                    <TextBox PlaceholderText="192.168.0.0"
+                             x:Name="FieldIP" Width="192"/>
+                    <TextBlock Foreground="#FF889098"
+                               Text="Punto de conexión al servidor remoto donde está alojado el sensor."/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Puerto"
+                               Width="128"/>
+                    <TextBox PlaceholderText="5000"
+                             x:Name="FieldPort" Width="192"/>
+                    <TextBlock Foreground="#FF889098"
+                               Text="Punto de conexión al servidor remoto donde está alojado el sensor"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Tipo de sensor"
+                               Width="128"/>
+                    <ComboBox x:Name="FieldType" Width="192"/>
+                    <TextBlock Foreground="#FF889098"
+                               Text="Indica de qué tipo es el sensor (y qué proceso modular debe usarse)."/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="País"
+                               Width="128"/>
+                    <ComboBox x:Name="FieldCountry" Width="192"/>
+                    <TextBlock Foreground="#FF889098"
+                               Text="Usado con fines de filtrado y clasificación en la interfaz."/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Localización"
+                               Width="128"/>
+                    <ComboBox x:Name="FieldLocation" Width="192"/>
+                    <TextBlock Foreground="#FF889098"
+                               Text="Usado con fines de filtrado y clasificación en la interfaz."/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Operaciones"
+                               Width="128"/>
+                    <ComboBox x:Name="FieldOps" Width="192"/>
+                    <TextBlock Foreground="#FF889098"
+                               Text="Usado con fines de filtrado y clasificación en la interfaz."/>
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
+
+        <StackPanel Orientation="Vertical" Grid.Column="1">
+            <Button Width="128" Click="Button_Click">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="Assets/Icons/cancel.png"
+                           Width="64"/>
+                    <TextBlock Text="Cancelar"/>
+                </StackPanel>
+            </Button>
+            <Button Width="128" Click="Button_Click_1">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="Assets/Icons/save.png"
+                           Width="64"/>
+                    <TextBlock Text="Guardar"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>

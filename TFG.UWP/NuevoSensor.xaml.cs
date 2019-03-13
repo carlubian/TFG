@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TFG.Core;
 using TFG.Core.Model;
 using TFG.UWP.Dialogs;
 using Windows.Foundation;
@@ -65,57 +66,24 @@ namespace TFG.UWP
             Frame.GoBack();
         }
 
-        // Avanzar al paso 2
-        private async void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            // TODO Validación
-            GridStep1.Visibility = Visibility.Collapsed;
-            GridStep2.Visibility = Visibility.Visible;
-
-            if (ShowIntro)
-                await new NuevoSensorNUE2().ShowAsync();
-        }
-
-        // Avanzar al paso 3
-        private async void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            // TODO Validación
-            GridStep2.Visibility = Visibility.Collapsed;
-            GridStep3.Visibility = Visibility.Visible;
-
-            if (ShowIntro)
-                await new NuevoSensorNUE3().ShowAsync();
-        }
-
-        // Completar el proceso
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            // TODO Validación
-            var directory = ApplicationData.Current.LocalFolder.Path;
-            var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
-            var thisID = DateTime.Now.Ticks;
-
-            var sensores = config.Read("ActiveSensors");
-            config.Write("ActiveSensors", $"{sensores}|SN{thisID}");
-
-            config.Write($"SN{thisID}:Name", FieldName.Text);
-            config.Write($"SN{thisID}:IP", FieldIP.Text);
-            config.Write($"SN{thisID}:Port", FieldPort.Text);
-            config.Write($"SN{thisID}:Type", FieldType.SelectedItem as string);
-            config.Write($"SN{thisID}:Country", FieldCountry.SelectedItem as string);
-            config.Write($"SN{thisID}:Location", FieldLocation.SelectedItem as string);
-            config.Write($"SN{thisID}:Operations", FieldOps.SelectedItem as string);
-
-            Frame.Navigate(typeof(MainPage));
-        }
-
         // Nuevo botón de 'Siguiente' común a todos los pasos
         private async void Button_Click_4(object sender, RoutedEventArgs e)
         {
             if (Step is 1)
             {
+                if (!Validate.IPAddress(FieldIP.Text))
+                {
+                    await new ErrorValidacion("Dirección IP").ShowAsync();
+                    return;
+                }
+                if (!Validate.Port(FieldPort.Text))
+                {
+                    await new ErrorValidacion("Puerto").ShowAsync();
+                    return;
+                }
+
                 Step = 2;
-                // TODO Validación
+
                 GridStep1.Visibility = Visibility.Collapsed;
                 GridStep2.Visibility = Visibility.Visible;
 

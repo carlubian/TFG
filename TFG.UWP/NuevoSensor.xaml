@@ -28,7 +28,6 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0"
@@ -83,14 +82,6 @@
                              x:Name="FieldPort" Width="160"/>
                 </StackPanel>
             </StackPanel>
-
-            <Grid Grid.Row="5"
-                  Background="Transparent"
-                  Visibility="Collapsed">
-                <Button HorizontalAlignment="Right"
-                        Content="Siguiente"
-                        Width="96" Click="Button_Click_1"/>
-            </Grid>
         </Grid>
         <Grid Grid.Column="0"
               Background="Transparent"
@@ -102,7 +93,6 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0"
@@ -171,14 +161,6 @@
                     <ComboBox x:Name="FieldOps" Width="192"/>
                 </StackPanel>
             </StackPanel>
-
-            <Grid Grid.Row="5"
-                  Background="Transparent"
-                  Visibility="Collapsed">
-                <Button HorizontalAlignment="Right"
-                        Content="Siguiente"
-                        Width="96" Click="Button_Click_2"/>
-            </Grid>
         </Grid>
         <Grid Grid.Column="0"
               Background="Transparent"
@@ -190,7 +172,6 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0"
@@ -238,14 +219,6 @@
                   x:Name="GridAjustesIndef"
                   Background="Transparent">
                 <TextBlock x:Uid="DetallesSensorIndef"/>
-            </Grid>
-
-            <Grid Grid.Row="5"
-                  Background="Transparent"
-                  Visibility="Collapsed">
-                <Button HorizontalAlignment="Right"
-                        Content="Finalizar"
-                        Width="96" Click="Button_Click_3"/>
             </Grid>
         </Grid>
 

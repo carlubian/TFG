@@ -56,7 +56,7 @@ namespace TFG.UWP
         // Editar datos del sensor
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            Frame.Navigate(typeof(EditarSensor), sensor);
         }
 
         // Eliminar sensor
