@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ConfigAdapter.Xml;
+using DotNet.Misc.Extensions.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -6,6 +8,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using TFG.Core.Model;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -23,6 +26,8 @@ namespace TFG.UWP
     /// </summary>
     public sealed partial class DetallesSensor : Page
     {
+        private Sensor sensor;
+
         public DetallesSensor()
         {
             this.InitializeComponent();
@@ -39,6 +44,8 @@ namespace TFG.UWP
             FieldOps.Text = sensor.Operaciones;
             FieldPort.Text = sensor.Puerto;
             FieldType.Text = sensor.Tipo;
+
+            this.sensor = sensor;
         }
         // Volver atrás
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -55,7 +62,22 @@ namespace TFG.UWP
         // Eliminar sensor
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            var directory = ApplicationData.Current.LocalFolder.Path;
+            var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
+            var sensores = config.Read("ActiveSensors");
 
+            var result = sensores.Split('|', StringSplitOptions.RemoveEmptyEntries)
+                .Except(sensor.InternalID.Enumerate());
+            var newValue = "";
+            if (result.Count() is 0)
+                newValue = "";
+            else
+                newValue = result.Stringify(str => str, "|");
+
+            config.Write("ActiveSensors", newValue);
+            config.DeleteSection(sensor.InternalID);
+
+            Frame.GoBack();
         }
     }
 }

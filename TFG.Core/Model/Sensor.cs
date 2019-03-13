@@ -13,5 +13,7 @@ namespace TFG.Core.Model
         public string Pais { get; set; }
         public string Lugar { get; set; }
         public string Operaciones { get; set; }
+
+        public string InternalID { get; set; }
     }
 }

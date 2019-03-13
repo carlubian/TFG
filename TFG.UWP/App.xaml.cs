@@ -68,9 +68,9 @@ namespace TFG.UWP
                     // Determinar si es el primer uso (redirigir a NUE)
                     var directory = ApplicationData.Current.LocalFolder.Path;
                     var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
-                    var nueSetting = config.AsTransferable().ReadAll().FirstOrDefault(s => s.Key.Equals("ExistingUser"));
+                    var nueSetting = config.Read("ExistingUser");
 
-                    if (nueSetting.Value is default(string))
+                    if (nueSetting is default(string))
                         rootFrame.Navigate(typeof(NUE), e.Arguments);
                     else
                         rootFrame.Navigate(typeof(MainPage), e.Arguments);

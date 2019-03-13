@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConfigAdapter.Xml;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,6 +8,7 @@ using TFG.Core.Model;
 using TFG.UWP.Dialogs;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,6 +27,7 @@ namespace TFG.UWP
     public sealed partial class NuevoSensor : Page
     {
         private bool ShowIntro = false;
+        private int Step;
 
         public NuevoSensor()
         {
@@ -41,6 +44,8 @@ namespace TFG.UWP
             FieldOps.SelectedIndex = 0;
             FieldLocation.ItemsSource = ValoresCriterio.Localizacion;
             FieldLocation.SelectedIndex = 0;
+
+            Step = 1;
         }
 
         protected async override void OnNavigatedTo(NavigationEventArgs e)
@@ -50,6 +55,8 @@ namespace TFG.UWP
                 ShowIntro = true;
                 await new NuevoSensorNUE1().ShowAsync();
             }
+
+            Step = 1;
         }
         
         // Hacer click sobre el botón 'Cancelar'
@@ -83,8 +90,73 @@ namespace TFG.UWP
         // Completar el proceso
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            // TODO Validación y añadir sensor
+            // TODO Validación
+            var directory = ApplicationData.Current.LocalFolder.Path;
+            var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
+            var thisID = DateTime.Now.Ticks;
+
+            var sensores = config.Read("ActiveSensors");
+            config.Write("ActiveSensors", $"{sensores}|SN{thisID}");
+
+            config.Write($"SN{thisID}:Name", FieldName.Text);
+            config.Write($"SN{thisID}:IP", FieldIP.Text);
+            config.Write($"SN{thisID}:Port", FieldPort.Text);
+            config.Write($"SN{thisID}:Type", FieldType.SelectedItem as string);
+            config.Write($"SN{thisID}:Country", FieldCountry.SelectedItem as string);
+            config.Write($"SN{thisID}:Location", FieldLocation.SelectedItem as string);
+            config.Write($"SN{thisID}:Operations", FieldOps.SelectedItem as string);
+
             Frame.Navigate(typeof(MainPage));
+        }
+
+        // Nuevo botón de 'Siguiente' común a todos los pasos
+        private async void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            if (Step is 1)
+            {
+                Step = 2;
+                // TODO Validación
+                GridStep1.Visibility = Visibility.Collapsed;
+                GridStep2.Visibility = Visibility.Visible;
+
+                if (ShowIntro)
+                    await new NuevoSensorNUE2().ShowAsync();
+
+                return;
+            }
+            if (Step is 2)
+            {
+                Step = 3;
+                // TODO Validación
+                GridStep2.Visibility = Visibility.Collapsed;
+                GridStep3.Visibility = Visibility.Visible;
+
+                if (ShowIntro)
+                    await new NuevoSensorNUE3().ShowAsync();
+
+                return;
+            }
+            if (Step is 3)
+            {
+                Step = 1;
+                // TODO Validación
+                var directory = ApplicationData.Current.LocalFolder.Path;
+                var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
+                var thisID = DateTime.Now.Ticks;
+
+                var sensores = config.Read("ActiveSensors");
+                config.Write("ActiveSensors", $"{sensores}|SN{thisID}");
+
+                config.Write($"SN{thisID}:Name", FieldName.Text);
+                config.Write($"SN{thisID}:IP", FieldIP.Text);
+                config.Write($"SN{thisID}:Port", FieldPort.Text);
+                config.Write($"SN{thisID}:Type", FieldType.SelectedItem as string);
+                config.Write($"SN{thisID}:Country", FieldCountry.SelectedItem as string);
+                config.Write($"SN{thisID}:Location", FieldLocation.SelectedItem as string);
+                config.Write($"SN{thisID}:Operations", FieldOps.SelectedItem as string);
+
+                Frame.Navigate(typeof(MainPage));
+            }
         }
     }
 }

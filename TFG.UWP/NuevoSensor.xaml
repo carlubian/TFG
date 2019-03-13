@@ -74,18 +74,19 @@
                     <TextBlock Text="Dirección IP"
                                Width="128"/>
                     <TextBox PlaceholderText="192.168.1.1"
-                             x:Name="FieldIP" Width="96"/>
+                             x:Name="FieldIP" Width="160"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Puerto"
                                Width="128"/>
                     <TextBox PlaceholderText="5000"
-                             x:Name="FieldPort" Width="96"/>
+                             x:Name="FieldPort" Width="160"/>
                 </StackPanel>
             </StackPanel>
 
             <Grid Grid.Row="5"
-                  Background="Transparent">
+                  Background="Transparent"
+                  Visibility="Collapsed">
                 <Button HorizontalAlignment="Right"
                         Content="Siguiente"
                         Width="96" Click="Button_Click_1"/>
@@ -172,7 +173,8 @@
             </StackPanel>
 
             <Grid Grid.Row="5"
-                  Background="Transparent">
+                  Background="Transparent"
+                  Visibility="Collapsed">
                 <Button HorizontalAlignment="Right"
                         Content="Siguiente"
                         Width="96" Click="Button_Click_2"/>
@@ -239,7 +241,8 @@
             </Grid>
 
             <Grid Grid.Row="5"
-                  Background="Transparent">
+                  Background="Transparent"
+                  Visibility="Collapsed">
                 <Button HorizontalAlignment="Right"
                         Content="Finalizar"
                         Width="96" Click="Button_Click_3"/>
@@ -252,6 +255,13 @@
                     <Image Source="Assets/Icons/cancel.png"
                            Width="64"/>
                     <TextBlock Text="Cancelar"/>
+                </StackPanel>
+            </Button>
+            <Button Width="128" Click="Button_Click_4">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="Assets/Icons/right-arrow.png"
+                           Width="64"/>
+                    <TextBlock Text="Continuar"/>
                 </StackPanel>
             </Button>
         </StackPanel>

@@ -52,8 +52,8 @@ namespace TFG.UWP
             var directory = ApplicationData.Current.LocalFolder.Path;
 
             var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
-            var attempts = config.AsTransferable().ReadAll().FirstOrDefault(s => s.Key.Equals("Global:Attempts")).Value;
-            var wait = config.AsTransferable().ReadAll().FirstOrDefault(s => s.Key.Equals("Global:Delay")).Value;
+            var attempts = config.Read("Global:Attempts");
+            var wait = config.Read("Global:Delay");
 
             if (attempts is default(string))
                 attempts = "1";

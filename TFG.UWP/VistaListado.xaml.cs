@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ConfigAdapter.Xml;
+using DotNet.Misc.Extensions.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,6 +9,7 @@ using TFG.Core.Model;
 using TFG.UWP.Dialogs;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,56 +28,30 @@ namespace TFG.UWP
     public sealed partial class VistaListado : Page
     {
         private Visualization Filters;
-        private IEnumerable<Sensor> sensores;
+        private IList<Sensor> sensores = new List<Sensor>();
 
         public VistaListado()
         {
             this.InitializeComponent();
 
-            // TODO Leer de configuración
-            sensores = new List<Sensor>
+            var directory = ApplicationData.Current.LocalFolder.Path;
+            var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
+
+            var ids = config.Read("ActiveSensors");
+            ids.Split('|', StringSplitOptions.RemoveEmptyEntries).ForEach(id =>
             {
-                new Sensor
+                sensores.Add(new Sensor
                 {
-                    Nombre = "Sensor de prueba 1",
-                    IP = "127.0.0.1",
-                    Puerto = "5000",
-                    Tipo = "Gocator",
-                    Pais = "España",
-                    Lugar = "Laboratorio",
-                    Operaciones = "Pruebas"
-                },
-                new Sensor
-                {
-                    Nombre = "Sensor de prueba 2",
-                    IP = "127.0.0.2",
-                    Puerto = "5000",
-                    Tipo = "Gocator",
-                    Pais = "Canadá",
-                    Lugar = "Planta",
-                    Operaciones = "Pruebas"
-                },
-                new Sensor
-                {
-                    Nombre = "Sensor de prueba 3",
-                    IP = "127.0.0.3",
-                    Puerto = "5000",
-                    Tipo = "Gocator",
-                    Pais = "Canadá",
-                    Lugar = "Planta",
-                    Operaciones = "Producción"
-                },
-                new Sensor
-                {
-                    Nombre = "Sensor de prueba 4",
-                    IP = "127.0.0.1",
-                    Puerto = "5000",
-                    Tipo = "Indefinido",
-                    Pais = "España",
-                    Lugar = "Planta",
-                    Operaciones = "Pruebas"
-                }
-            };
+                    Nombre = config.Read($"{id}:Name"),
+                    IP = config.Read($"{id}:IP"),
+                    Puerto = config.Read($"{id}:Port"),
+                    Pais = config.Read($"{id}:Country"),
+                    Tipo = config.Read($"{id}:Type"),
+                    Lugar = config.Read($"{id}:Location"),
+                    Operaciones = config.Read($"{id}:Operations"),
+                    InternalID = id
+                });
+            });
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
