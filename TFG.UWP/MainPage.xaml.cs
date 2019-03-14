@@ -1,4 +1,5 @@
-﻿using DotNet.Misc.Extensions.Linq;
+﻿using ConfigAdapter.Xml;
+using DotNet.Misc.Extensions.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,6 +10,7 @@ using TFG.Core.Model;
 using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Maps;
@@ -35,20 +37,30 @@ namespace TFG.UWP
             //var client = KaomiClient.Connect();
             //client.AttachProcess();
 
+            // Buscar todos los países en los que hay sensores
+            var directory = ApplicationData.Current.LocalFolder.Path;
+            var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
+            var paises = config.Read("ActiveSensors")
+                .Split('|', StringSplitOptions.RemoveEmptyEntries)
+                .Select(sensor => config.Read($"{sensor}:Country"))
+                .Distinct()
+                .ToArray();
+
             var elements = new List<MapElement>();
-            Coordinates.Country.ForEach(kvp =>
-            {
-                elements.Add(new MapIcon
+            Coordinates.Country.Where(kvp => paises.Contains(kvp.Key))
+                .ForEach(kvp =>
                 {
-                    Location = new Geopoint(new BasicGeoposition
+                    elements.Add(new MapIcon
                     {
-                        Latitude = kvp.Value.latitud,
-                        Longitude = kvp.Value.longitud
-                    }),
-                    ZIndex = 0,
-                    Title = kvp.Key
+                        Location = new Geopoint(new BasicGeoposition
+                        {
+                            Latitude = kvp.Value.latitud,
+                            Longitude = kvp.Value.longitud
+                        }),
+                        ZIndex = 0,
+                        Title = kvp.Key
+                    });
                 });
-            });
             MapControl1.Layers.Add(new MapElementsLayer
             {
                 ZIndex = 1,
