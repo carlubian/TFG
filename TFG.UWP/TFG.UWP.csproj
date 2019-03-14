@@ -125,6 +125,9 @@
     <Compile Include="DetallesSensor.xaml.cs">
       <DependentUpon>DetallesSensor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\ConfirmarEliminacion.xaml.cs">
+      <DependentUpon>ConfirmarEliminacion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\ErrorValidacion.xaml.cs">
       <DependentUpon>ErrorValidacion.xaml</DependentUpon>
     </Compile>
@@ -198,6 +201,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DetallesSensor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ConfirmarEliminacion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

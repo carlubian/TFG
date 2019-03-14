@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using TFG.Core.Model;
+using TFG.UWP.Dialogs;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
@@ -60,8 +61,14 @@ namespace TFG.UWP
         }
 
         // Eliminar sensor
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private async void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            // Confirmar eliminación
+            var dialog = new ConfirmarEliminacion();
+            await dialog.ShowAsync();
+            if (dialog.Result is false)
+                return;
+
             var directory = ApplicationData.Current.LocalFolder.Path;
             var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
             var sensores = config.Read("ActiveSensors");
