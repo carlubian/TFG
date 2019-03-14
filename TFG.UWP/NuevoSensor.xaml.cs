@@ -95,7 +95,12 @@ namespace TFG.UWP
             if (Step is 2)
             {
                 Step = 3;
-                // TODO Validación
+                
+                if (!Validate.StringContainsText(FieldName.Text))
+                {
+                    await new ErrorValidacion("Nombre del sensor").ShowAsync();
+                    return;
+                }
                 GridStep2.Visibility = Visibility.Collapsed;
                 GridStep3.Visibility = Visibility.Visible;
 

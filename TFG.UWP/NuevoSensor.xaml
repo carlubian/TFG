@@ -31,7 +31,7 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0"
-                  Background="#FF283038">
+                  Background="Transparent">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
@@ -44,7 +44,7 @@
                             Grid.Column="1">
                     <TextBlock Foreground="#FF889098"
                                Text="Datos básicos"/>
-                    <Rectangle Height="6" Fill="#FF003C92"/>
+                    <Rectangle Height="4" Fill="#FF003C92"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical"
                             Grid.Column="2">
@@ -96,7 +96,7 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0"
-                  Background="#FF283038">
+                  Background="Transparent">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
@@ -114,7 +114,7 @@
                             Grid.Column="2">
                     <TextBlock Foreground="#FF889098"
                                Text="Clasificación"/>
-                    <Rectangle Height="6" Fill="#FF003C92"/>
+                    <Rectangle Height="4" Fill="#FF003C92"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical"
                             Grid.Column="3">
@@ -175,7 +175,7 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0"
-                  Background="#FF283038">
+                  Background="Transparent">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
@@ -198,7 +198,7 @@
                             Grid.Column="3">
                     <TextBlock Foreground="#FF889098"
                                Text="Otros detalles"/>
-                    <Rectangle Height="6" Fill="#FF003C92"/>
+                    <Rectangle Height="4" Fill="#FF003C92"/>
                 </StackPanel>
             </Grid>
 
@@ -222,7 +222,8 @@
             </Grid>
         </Grid>
 
-        <StackPanel Orientation="Vertical" Grid.Column="1">
+        <StackPanel Orientation="Vertical" Grid.Column="1"
+                    Margin="0, 32, 0, 0">
             <Button Width="128" Click="Button_Click">
                 <StackPanel Orientation="Vertical">
                     <Image Source="Assets/Icons/cancel.png"
