@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using TFG.Core;
 using TFG.Core.Model;
+using TFG.Core.Model.Criteria;
 using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -41,6 +42,7 @@ namespace TFG.UWP
             var directory = ApplicationData.Current.LocalFolder.Path;
             var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
             var paises = config.Read("ActiveSensors")
+                .OrEmptyIfNull()
                 .Split('|', StringSplitOptions.RemoveEmptyEntries)
                 .Select(sensor => config.Read($"{sensor}:Country"))
                 .Distinct()
@@ -73,6 +75,21 @@ namespace TFG.UWP
         {
             var clickedIcon = args.MapElements.FirstOrDefault(x => x is MapIcon) as MapIcon;
             var country = clickedIcon.Title;
+
+            // Ver solo los sensores de ese país
+            Frame.Navigate(typeof(VistaListado), new Visualization
+            {
+                TipoSensor = new AllEncompasingCriteria(),
+                Localizacion = new AllEncompasingCriteria(),
+                Operaciones = new AllEncompasingCriteria(),
+                Pais = new PredicateCriteria
+                {
+                    Evaluate = p => p.Equals(country),
+                    StringValue = country,
+                    Verbose = $"de {country}"
+                },
+                Ordenacion = Ordenacion.TipoSensor
+            });
         }
 
         // Hacer click sobre el botón 'Nuevo sensor'
