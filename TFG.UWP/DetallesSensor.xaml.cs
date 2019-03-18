@@ -6,10 +6,12 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using TFG.Core.Model;
+using TFG.Core.Model.SensorProperties;
 using TFG.UWP.Dialogs;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -45,6 +47,9 @@ namespace TFG.UWP
             FieldOps.Text = sensor.Operaciones;
             FieldPort.Text = sensor.Puerto;
             FieldType.Text = sensor.Tipo;
+
+            GridNumeric.ItemsSource = sensor.NumericProperties;
+            ListTextual.ItemsSource = sensor.TextualProperties;
 
             this.sensor = sensor;
         }

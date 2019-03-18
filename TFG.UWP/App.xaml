@@ -2,7 +2,8 @@
     x:Class="TFG.UWP.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:TFG.UWP">
+    xmlns:local="using:TFG.UWP"
+    xmlns:uwp="using:Microsoft.Toolkit.Uwp.UI.Controls">
     <Application.Resources>
         <Style TargetType="Button">
             <Setter Property="FontFamily" Value="Assets/Fonts/selawksl.ttf#Selawik"/>
@@ -22,6 +23,16 @@
             <Setter Property="FontFamily" Value="Assets/Fonts/selawksl.ttf#Selawik"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="Foreground" Value="#FFF0F5FA"/>
+        </Style>
+        <Style TargetType="uwp:RadialGauge">
+            <Setter Property="Margin" Value="4"/>
+            <Setter Property="TrailBrush" Value="#FF003C92"/>
+            <Setter Property="ScaleTickBrush" Value="#FFF0F5FA"/>
+            <Setter Property="TickBrush" Value="#FFF0F5FA"/>
+            <Setter Property="NeedleWidth" Value="4"/>
+            <Setter Property="TickLength" Value="16"/>
+            <Setter Property="ScaleWidth" Value="16"/>
+            <Setter Property="Width" Value="192"/>
         </Style>
     </Application.Resources>
 

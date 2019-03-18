@@ -5,6 +5,7 @@
     xmlns:local="using:TFG.UWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uwp="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
     RequestedTheme="Dark"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -19,10 +20,10 @@
               Background="Transparent">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            
+
             <TextBlock Grid.Row="0"
                        FontSize="36"
                        Text="Detalles del sensor"
@@ -33,7 +34,7 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                
+
                 <StackPanel Orientation="Vertical" Grid.Column="0">
 
                     <StackPanel Orientation="Horizontal">
@@ -82,6 +83,43 @@
                     </StackPanel>
 
                 </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <!-- Propiedades textuales -->
+                <ListView Grid.Column="0" x:Name="ListTextual"
+                          SelectionMode="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontSize="20" Text="{Binding Key}"/>
+                                <TextBlock FontSize="20" Text=":"
+                                           Margin="0, 0, 4, 0"/>
+                                <TextBlock FontSize="20" Text="{Binding Value}"
+                                           Foreground="{Binding Color}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <!-- Propiedades numéricas -->
+                <uwp:AdaptiveGridView Grid.Column="1" x:Name="GridNumeric" 
+                      SelectionMode="None">
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <uwp:RadialGauge x:Name="RadialGaugeControl" 
+                                Value="{Binding Value}" Minimum="{Binding Min}" 
+	                            Maximum="{Binding Max}" TickSpacing="{Binding Tick}" 
+                                Unit="{Binding Caption}">
+                            </uwp:RadialGauge>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </uwp:AdaptiveGridView>
             </Grid>
 
         </Grid>
