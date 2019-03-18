@@ -1,15 +1,9 @@
-﻿using ConfigAdapter.Xml;
-using DotNet.Misc.Extensions.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using TFG.Core.Model;
 using TFG.UWP.Dialogs;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -28,35 +22,18 @@ namespace TFG.UWP
     public sealed partial class VistaListado : Page
     {
         private Visualization Filters;
-        private IList<Sensor> sensores = new List<Sensor>();
+        private IList<Sensor> sensores;
 
         public VistaListado()
         {
             this.InitializeComponent();
-
-            var directory = ApplicationData.Current.LocalFolder.Path;
-            var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
-
-            var ids = config.Read("ActiveSensors");
-            ids.Split('|', StringSplitOptions.RemoveEmptyEntries).ForEach(id =>
-            {
-                sensores.Add(new Sensor
-                {
-                    Nombre = config.Read($"{id}:Name"),
-                    IP = config.Read($"{id}:IP"),
-                    Puerto = config.Read($"{id}:Port"),
-                    Pais = config.Read($"{id}:Country"),
-                    Tipo = config.Read($"{id}:Type"),
-                    Lugar = config.Read($"{id}:Location"),
-                    Operaciones = config.Read($"{id}:Operations"),
-                    InternalID = id
-                });
-            });
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Filters = e.Parameter as Visualization;
+            var tupla = (System.Runtime.CompilerServices.ITuple)e.Parameter;
+            Filters = tupla[1] as Visualization;
+            sensores = tupla[0] as IList<Sensor>;
             LabelCriteria.Text = Filters.ToString();
             ListaSensores.ItemsSource = Filters.Apply(sensores);
         }
@@ -90,7 +67,7 @@ namespace TFG.UWP
         {
             if (ListaSensores.SelectedItem is null)
             {
-                // TODO Mostrar notificación o mensaje de aviso
+                Notification.Show("Debes seleccionar un sensor antes de poder ver sus detalles.", 2000);
                 return;
             }
 

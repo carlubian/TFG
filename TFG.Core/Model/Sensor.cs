@@ -22,7 +22,10 @@ namespace TFG.Core.Model
         public IEnumerable<TextualProperty> TextualProperties { get; set; }
         public IEnumerable<NumericProperty> NumericProperties { get; set; }
 
-        // TODO Provisional
+        //private KaomiClient Kaomi;
+        //private Timer Timer;
+
+        // TODO Provisional: quitar constructor y conseguir datos desde Kaomi
         public Sensor()
         {
             TextualProperties = new List<TextualProperty>

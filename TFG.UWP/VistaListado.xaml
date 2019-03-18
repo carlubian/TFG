@@ -5,6 +5,7 @@
     xmlns:local="using:TFG.UWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uwp="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
     RequestedTheme="Dark"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -54,6 +55,11 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+
+            <uwp:InAppNotification Grid.Row="2"
+                                   VerticalAlignment="Bottom"
+                                   HorizontalAlignment="Center"
+                                   x:Name="Notification"/>
         </Grid>
 
         <StackPanel Orientation="Vertical" Grid.Column="1"

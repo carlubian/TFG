@@ -8,10 +8,13 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using TFG.Core;
 using TFG.Core.Model;
 using TFG.Core.Model.Criteria;
+using Windows.ApplicationModel.Core;
 using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
+using Windows.System.Threading;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Maps;
@@ -30,21 +33,36 @@ namespace TFG.UWP
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private IList<Sensor> sensores = new List<Sensor>();
+
         public MainPage()
         {
             this.InitializeComponent();
 
-            //TODO Colocar esto en otro sitio. De todas formas es provisional
-            //var client = KaomiClient.Connect();
-            //client.AttachProcess();
+            _ = ThreadPool.RunAsync((_) => TryConnect());
 
-            // Buscar todos los países en los que hay sensores
             var directory = ApplicationData.Current.LocalFolder.Path;
             var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
-            var paises = config.Read("ActiveSensors")
-                .OrEmptyIfNull()
-                .Split('|', StringSplitOptions.RemoveEmptyEntries)
-                .Select(sensor => config.Read($"{sensor}:Country"))
+
+            var ids = config.Read("ActiveSensors");
+            ids.Split('|', StringSplitOptions.RemoveEmptyEntries).ForEach(id =>
+            {
+                sensores.Add(new Sensor
+                {
+                    Nombre = config.Read($"{id}:Name"),
+                    IP = config.Read($"{id}:IP"),
+                    Puerto = config.Read($"{id}:Port"),
+                    Pais = config.Read($"{id}:Country"),
+                    Tipo = config.Read($"{id}:Type"),
+                    Lugar = config.Read($"{id}:Location"),
+                    Operaciones = config.Read($"{id}:Operations"),
+                    InternalID = id
+                });
+            });
+
+            // Buscar todos los países en los que hay sensores
+            var paises = sensores
+                .Select(sensor => sensor.Pais)
                 .Distinct()
                 .ToArray();
 
@@ -70,6 +88,18 @@ namespace TFG.UWP
             });
         }
 
+        private void TryConnect()
+        {
+            //TODO Colocar esto en otro sitio. De todas formas es provisional
+            var client = KaomiClient.Connect("127.0.0.1", 5000);
+            if (client.Connected())
+                _ = CoreApplication.MainView.CoreWindow.Dispatcher
+                    .RunAsync(CoreDispatcherPriority.Normal, () => Notification.Show("Conexión con Kaomi exitosa.", 2000));
+            else
+                _ = CoreApplication.MainView.CoreWindow.Dispatcher
+                    .RunAsync(CoreDispatcherPriority.Normal, () => Notification.Show("Fallo de conexión con Kaomi.", 2000));
+        }
+
         // Hacer click sobre un marcador en el mapa
         private void MapControl1_MapElementClick(MapControl sender, MapElementClickEventArgs args)
         {
@@ -77,7 +107,7 @@ namespace TFG.UWP
             var country = clickedIcon.Title;
 
             // Ver solo los sensores de ese país
-            Frame.Navigate(typeof(VistaListado), new Visualization
+            Frame.Navigate(typeof(VistaListado), (sensores, criterio: new Visualization
             {
                 TipoSensor = new AllEncompasingCriteria(),
                 Localizacion = new AllEncompasingCriteria(),
@@ -89,7 +119,7 @@ namespace TFG.UWP
                     Verbose = $"de {country}"
                 },
                 Ordenacion = Ordenacion.TipoSensor
-            });
+            }));
         }
 
         // Hacer click sobre el botón 'Nuevo sensor'
@@ -107,7 +137,7 @@ namespace TFG.UWP
         // Mostrar todos los sensores
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(VistaListado), Visualization.Default);
+            Frame.Navigate(typeof(VistaListado), (sensores, criterio:Visualization.Default));
         }
     }
 }

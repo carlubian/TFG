@@ -14,12 +14,24 @@ namespace TFG.Core
         private KaomiServer server;
         private KaomiProcess process;
 
-        public static KaomiClient Connect()
+        public static KaomiClient Connect(string ip, int puerto)
         {
             return new KaomiClient
             {
-                server = KaomiServer.ConnectTo("127.0.0.1")
+                server = KaomiServer.ConnectTo(ip, puerto)
             };
+        }
+
+        public bool Connected()
+        {
+            try
+            {
+                return server.IsListening();
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public void AttachProcess()
