@@ -31,7 +31,8 @@
             <TextBlock Grid.Row="2"
                        FontSize="20"
                        x:Uid="NueIntroText"
-                       VerticalAlignment="Center"/>
+                       VerticalAlignment="Center"
+                       TextWrapping="Wrap"/>
         </Grid>
 
         <StackPanel Orientation="Vertical" Grid.Column="1"

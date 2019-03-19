@@ -45,20 +45,21 @@ namespace TFG.UWP
             var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
 
             var ids = config.Read("ActiveSensors");
-            ids.Split('|', StringSplitOptions.RemoveEmptyEntries).ForEach(id =>
-            {
-                sensores.Add(new Sensor
+            if (!(ids is default(string)))
+                ids.Split('|', StringSplitOptions.RemoveEmptyEntries).ForEach(id =>
                 {
-                    Nombre = config.Read($"{id}:Name"),
-                    IP = config.Read($"{id}:IP"),
-                    Puerto = config.Read($"{id}:Port"),
-                    Pais = config.Read($"{id}:Country"),
-                    Tipo = config.Read($"{id}:Type"),
-                    Lugar = config.Read($"{id}:Location"),
-                    Operaciones = config.Read($"{id}:Operations"),
-                    InternalID = id
+                    sensores.Add(new Sensor
+                    {
+                        Nombre = config.Read($"{id}:Name"),
+                        IP = config.Read($"{id}:IP"),
+                        Puerto = config.Read($"{id}:Port"),
+                        Pais = config.Read($"{id}:Country"),
+                        Tipo = config.Read($"{id}:Type"),
+                        Lugar = config.Read($"{id}:Location"),
+                        Operaciones = config.Read($"{id}:Operations"),
+                        InternalID = id
+                    });
                 });
-            });
 
             // Buscar todos los países en los que hay sensores
             var paises = sensores
