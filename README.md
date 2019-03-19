@@ -1,7 +1,9 @@
 # Código fuente TFG
 Aquí aparece todo el código fuente para el TFG. Por el momento incluye los siguientes proyectos:
 
-* <strong>TFG.UWP</strong>: Interfaz cliente en forma de Aplicación Universal de Windows
+* <strong>TFG.UWP</strong>: Interfaz cliente en forma de Aplicación Universal de Windows.
+* <strong>TFG.Core</strong>: Clases del modelo, validación de datos, cliente Kaomi y métodos de extensión.
+* <strong>Kaomi.Legacy</strong>: Versión de Kaomi compatible con .NET Framework 4.6.1 para poder usar las librerías de sensores.
 
 # Requisitos
 Para ejecutar la interfaz cliente <strong>TFG.UWP</strong> es necesario:

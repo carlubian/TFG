@@ -4,6 +4,8 @@ using System.Text;
 using TFG.Core.Model.SensorProperties;
 using Windows.UI.Xaml.Media;
 using Windows.UI;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace TFG.Core.Model
 {
@@ -22,12 +24,14 @@ namespace TFG.Core.Model
         public IEnumerable<TextualProperty> TextualProperties { get; set; }
         public IEnumerable<NumericProperty> NumericProperties { get; set; }
 
-        //private KaomiClient Kaomi;
-        //private Timer Timer;
+        private KaomiClient Kaomi = null;
+        private Timer Timer;
 
         // TODO Provisional: quitar constructor y conseguir datos desde Kaomi
         public Sensor()
         {
+            Timer = new Timer(_ => Parallel.Invoke(TimerTick), null, 2000, 60000);
+
             TextualProperties = new List<TextualProperty>
             {
                 new TextualProperty
@@ -85,6 +89,27 @@ namespace TFG.Core.Model
                     Caption = "Otro valor"
                 }
             };
+        }
+
+        private void TimerTick()
+        {
+            if (Kaomi is null)
+                Kaomi = KaomiClient.Connect(IP, int.Parse(Puerto));
+
+            if (Kaomi.Connected())
+            {
+                // El proceso debe llamarse como el tipo del sensor
+                Kaomi.AttachProcess(Tipo);
+
+                if (Kaomi.HasResults() is true)
+                {
+                    var result = Kaomi.LatestResult();
+                }
+                else
+                {
+
+                }
+            }
         }
     }
 }

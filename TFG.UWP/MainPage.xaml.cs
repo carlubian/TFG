@@ -39,7 +39,7 @@ namespace TFG.UWP
         {
             this.InitializeComponent();
 
-            _ = ThreadPool.RunAsync((_) => TryConnect());
+            //_ = ThreadPool.RunAsync((_) => TryConnect());
 
             var directory = ApplicationData.Current.LocalFolder.Path;
             var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
