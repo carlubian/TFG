@@ -104,6 +104,9 @@ namespace TFG.Core.Model
                 if (Kaomi.HasResults() is true)
                 {
                     var result = Kaomi.LatestResult();
+                    (var textual, var numeric) = KaomiResponseParser.Parse(result);
+                    TextualProperties = textual;
+                    NumericProperties = numeric;
                 }
                 else
                 {
