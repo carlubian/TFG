@@ -51,6 +51,8 @@ namespace TFG.UWP
             GridNumeric.ItemsSource = sensor.NumericProperties;
             ListTextual.ItemsSource = sensor.TextualProperties;
 
+            ColorBar.Background = sensor.ColorEstado;
+
             this.sensor = sensor;
         }
         // Volver atrás

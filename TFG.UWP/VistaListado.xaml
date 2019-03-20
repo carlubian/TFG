@@ -37,10 +37,16 @@
 
             <ListView Grid.Row="2" x:Name="ListaSensores"
                       SelectionMode="Single">
+                <ListView.Resources>
+                    <SolidColorBrush x:Key="ListViewItemBackgroundSelected" Color="#505050" />
+                    <SolidColorBrush x:Key="ListViewItemBackgroundSelectedPointerOver" Color="#505050" />
+                </ListView.Resources>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Vertical">
-                            <TextBlock Text="{Binding Nombre}"/>
+                            <TextBlock Text="{Binding Nombre}"
+                                       Foreground="{Binding ColorEstado}"
+                                       FontSize="20"/>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="{Binding Tipo}" 
                                            Foreground="#FF889098" Margin="4"/>

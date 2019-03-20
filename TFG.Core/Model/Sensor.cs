@@ -6,6 +6,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace TFG.Core.Model
 {
@@ -23,6 +24,28 @@ namespace TFG.Core.Model
 
         public IEnumerable<TextualProperty> TextualProperties { get; set; }
         public IEnumerable<NumericProperty> NumericProperties { get; set; }
+
+        private SolidColorBrush _brush = new SolidColorBrush(Color.FromArgb(255, 88, 96, 104));
+
+        public SolidColorBrush ColorEstado
+        {
+            get
+            {
+                try
+                {
+                    var estado = TextualProperties.FirstOrDefault(p => p.Key is "Conectado");
+                    if (estado is null)
+                        _brush = new SolidColorBrush(Color.FromArgb(255, 170, 0, 0));
+
+                    if (estado.Value is "True")
+                        _brush = new SolidColorBrush(Color.FromArgb(255, 32, 128, 32));
+                    else
+                        _brush = new SolidColorBrush(Color.FromArgb(255, 170, 0, 0));
+                }
+                catch { }
+                return _brush;
+            }
+        }
 
         private KaomiClient Kaomi = null;
         private Timer Timer;
