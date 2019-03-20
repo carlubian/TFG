@@ -30,65 +30,7 @@ namespace TFG.Core.Model
         // TODO Provisional: quitar constructor y conseguir datos desde Kaomi
         public Sensor()
         {
-            Timer = new Timer(_ => Parallel.Invoke(TimerTick), null, 2000, 60000);
-
-            TextualProperties = new List<TextualProperty>
-            {
-                new TextualProperty
-                {
-                    Key = "Conectado",
-                    Value = "Sí",
-                    Color = new SolidColorBrush(Color.FromArgb(255, 64, 160, 64))
-                },
-                new TextualProperty
-                {
-                    Key = "Leyendo perfiles",
-                    Value = "No",
-                    Color = new SolidColorBrush(Color.FromArgb(255, 218, 47, 47))
-                },
-                new TextualProperty
-                {
-                    Key = "Recibiendo superficie",
-                    Value = "No",
-                    Color = new SolidColorBrush(Color.FromArgb(255, 218, 47, 47))
-                }
-            };
-
-            NumericProperties = new List<NumericProperty>
-            {
-                new NumericProperty
-                {
-                    Min = 0,
-                    Max = 100,
-                    Value = 65,
-                    Tick = 20,
-                    Caption = "Frecuencia"
-                },
-                new NumericProperty
-                {
-                    Min = 0,
-                    Max = 1000,
-                    Value = 250,
-                    Tick = 200,
-                    Caption = "Vel. de red"
-                },
-                new NumericProperty
-                {
-                    Min = 0,
-                    Max = 1040,
-                    Value = 1040,
-                    Tick = 200,
-                    Caption = "Anchura"
-                },
-                new NumericProperty
-                {
-                    Min = 0,
-                    Max = 4,
-                    Value = 1,
-                    Tick = 1,
-                    Caption = "Otro valor"
-                }
-            };
+            Timer = new Timer(_ => Parallel.Invoke(TimerTick), null, 2000, 30000);
         }
 
         private void TimerTick()
@@ -104,9 +46,9 @@ namespace TFG.Core.Model
                 if (Kaomi.HasResults() is true)
                 {
                     var result = Kaomi.LatestResult();
-                    (var textual, var numeric) = KaomiResponseParser.Parse(result);
+                    var textual = KaomiResponseParser.Parse(result);
                     TextualProperties = textual;
-                    NumericProperties = numeric;
+                    NumericProperties = new List<NumericProperty>();
                 }
                 else
                 {
