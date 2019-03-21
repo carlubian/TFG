@@ -36,7 +36,8 @@ namespace TFG.Core.Model
         public static IEnumerable<string> TipoSensor = new List<string>
         {
             "Indefinido",
-            "Gocator"
+            "Gocator",
+            "TestGocator"
         };
 
         /// <summary>

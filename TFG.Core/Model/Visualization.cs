@@ -125,6 +125,9 @@ namespace TFG.Core.Model
             if (Ordenacion is Ordenacion.Operaciones)
                 output = output.OrderBy(s => s.Operaciones);
 
+            // No mostrar sensores eliminados
+            output = output.Where(s => s.Deleted is false);
+
             return output;
         }
     }

@@ -31,26 +31,26 @@ namespace TFG.Core
             }
         }
 
-        private static SolidColorBrush GetForeground(string key, string value)
+        private static string GetForeground(string key, string value)
         {
             // ¿Es la propiedad 'Conectado'?
             if (key is "Conectado")
                 return value is "True" 
-                    ? new SolidColorBrush(Color.FromArgb(255, 32, 128, 32))
-                    : new SolidColorBrush(Color.FromArgb(255, 170, 0, 0));
+                    ? "32:128:32"
+                    : "170:0:0";
             // ¿Es la propiedad 'Compatible'?
             if (key is "Compatible")
                 return value is "True"
-                    ? new SolidColorBrush(Color.FromArgb(255, 32, 128, 32))
-                    : new SolidColorBrush(Color.FromArgb(255, 170, 0, 0));
+                    ? "32:128:32"
+                    : "170:0:0";
             // ¿Es la propiedad 'Estado'?
             if(key is "Estado")
                 return value is "Ready"
-                    ? new SolidColorBrush(Color.FromArgb(255, 235, 193, 0))
-                    : new SolidColorBrush(Color.FromArgb(255, 32, 128, 32));
+                    ? "235:193:0"
+                    : "32:128:32";
 
             // Ante la duda, ponerlo en blanco
-            return new SolidColorBrush(Color.FromArgb(255, 245, 250, 255));
+            return "245:250:255";
         }
     }
 }

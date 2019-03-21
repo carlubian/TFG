@@ -9,6 +9,6 @@ namespace TFG.Core.Model.SensorProperties
     {
         public string Key { get; set; }
         public string Value { get; set; }
-        public Brush Color { get; set; }
+        public string Color { get; set; }
     }
 }

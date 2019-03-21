@@ -6,9 +6,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:uwp="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:c="using:TFG.UWP.Converters"
     mc:Ignorable="d"
     RequestedTheme="Dark"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <c:StringToBrushConverter x:Key="StringToBrush"/>
+    </Page.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -104,7 +109,7 @@
                                 <TextBlock FontSize="20" Text=":"
                                            Margin="0, 0, 4, 0"/>
                                 <TextBlock FontSize="20" Text="{Binding Value}"
-                                           Foreground="{Binding Color}"/>
+                                           Foreground="{Binding Color, Converter={StaticResource StringToBrush}}"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>

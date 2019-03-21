@@ -39,8 +39,6 @@ namespace TFG.UWP
         {
             this.InitializeComponent();
 
-            //_ = ThreadPool.RunAsync((_) => TryConnect());
-
             var directory = ApplicationData.Current.LocalFolder.Path;
             var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
 
@@ -87,18 +85,6 @@ namespace TFG.UWP
                 ZIndex = 1,
                 MapElements = elements
             });
-        }
-
-        private void TryConnect()
-        {
-            //TODO Colocar esto en otro sitio. De todas formas es provisional
-            var client = KaomiClient.Connect("127.0.0.1", 5000);
-            if (client.Connected())
-                _ = CoreApplication.MainView.CoreWindow.Dispatcher
-                    .RunAsync(CoreDispatcherPriority.Normal, () => Notification.Show("Conexión con Kaomi exitosa.", 2000));
-            else
-                _ = CoreApplication.MainView.CoreWindow.Dispatcher
-                    .RunAsync(CoreDispatcherPriority.Normal, () => Notification.Show("Fallo de conexión con Kaomi.", 2000));
         }
 
         // Hacer click sobre un marcador en el mapa

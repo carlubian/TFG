@@ -5,9 +5,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
 using TFG.Core.Model;
 using TFG.Core.Model.SensorProperties;
 using TFG.UWP.Dialogs;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
@@ -54,7 +56,18 @@ namespace TFG.UWP
             ColorBar.Background = sensor.ColorEstado;
 
             this.sensor = sensor;
+
+            new Timer(_ => UpdateProperties(), null, 0, 30000);
         }
+
+        private void UpdateProperties()
+        {
+            _ = CoreApplication.MainView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
+                () => GridNumeric.ItemsSource = sensor.NumericProperties);
+            _ = CoreApplication.MainView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
+                () => ListTextual.ItemsSource = sensor.TextualProperties);
+        }
+
         // Volver atrás
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -90,6 +103,8 @@ namespace TFG.UWP
 
             config.Write("ActiveSensors", newValue);
             config.DeleteSection(sensor.InternalID);
+
+            sensor.Deleted = true;
 
             Frame.GoBack();
         }

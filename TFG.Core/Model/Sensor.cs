@@ -7,6 +7,7 @@ using Windows.UI;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Linq;
+using System.Collections.ObjectModel;
 
 namespace TFG.Core.Model
 {
@@ -22,10 +23,12 @@ namespace TFG.Core.Model
         public string Lugar { get; set; }
         public string Operaciones { get; set; }
 
-        public IEnumerable<TextualProperty> TextualProperties { get; set; }
-        public IEnumerable<NumericProperty> NumericProperties { get; set; }
+        public ObservableCollection<TextualProperty> TextualProperties { get; set; }
+        public ObservableCollection<NumericProperty> NumericProperties { get; set; }
 
-        private SolidColorBrush _brush = new SolidColorBrush(Color.FromArgb(255, 88, 96, 104));
+        private SolidColorBrush _brush = new SolidColorBrush(Color.FromArgb(255, 120, 128, 136));
+
+        public bool Deleted { get; set; }
 
         public SolidColorBrush ColorEstado
         {
@@ -35,11 +38,14 @@ namespace TFG.Core.Model
                 {
                     var estado = TextualProperties.FirstOrDefault(p => p.Key is "Conectado");
                     if (estado is null)
-                        _brush = new SolidColorBrush(Color.FromArgb(255, 170, 0, 0));
+                        // No hay conexión con el servidor
+                        _brush = new SolidColorBrush(Color.FromArgb(255, 120, 128, 136));
 
                     if (estado.Value is "True")
+                        // El servidor dice que el sensor está conectado
                         _brush = new SolidColorBrush(Color.FromArgb(255, 32, 128, 32));
                     else
+                        // El servidor dice que el sensor está desconectado
                         _brush = new SolidColorBrush(Color.FromArgb(255, 170, 0, 0));
                 }
                 catch { }
@@ -50,14 +56,18 @@ namespace TFG.Core.Model
         private KaomiClient Kaomi = null;
         private Timer Timer;
 
-        // TODO Provisional: quitar constructor y conseguir datos desde Kaomi
         public Sensor()
         {
+            Deleted = false;
             Timer = new Timer(_ => Parallel.Invoke(TimerTick), null, 2000, 30000);
+            TextualProperties = new ObservableCollection<TextualProperty>();
+            NumericProperties = new ObservableCollection<NumericProperty>();
         }
 
         private void TimerTick()
         {
+            if (Deleted is true)
+                return;
             if (Kaomi is null)
                 Kaomi = KaomiClient.Connect(IP, int.Parse(Puerto));
 
@@ -70,8 +80,7 @@ namespace TFG.Core.Model
                 {
                     var result = Kaomi.LatestResult();
                     var textual = KaomiResponseParser.Parse(result);
-                    TextualProperties = textual;
-                    NumericProperties = new List<NumericProperty>();
+                    TextualProperties = new ObservableCollection<TextualProperty>(textual);
                 }
                 else
                 {
