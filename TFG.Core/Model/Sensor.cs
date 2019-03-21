@@ -28,6 +28,28 @@ namespace TFG.Core.Model
 
         private SolidColorBrush _brush = new SolidColorBrush(Color.FromArgb(255, 120, 128, 136));
 
+        public string StatusIcon { get
+            {
+                try
+                {
+                    var estado = TextualProperties.FirstOrDefault(p => p.Key is "Conectado");
+                    if (estado is null)
+                        // No hay conexión con el servidor
+                        return "SensorOffline.png";
+
+                    if (estado.Value is "True")
+                        // El servidor dice que el sensor está conectado
+                        return "SensorOK.png";
+                    else
+                        // El servidor dice que el sensor está desconectado
+                        return "SensorError.png";
+                }
+                catch {
+                    return "SensorOffline.png";
+                }
+            }
+        }
+
         public bool Deleted { get; set; }
 
         public SolidColorBrush ColorEstado
@@ -59,7 +81,7 @@ namespace TFG.Core.Model
         public Sensor()
         {
             Deleted = false;
-            Timer = new Timer(_ => Parallel.Invoke(TimerTick), null, 2000, 30000);
+            Timer = new Timer(_ => Parallel.Invoke(TimerTick), null, 0, 30000);
             TextualProperties = new ObservableCollection<TextualProperty>();
             NumericProperties = new ObservableCollection<NumericProperty>();
         }

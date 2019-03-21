@@ -6,9 +6,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:uwp="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:c="using:TFG.UWP.Converters"
     mc:Ignorable="d"
     RequestedTheme="Dark"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <c:StringToBitmapImageConverter x:Key="StringToBitmapImage"/>
+    </Page.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -44,9 +49,14 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Vertical">
-                            <TextBlock Text="{Binding Nombre}"
+                            <StackPanel Orientation="Horizontal">
+                                <Image Width="32" Height="32"
+                                       Source="{Binding StatusIcon, Converter={StaticResource StringToBitmapImage}}"/>
+                                <TextBlock Text="{Binding Nombre}"
                                        Foreground="{Binding ColorEstado}"
-                                       FontSize="20"/>
+                                       FontSize="20"
+                                           Margin="8, 4, 4, 4"/>
+                            </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="{Binding Tipo}" 
                                            Foreground="#FF889098" Margin="4"/>

@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using TFG.Core.Model;
 using TFG.UWP.Dialogs;
+using Windows.ApplicationModel.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -36,6 +38,14 @@ namespace TFG.UWP
             sensores = tupla[0] as IList<Sensor>;
             LabelCriteria.Text = Filters.ToString();
             ListaSensores.ItemsSource = Filters.Apply(sensores);
+
+            new Timer(_ => UpdateList(), null, 0, 30000);
+        }
+
+        private void UpdateList()
+        {
+            _ = CoreApplication.MainView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
+                () => ListaSensores.ItemsSource = Filters.Apply(sensores));
         }
         
         // Volver atrás

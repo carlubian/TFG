@@ -27,6 +27,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="6"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
@@ -61,6 +62,13 @@
                         <TextBlock Text="Puerto"
                                Width="128" VerticalAlignment="Center"/>
                         <TextBlock x:Name="FieldPort" FontSize="20"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Estado"
+                               Width="128" VerticalAlignment="Center"/>
+                        <Image x:Name="StatusIcon" Width="32" Height="32" 
+                               Tapped="StatusIcon_Tapped" />
                     </StackPanel>
 
                 </StackPanel>
@@ -98,7 +106,7 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                
+
                 <!-- Propiedades textuales -->
                 <ListView Grid.Column="0" x:Name="ListTextual"
                           SelectionMode="None">
@@ -129,6 +137,11 @@
                     </GridView.ItemTemplate>
                 </uwp:AdaptiveGridView>
             </Grid>
+
+            <uwp:InAppNotification Grid.Row="4"
+                                   VerticalAlignment="Bottom"
+                                   HorizontalAlignment="Center"
+                                   x:Name="Notification"/>
 
         </Grid>
 

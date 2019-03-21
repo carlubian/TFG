@@ -20,6 +20,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
@@ -52,6 +53,7 @@ namespace TFG.UWP
 
             GridNumeric.ItemsSource = sensor.NumericProperties;
             ListTextual.ItemsSource = sensor.TextualProperties;
+            StatusIcon.Source = new BitmapImage(new Uri($"ms-appx:///Assets/Icons/{sensor.StatusIcon}"));
 
             ColorBar.Background = sensor.ColorEstado;
 
@@ -66,6 +68,8 @@ namespace TFG.UWP
                 () => GridNumeric.ItemsSource = sensor.NumericProperties);
             _ = CoreApplication.MainView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
                 () => ListTextual.ItemsSource = sensor.TextualProperties);
+            _ = CoreApplication.MainView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
+                () => StatusIcon.Source = new BitmapImage(new Uri($"ms-appx:///Assets/Icons/{sensor.StatusIcon}")));
         }
 
         // Volver atrás
@@ -107,6 +111,18 @@ namespace TFG.UWP
             sensor.Deleted = true;
 
             Frame.GoBack();
+        }
+
+        private void StatusIcon_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            var icon = (StatusIcon.Source as BitmapImage).UriSource.ToString();
+
+            if (icon.Contains("Error"))
+                Notification.Show("Este sensor está conectado, pero su estado es incorrecto.", 2000);
+            else if (icon.Contains("Offline"))
+                Notification.Show("No se puede conectar con el servidor remoto de este sensor.", 2000);
+            else if (icon.Contains("OK"))
+                Notification.Show("Este sensor está conectado y funciona correctamente.", 2000);
         }
     }
 }

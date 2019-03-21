@@ -122,6 +122,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\StringToBitmapImageConverter.cs" />
     <Compile Include="Converters\StringToBrushConverter.cs" />
     <Compile Include="DetallesSensor.xaml.cs">
       <DependentUpon>DetallesSensor.xaml</DependentUpon>
@@ -182,6 +183,9 @@
     <Content Include="Assets\Icons\list.png" />
     <Content Include="Assets\Icons\right-arrow.png" />
     <Content Include="Assets\Icons\save.png" />
+    <Content Include="Assets\Icons\SensorError.png" />
+    <Content Include="Assets\Icons\SensorOffline.png" />
+    <Content Include="Assets\Icons\SensorOK.png" />
     <Content Include="Assets\Icons\settings.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
