@@ -15,7 +15,7 @@
         <c:StringToBrushConverter x:Key="StringToBrush"/>
     </Page.Resources>
 
-    <Grid>
+    <Grid Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>

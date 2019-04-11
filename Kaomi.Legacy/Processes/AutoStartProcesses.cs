@@ -31,7 +31,13 @@ namespace Kaomi.Legacy.Processes
                 {
                     KaomiLoader.Load($"{proc.Key}.dll");
                 }
-                catch { } // The assembly could already be loaded
+                catch {
+                    try
+                    {
+                        KaomiLoader.Load($"{proc.Key}.exe");
+                    }
+                    catch { }
+                }
                 KaomiLoader.InstanceProcess(proc.Key, proc.Value);
             }
 

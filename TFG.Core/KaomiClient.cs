@@ -53,7 +53,7 @@ namespace TFG.Core
         {
             process = server.AllAssemblies().AssemblyList
                 .SelectMany(asm => asm.AllProcesses().ProcessList)
-                .First(p => p.Id.ToUpperInvariant().Equals(pid.ToUpperInvariant()));
+                .FirstOrDefault(p => p.Id.ToUpperInvariant().Equals(pid.ToUpperInvariant()));
         }
 
         /// <summary>

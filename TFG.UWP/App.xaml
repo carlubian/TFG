@@ -13,7 +13,7 @@
             <Setter Property="Margin" Value="4"/>
         </Style>
         <Style TargetType="Grid">
-            <Setter Property="Background" Value="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"/>
+            <!--<Setter Property="Background" Value="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"/>-->
         </Style>
         <Style TargetType="StackPanel">
             <Setter Property="Margin" Value="4"/>

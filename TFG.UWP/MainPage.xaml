@@ -11,7 +11,7 @@
     RequestedTheme="Dark"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
@@ -21,7 +21,6 @@
            x:Name="MapControl1"            
            ZoomInteractionMode="PointerAndKeyboard"
            TiltInteractionMode="GestureOnly"   
-           MapServiceToken="AjEUtDza4SPhRksWgu8-PpkKl1_KmJbKr-TqeKFpbtjt9U8eYQc8gsRKR0r4QtNu"
            MapElementClick="MapControl1_MapElementClick"
            ColorScheme="Dark"/>
 

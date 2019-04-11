@@ -15,7 +15,7 @@
         <c:StringToBitmapImageConverter x:Key="StringToBitmapImage"/>
     </Page.Resources>
 
-    <Grid>
+    <Grid Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
@@ -59,13 +59,13 @@
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="{Binding Tipo}" 
-                                           Foreground="#FF889098" Margin="4"/>
+                                           Foreground="#FFF0F5FA" Margin="4"/>
                                 <TextBlock Text="{Binding Pais}" 
-                                           Foreground="#FF889098" Margin="4"/>
+                                           Foreground="#FFF0F5FA" Margin="4"/>
                                 <TextBlock Text="{Binding Lugar}" 
-                                           Foreground="#FF889098" Margin="4"/>
+                                           Foreground="#FFF0F5FA" Margin="4"/>
                                 <TextBlock Text="{Binding Operaciones}" 
-                                           Foreground="#FF889098" Margin="4"/>
+                                           Foreground="#FFF0F5FA" Margin="4"/>
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>
