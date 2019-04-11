@@ -53,5 +53,11 @@
                 </StackPanel>
             </Button>
         </StackPanel>
+
+        <uwp:Expander Grid.Column="0" VerticalAlignment="Bottom"
+                      ExpandDirection="Up"
+                      Header="Sistema de Asistencia">
+            <TextBlock Text="El contenido de ayuda irá aquí"/>
+        </uwp:Expander>
     </Grid>
 </Page>
