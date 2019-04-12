@@ -9,6 +9,7 @@ using System.Threading;
 using TFG.Core.Model;
 using TFG.Core.Model.SensorProperties;
 using TFG.UWP.Dialogs;
+using TFG.UWP.Dialogs.Assistant;
 using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -123,6 +124,12 @@ namespace TFG.UWP
                 Notification.Show("No se puede conectar con el servidor remoto de este sensor.", 2000);
             else if (icon.Contains("OK"))
                 Notification.Show("Este sensor está conectado y funciona correctamente.", 2000);
+        }
+
+        // Abrir el sistema de asistencia
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            _ = new InicioAyuda().ShowAsync();
         }
     }
 }

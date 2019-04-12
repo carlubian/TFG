@@ -7,6 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using TFG.Core;
 using TFG.Core.Model;
 using TFG.UWP.Dialogs;
+using TFG.UWP.Dialogs.Assistant;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
@@ -131,6 +132,12 @@ namespace TFG.UWP
 
                 Frame.Navigate(typeof(MainPage));
             }
+        }
+
+        // Abrir el sistema de asistencia
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            _ = new InicioAyuda().ShowAsync();
         }
     }
 }

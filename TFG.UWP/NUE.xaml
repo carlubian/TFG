@@ -5,9 +5,7 @@
     xmlns:local="using:TFG.UWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    RequestedTheme="Dark"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
 
     <Grid Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
         <Grid.ColumnDefinitions>
@@ -35,30 +33,45 @@
                        TextWrapping="Wrap"/>
         </Grid>
 
-        <StackPanel Orientation="Vertical" Grid.Column="1"
+        <Grid Grid.Column="1" Margin="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Vertical" Grid.Row="0"
                     Margin="0, 32, 0, 0">
-            <Button Width="128" Click="Button_Click">
-                <StackPanel Orientation="Vertical">
-                    <Image Source="Assets/Icons/right-arrow.png"
+                <Button Width="128" Click="Button_Click_2">
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="Assets/Icons/cancel.png"
                            Width="64"/>
-                    <TextBlock Text="Continuar"/>
-                </StackPanel>
-            </Button>
-            <Button Width="128" Click="Button_Click_1">
-                <StackPanel Orientation="Vertical">
-                    <Image Source="Assets/Icons/import.png"
+                        <TextBlock Text="Saltar"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Width="128" Click="Button_Click_1">
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="Assets/Icons/import.png"
                            Width="64"/>
-                    <TextBlock Text="Importar"/>
-                </StackPanel>
-            </Button>
-            <Button Width="128" Click="Button_Click_2">
-                <StackPanel Orientation="Vertical">
-                    <Image Source="Assets/Icons/cancel.png"
+                        <TextBlock Text="Importar"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Grid.Row="1"
+                    Margin="0, 32, 0, 0">
+                <Button Width="128" Click="Button_Click"
+                        Background="#FF0D88AA">
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="Assets/Icons/help.png"
                            Width="64"/>
-                    <TextBlock Text="Saltar"/>
-                </StackPanel>
-            </Button>
-        </StackPanel>
+                        <TextBlock Text="Ayuda"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
 
     </Grid>
 </Page>

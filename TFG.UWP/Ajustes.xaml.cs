@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TFG.UWP.Dialogs.Assistant;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
@@ -126,6 +128,33 @@ namespace TFG.UWP
 
                 PopulateSettings();
             }
+        }
+
+        // Abrir el sistema de asistencia
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            _ = new InicioAyuda().ShowAsync();
+        }
+
+        // Restaurar datos de fábrica
+        private async void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            var directory = Windows.Storage.ApplicationData.Current.LocalFolder.Path;
+
+            var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
+
+            // Eliminar todos los sensores conectados
+            var sensores = config.Read("ActiveSensors")
+                                 .Split('|', StringSplitOptions.RemoveEmptyEntries);
+            foreach (var sensor in sensores)
+                config.DeleteSection(sensor);
+            config.Write("ActiveSensors", "");
+
+            // Preparar la NUE para el próximo arranque
+            config.DeleteKey("ExistingUser");
+
+            // Reiniciar la aplicación
+            await CoreApplication.RequestRestartAsync("");
         }
     }
 }

@@ -5,6 +5,14 @@
     xmlns:local="using:TFG.UWP"
     xmlns:uwp="using:Microsoft.Toolkit.Uwp.UI.Controls">
     <Application.Resources>
+        <x:Double x:Key="ContentDialogMaxWidth">9999</x:Double>
+
+        <Style TargetType="Page">
+            <Setter Property="RequestedTheme" Value="Dark"/>
+        </Style>
+        <Style TargetType="ContentDialog">
+            <Setter Property="RequestedTheme" Value="Dark"/>
+        </Style>
         <Style TargetType="Button">
             <Setter Property="FontFamily" Value="Assets/Fonts/selawksl.ttf#Selawik"/>
             <Setter Property="FontSize" Value="14"/>
@@ -13,6 +21,7 @@
             <Setter Property="Margin" Value="4"/>
         </Style>
         <Style TargetType="Grid">
+            <!-- Rompe la aplicación; establecer manualmente en la Grid raíz de cada página. -->
             <!--<Setter Property="Background" Value="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"/>-->
         </Style>
         <Style TargetType="StackPanel">
@@ -22,6 +31,11 @@
             <Setter Property="Margin" Value="4"/>
             <Setter Property="FontFamily" Value="Assets/Fonts/selawksl.ttf#Selawik"/>
             <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="#FFF0F5FA"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="4"/>
+            <Setter Property="FontFamily" Value="Assets/Fonts/selawksl.ttf#Selawik"/>
             <Setter Property="Foreground" Value="#FFF0F5FA"/>
         </Style>
         <Style TargetType="uwp:RadialGauge">

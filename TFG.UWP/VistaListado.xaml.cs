@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using TFG.Core.Model;
 using TFG.UWP.Dialogs;
+using TFG.UWP.Dialogs.Assistant;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -54,12 +55,6 @@ namespace TFG.UWP
             Frame.GoBack();
         }
 
-        // Añadir nuevo sensor
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(NuevoSensor));
-        }
-
         // Mostrar diálogo de filtros
         private async void Button_Click_2(object sender, RoutedEventArgs e)
         {
@@ -83,6 +78,11 @@ namespace TFG.UWP
 
             var sensor = ListaSensores.SelectedItem as Sensor;
             Frame.Navigate(typeof(DetallesSensor), sensor);
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            _ = new InicioAyuda().ShowAsync();
         }
     }
 }

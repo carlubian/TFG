@@ -5,9 +5,7 @@
     xmlns:local="using:TFG.UWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    RequestedTheme="Dark"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
 
     <Grid Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
         <Grid.ColumnDefinitions>
@@ -30,7 +28,7 @@
 
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Intentos de conexión"
-                               Width="128"/>
+                               Width="170"/>
                     <TextBox PlaceholderText="1"
                              x:Name="FieldAttempts" Width="192"/>
                     <TextBlock Foreground="#FF889098"
@@ -39,47 +37,83 @@
 
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Tiempo de espera"
-                               Width="128"/>
+                               Width="170"/>
                     <TextBox PlaceholderText="20"
                              x:Name="FieldWait" Width="192"/>
                     <TextBlock Foreground="#FF889098"
                                Text="Segundos antes de descartar un intento de conexión como fallido."/>
                 </StackPanel>
 
+                <!-- Esta opción debe ser la última -->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Restaurar datos de fábrica"
+                               Width="170"/>
+                    <Button Content="Restaurar" Width="192"
+                            Background="#FFAA0000"
+                            Click="Button_Click_5"/>
+                    <TextBlock Foreground="#FF889098"
+                               Text="Elimina todos los datos y ajustes del usuario, dejando la aplicación lista para empezar de nuevo."/>
+                </StackPanel>
+
             </StackPanel>
             
         </Grid>
 
-        <StackPanel Orientation="Vertical" Grid.Column="1"
+        <Grid Grid.Column="1" Margin="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Vertical" Grid.Row="0"
                     Margin="0, 32, 0, 0">
-            <Button Width="128" Click="Button_Click">
-                <StackPanel Orientation="Vertical">
-                    <Image Source="Assets/Icons/left-arrow.png"
+                <Button Width="128" Click="Button_Click">
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="Assets/Icons/left-arrow.png"
                            Width="64"/>
-                    <TextBlock Text="Volver"/>
-                </StackPanel>
-            </Button>
-            <Button Width="128" Click="Button_Click_1">
-                <StackPanel Orientation="Vertical">
-                    <Image Source="Assets/Icons/save.png"
+                        <TextBlock Text="Volver"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Width="128" Click="Button_Click_1">
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="Assets/Icons/save.png"
                            Width="64"/>
-                    <TextBlock Text="Guardar"/>
-                </StackPanel>
-            </Button>
-            <Button Width="128" Click="Button_Click_2">
-                <StackPanel Orientation="Vertical">
-                    <Image Source="Assets/Icons/export.png"
+                        <TextBlock Text="Guardar"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Width="128" Click="Button_Click_2">
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="Assets/Icons/export.png"
                            Width="64"/>
-                    <TextBlock Text="Exportar"/>
-                </StackPanel>
-            </Button>
-            <Button Width="128" Click="Button_Click_3">
-                <StackPanel Orientation="Vertical">
-                    <Image Source="Assets/Icons/import.png"
+                        <TextBlock Text="Exportar"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Width="128" Click="Button_Click_3">
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="Assets/Icons/import.png"
                            Width="64"/>
-                    <TextBlock Text="Importar"/>
-                </StackPanel>
-            </Button>
-        </StackPanel>
+                        <TextBlock Text="Importar"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Grid.Row="1"
+                        Margin="0">
+                <Button Width="128" Click="Button_Click_4"
+                        Background="#FF0D88AA">
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="Assets/Icons/help.png"
+                           Width="64"/>
+                        <TextBlock Text="Ayuda"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+        
     </Grid>
 </Page>

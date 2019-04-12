@@ -8,6 +8,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using TFG.Core;
 using TFG.Core.Model;
 using TFG.Core.Model.Criteria;
+using TFG.UWP.Dialogs.Assistant;
 using Windows.ApplicationModel.Core;
 using Windows.Devices.Geolocation;
 using Windows.Foundation;
@@ -85,6 +86,11 @@ namespace TFG.UWP
                 ZIndex = 1,
                 MapElements = elements
             });
+            MapControl1.Center = new Geopoint(new BasicGeoposition
+            {
+                Latitude = 40.42,
+                Longitude = -3.70
+            });
         }
 
         // Hacer click sobre un marcador en el mapa
@@ -125,6 +131,12 @@ namespace TFG.UWP
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(VistaListado), (sensores, criterio:Visualization.Default));
+        }
+
+        // Abrir el sistema de asistencia
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            _ = new InicioAyuda().ShowAsync();
         }
     }
 }

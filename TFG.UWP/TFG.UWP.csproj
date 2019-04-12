@@ -127,6 +127,12 @@
     <Compile Include="DetallesSensor.xaml.cs">
       <DependentUpon>DetallesSensor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\Assistant\InicioAyuda.xaml.cs">
+      <DependentUpon>InicioAyuda.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Assistant\_Plantilla.xaml.cs">
+      <DependentUpon>_Plantilla.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\ConfirmarEliminacion.xaml.cs">
       <DependentUpon>ConfirmarEliminacion.xaml</DependentUpon>
     </Compile>
@@ -178,6 +184,7 @@
     <Content Include="Assets\Icons\edit.png" />
     <Content Include="Assets\Icons\export.png" />
     <Content Include="Assets\Icons\filter.png" />
+    <Content Include="Assets\Icons\help.png" />
     <Content Include="Assets\Icons\import.png" />
     <Content Include="Assets\Icons\left-arrow.png" />
     <Content Include="Assets\Icons\list.png" />
@@ -206,6 +213,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DetallesSensor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\Assistant\InicioAyuda.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\Assistant\_Plantilla.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

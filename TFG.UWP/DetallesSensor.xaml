@@ -7,9 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:uwp="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:c="using:TFG.UWP.Converters"
-    mc:Ignorable="d"
-    RequestedTheme="Dark"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
 
     <Page.Resources>
         <c:StringToBrushConverter x:Key="StringToBrush"/>
@@ -145,29 +143,53 @@
 
         </Grid>
 
-        <StackPanel Orientation="Vertical" Grid.Column="1"
+        <Grid Grid.Column="1" Margin="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Vertical" Grid.Row="0"
                     Margin="0, 32, 0, 0">
-            <Button Width="128" Click="Button_Click">
-                <StackPanel Orientation="Vertical">
-                    <Image Source="Assets/Icons/left-arrow.png"
+                <Button Width="128" Click="Button_Click">
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="Assets/Icons/left-arrow.png"
                            Width="64"/>
-                    <TextBlock Text="Volver"/>
-                </StackPanel>
-            </Button>
-            <Button Width="128" Click="Button_Click_1">
-                <StackPanel Orientation="Vertical">
-                    <Image Source="Assets/Icons/edit.png"
+                        <TextBlock Text="Volver"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Width="128" Click="Button_Click_1">
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="Assets/Icons/edit.png"
                            Width="64"/>
-                    <TextBlock Text="Modificar"/>
-                </StackPanel>
-            </Button>
-            <Button Width="128" Click="Button_Click_2">
-                <StackPanel Orientation="Vertical">
-                    <Image Source="Assets/Icons/delete.png"
+                        <TextBlock Text="Modificar"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Width="128" Click="Button_Click_2">
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="Assets/Icons/delete.png"
                            Width="64"/>
-                    <TextBlock Text="Eliminar"/>
-                </StackPanel>
-            </Button>
-        </StackPanel>
+                        <TextBlock Text="Eliminar"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Grid.Row="1"
+                        Margin="0">
+                <Button Width="128" Click="Button_Click_3"
+                        Background="#FF0D88AA">
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="Assets/Icons/help.png"
+                           Width="64"/>
+                        <TextBlock Text="Ayuda"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+        
     </Grid>
 </Page>

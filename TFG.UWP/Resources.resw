@@ -122,14 +122,26 @@
 
 ¡Todo está listo para funcionar!</value>
   </data>
+  <data name="InicioAyudaContent.Text" xml:space="preserve">
+    <value>¡Hola!
+
+¿Necesitas ayuda con algo? Elige el tema de entre las opciones que aparecen a la izquierda, y recibirás más información.
+
+Si en algún momento te pierdes y quieres salir, solo tienes que hacer clic derecho sobre el botón central, y volverás a la pantalla donde estabas antes.</value>
+    <comment>Texto del diálogo inicial del sistema de asistencia.</comment>
+  </data>
+  <data name="InicioAyudaTitle.Text" xml:space="preserve">
+    <value>Sistema de ayuda</value>
+    <comment>Título del diálogo inicial del sistema de asistencia.</comment>
+  </data>
   <data name="NueIntroText.Text" xml:space="preserve">
     <value>Bienvenido al Visualizador de Datos de Sensores. Parece que es la primera vez que usas esta aplicación.
 
-Si es así, pulsa el botón 'Continuar' para continuar la introducción y añadir un sensor nuevo.
+Si prefieres empezar de cero, pulsa el botón 'Saltar' para saltarte la introducción.
 
 Si ya has usado la aplicación antes y tienes una copia de seguridad de los ajustes, pulsa el botón 'Importar' para recuperar la configuración anterior.
 
-Si prefieres empezar de cero, pulsa el botón 'Saltar' para saltarte la introducción.</value>
+Si quieres abrir el sistema de asistencia para recibir ayuda o utilizar las funciones de esta aplicación de forma sencilla, pulsa el botón 'Ayuda'. Ten en cuenta que el botón de ayuda aparece en todas las pantallas, y podrás usarlo siempre que necesites asistencia.</value>
   </data>
   <data name="NuevoSensorClasiText.Text" xml:space="preserve">
     <value>¡Estupendo! El servidor remoto parece estar funcionando correctamente.

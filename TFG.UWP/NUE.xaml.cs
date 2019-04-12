@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TFG.UWP.Dialogs.Assistant;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
@@ -32,13 +33,6 @@ namespace TFG.UWP
             var directory = ApplicationData.Current.LocalFolder.Path;
             var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
             config.Write("ExistingUser", "True", "Skip New User Experience when launching app. Setting value is ignored.");
-        }
-
-        // Continuar la introducción y añadir un nuevo sensor
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            // true indica que la introducción está activa
-            Frame.Navigate(typeof(NuevoSensor), true);
         }
 
         // Importar un archivo de configuración existente
@@ -73,6 +67,13 @@ namespace TFG.UWP
         // Saltar la introducción y empezar de cero
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            Frame.Navigate(typeof(MainPage));
+        }
+
+        // Abrir el sistema de asistencia
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            await new InicioAyuda().ShowAsync();
             Frame.Navigate(typeof(MainPage));
         }
     }

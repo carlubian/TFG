@@ -7,6 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using TFG.Core;
 using TFG.Core.Model;
 using TFG.UWP.Dialogs;
+using TFG.UWP.Dialogs.Assistant;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
@@ -93,6 +94,12 @@ namespace TFG.UWP
             sensor.Operaciones = FieldOps.SelectedItem as string;
 
             Frame.GoBack();
+        }
+
+        // Abrir el sistema de asistencia
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            _ = new InicioAyuda().ShowAsync();
         }
     }
 }
