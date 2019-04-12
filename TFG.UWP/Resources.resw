@@ -117,6 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AyudaListadosContent.Text" xml:space="preserve">
+    <value>¿Cómo quieres filtrar el listado?
+
+Por país: Mostrará solo los sensores localizados en el país elegido.
+Ver todos: Mostrará todos los sensores conectados.
+Por lugar: Mostrará solo los sensores instalados en un lugar (oficina, laboratorio, ...) elegido.
+Por tipo: Mostrará solo los sensores del tipo elegido.
+Por modo: Mostrará solo los sensores en modo elegido (pruebas o producción).</value>
+  </data>
+  <data name="AyudaSensoresContent.Text" xml:space="preserve">
+    <value>Conectar un nuevo sensor lo hará aparecer en los listados. Asegúrate de que el ordenador donde está el sensor tenga instalado un servidor Kaomi con el proceso correspondiente.
+
+Editar un sensor te permite modificar alguno de sus ajustes.
+
+Eliminar un sensor lo desconectará de la aplicación, pero el servidor Kaomi seguirá funcionando a no ser que lo cierres manualmente.
+
+Ver los detalles de un sensor mostrará información específica sobre su estado y conexión.</value>
+  </data>
   <data name="DetallesSensorIndef.Text" xml:space="preserve">
     <value>No necesitamos ningún dato adicional para este tipo de sensor.
 
@@ -127,7 +145,7 @@
 
 ¿Necesitas ayuda con algo? Elige el tema de entre las opciones que aparecen a la izquierda, y recibirás más información.
 
-Si en algún momento te pierdes y quieres salir, solo tienes que hacer clic derecho sobre el botón central, y volverás a la pantalla donde estabas antes.</value>
+Si en algún momento te pierdes y quieres salir, solo tienes que hacer clic derecho sobre el botón central para cerrar el sistema de ayuda.</value>
     <comment>Texto del diálogo inicial del sistema de asistencia.</comment>
   </data>
   <data name="InicioAyudaTitle.Text" xml:space="preserve">

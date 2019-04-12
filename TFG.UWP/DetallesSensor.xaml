@@ -13,7 +13,8 @@
         <c:StringToBrushConverter x:Key="StringToBrush"/>
     </Page.Resources>
 
-    <Grid Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
+    <Grid Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"
+          KeyUp="Grid_KeyUp">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>

@@ -18,9 +18,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace TFG.UWP.Dialogs.Assistant
 {
-    public sealed partial class _Plantilla : ContentDialog
+    public sealed partial class PanelListados : ContentDialog
     {
-        public _Plantilla()
+        public PanelListados()
         {
             this.InitializeComponent();
         }
@@ -28,7 +28,8 @@ namespace TFG.UWP.Dialogs.Assistant
         // Botón de 'Volver atrás' (Click izquierdo)
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            this.Hide();
+            _ = new InicioAyuda().ShowAsync();
         }
 
         // Botón de 'Volver atrás' (Click derecho)
@@ -37,49 +38,31 @@ namespace TFG.UWP.Dialogs.Assistant
             this.Hide();
         }
 
-        // Botón de 'Posición 1'
+        // Botón de 'Posición 1' (por país)
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
 
         }
 
-        // Botón de 'Posición 2'
+        // Botón de 'Posición 2' (todos)
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
 
         }
 
-        // Botón de 'Posición 3'
+        // Botón de 'Posición 3' (por lugar)
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
 
         }
 
-        // Botón de 'Posición 4'
-        private void Button_Click_4(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        // Botón de 'Posición 5'
-        private void Button_Click_5(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        // Botón de 'Posición 6'
+        // Botón de 'Posición 6' (por tipo)
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
 
         }
 
-        // Botón de 'Posición 7'
-        private void Button_Click_7(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        // Botón de 'Posición 8'
+        // Botón de 'Posición 8' (por modo)
         private void Button_Click_8(object sender, RoutedEventArgs e)
         {
 
@@ -103,20 +86,11 @@ namespace TFG.UWP.Dialogs.Assistant
                 case Windows.System.VirtualKey.NumberPad9:
                     Button_Click_3(this, null);
                     break;
-                case Windows.System.VirtualKey.NumberPad4:
-                    Button_Click_4(this, null);
-                    break;
                 case Windows.System.VirtualKey.NumberPad5:
                     Button_Click(this, null);
                     break;
-                case Windows.System.VirtualKey.NumberPad6:
-                    Button_Click_5(this, null);
-                    break;
                 case Windows.System.VirtualKey.NumberPad1:
                     Button_Click_6(this, null);
-                    break;
-                case Windows.System.VirtualKey.NumberPad2:
-                    Button_Click_7(this, null);
                     break;
                 case Windows.System.VirtualKey.NumberPad3:
                     Button_Click_8(this, null);

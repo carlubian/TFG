@@ -76,5 +76,12 @@ namespace TFG.UWP
             await new InicioAyuda().ShowAsync();
             Frame.Navigate(typeof(MainPage));
         }
+
+        // F1 también abre el sistema de asistencia
+        private void Grid_KeyUp(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key is Windows.System.VirtualKey.F1)
+                Button_Click(this, null);
+        }
     }
 }

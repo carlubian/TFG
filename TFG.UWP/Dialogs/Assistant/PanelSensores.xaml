@@ -1,5 +1,5 @@
 ﻿<ContentDialog
-    x:Class="TFG.UWP.Dialogs.Assistant.InicioAyuda"
+    x:Class="TFG.UWP.Dialogs.Assistant.PanelSensores"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:TFG.UWP.Dialogs.Assistant"
@@ -30,12 +30,12 @@
             <Button Grid.Row="0" Grid.Column="0"
                     Width="96" Height="96"
                     Click="Button_Click_1">
-                Sensores
+                Nuevo
             </Button>
             <Button Grid.Row="0" Grid.Column="2"
                     Width="96" Height="96"
                     Click="Button_Click_3">
-                Ajustes
+                Editar
             </Button>
             <Button Grid.Row="1" Grid.Column="1"
                     Width="96" Height="96"
@@ -48,21 +48,22 @@
             <Button Grid.Row="2" Grid.Column="0"
                     Width="96" Height="96"
                     Click="Button_Click_6">
-                Listados
+                Eliminar
             </Button>
             <Button Grid.Row="2" Grid.Column="2"
                     Width="96" Height="96"
                     Click="Button_Click_8">
-                Voz
+                Detalles
             </Button>
         </Grid>
         
         <!-- Columna derecha: Contenido del panel -->
         <StackPanel Orientation="Vertical" Grid.Column="1"
                     Width="312">
-            <TextBlock FontSize="24" x:Uid="InicioAyudaTitle"
-                       Text="Título del panel" />
-            <TextBlock TextWrapping="Wrap" x:Uid="InicioAyudaContent"
+            <TextBlock FontSize="24"
+                       Text="Sensores" />
+            <TextBlock TextWrapping="Wrap"
+                       x:Uid="AyudaSensoresContent"
                        Text="Contenido del panel, normalmente explicando información contextual." />
             
         </StackPanel>

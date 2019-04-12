@@ -80,9 +80,17 @@ namespace TFG.UWP
             Frame.Navigate(typeof(DetallesSensor), sensor);
         }
 
+        // Abrir el sistema de asistencia
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             _ = new InicioAyuda().ShowAsync();
+        }
+
+        // F1 también abre el sistema de asistencia
+        private void Grid_KeyUp(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key is Windows.System.VirtualKey.F1)
+                Button_Click_4(this, null);
         }
     }
 }

@@ -139,6 +139,8 @@ namespace TFG.UWP
         // Restaurar datos de fábrica
         private async void Button_Click_5(object sender, RoutedEventArgs e)
         {
+            // TODO Habría que mostrar un diálogo de confirmación.
+
             var directory = Windows.Storage.ApplicationData.Current.LocalFolder.Path;
 
             var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
@@ -155,6 +157,13 @@ namespace TFG.UWP
 
             // Reiniciar la aplicación
             await CoreApplication.RequestRestartAsync("");
+        }
+
+        // F1 también abre el sistema de asistencia
+        private void Grid_KeyUp(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key is Windows.System.VirtualKey.F1)
+                Button_Click_4(this, null);
         }
     }
 }

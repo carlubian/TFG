@@ -9,7 +9,8 @@
     xmlns:uwp="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
+    <Grid Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"
+          KeyUp="Grid_KeyUp">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
