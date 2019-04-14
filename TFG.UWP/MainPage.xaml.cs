@@ -34,8 +34,6 @@ namespace TFG.UWP
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private IList<Sensor> sensores = new List<Sensor>();
-
         public MainPage()
         {
             this.InitializeComponent();
@@ -45,9 +43,11 @@ namespace TFG.UWP
 
             var ids = config.Read("ActiveSensors");
             if (!(ids is default(string)))
+            {
+                SessionStorage.Sensores.Clear();
                 ids.Split('|', StringSplitOptions.RemoveEmptyEntries).ForEach(id =>
                 {
-                    sensores.Add(new Sensor
+                    SessionStorage.Sensores.Add(new Sensor
                     {
                         Nombre = config.Read($"{id}:Name"),
                         IP = config.Read($"{id}:IP"),
@@ -59,9 +59,10 @@ namespace TFG.UWP
                         InternalID = id
                     });
                 });
+            }
 
             // Buscar todos los países en los que hay sensores
-            var paises = sensores
+            var paises = SessionStorage.Sensores
                 .Select(sensor => sensor.Pais)
                 .Distinct()
                 .ToArray();
@@ -100,7 +101,7 @@ namespace TFG.UWP
             var country = clickedIcon.Title;
 
             // Ver solo los sensores de ese país
-            Frame.Navigate(typeof(VistaListado), (sensores, criterio: new Visualization
+            Frame.Navigate(typeof(VistaListado), new Visualization
             {
                 TipoSensor = new AllEncompasingCriteria(),
                 Localizacion = new AllEncompasingCriteria(),
@@ -112,7 +113,7 @@ namespace TFG.UWP
                     Verbose = $"de {country}"
                 },
                 Ordenacion = Ordenacion.TipoSensor
-            }));
+            });
         }
 
         // Hacer click sobre el botón 'Nuevo sensor'
@@ -130,7 +131,7 @@ namespace TFG.UWP
         // Mostrar todos los sensores
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(VistaListado), (sensores, criterio:Visualization.Default));
+            Frame.Navigate(typeof(VistaListado), Visualization.Default);
         }
 
         // Abrir el sistema de asistencia
@@ -142,7 +143,8 @@ namespace TFG.UWP
         // F1 también abre el sistema de asistencia
         private void Grid_KeyUp(object sender, KeyRoutedEventArgs e)
         {
-            if (e.Key is Windows.System.VirtualKey.F1)
+            if (e.Key is Windows.System.VirtualKey.F1
+                || e.Key is Windows.System.VirtualKey.NumberPad0)
                 Button_Click_3(this, null);
         }
     }

@@ -125,6 +125,7 @@ Ver todos: Mostrará todos los sensores conectados.
 Por lugar: Mostrará solo los sensores instalados en un lugar (oficina, laboratorio, ...) elegido.
 Por tipo: Mostrará solo los sensores del tipo elegido.
 Por modo: Mostrará solo los sensores en modo elegido (pruebas o producción).</value>
+    <comment>Contenido del panel inicial de listados del sistema de ayuda.</comment>
   </data>
   <data name="AyudaSensoresContent.Text" xml:space="preserve">
     <value>Conectar un nuevo sensor lo hará aparecer en los listados. Asegúrate de que el ordenador donde está el sensor tenga instalado un servidor Kaomi con el proceso correspondiente.
@@ -134,6 +135,7 @@ Editar un sensor te permite modificar alguno de sus ajustes.
 Eliminar un sensor lo desconectará de la aplicación, pero el servidor Kaomi seguirá funcionando a no ser que lo cierres manualmente.
 
 Ver los detalles de un sensor mostrará información específica sobre su estado y conexión.</value>
+    <comment>Contenido del panel inicial de sensores del sistema de ayuda.</comment>
   </data>
   <data name="DetallesSensorIndef.Text" xml:space="preserve">
     <value>No necesitamos ningún dato adicional para este tipo de sensor.
@@ -141,16 +143,32 @@ Ver los detalles de un sensor mostrará información específica sobre su estado
 ¡Todo está listo para funcionar!</value>
   </data>
   <data name="InicioAyudaContent.Text" xml:space="preserve">
-    <value>¡Hola!
+    <value>¿Necesitas ayuda con algo? Elige el tema de entre las opciones que aparecen a la izquierda, y recibirás más información.
 
-¿Necesitas ayuda con algo? Elige el tema de entre las opciones que aparecen a la izquierda, y recibirás más información.
+Si en algún momento te pierdes y quieres salir, solo tienes que hacer clic derecho sobre el botón central para cerrar el sistema de ayuda.
 
-Si en algún momento te pierdes y quieres salir, solo tienes que hacer clic derecho sobre el botón central para cerrar el sistema de ayuda.</value>
+Recuerda que también puedes usar el teclado numérico para navegar por los menús del sistema de ayuda.</value>
     <comment>Texto del diálogo inicial del sistema de asistencia.</comment>
   </data>
   <data name="InicioAyudaTitle.Text" xml:space="preserve">
     <value>Sistema de ayuda</value>
     <comment>Título del diálogo inicial del sistema de asistencia.</comment>
+  </data>
+  <data name="ListadoPorLugarContent.Text" xml:space="preserve">
+    <value>Ahora elige el lugar por el que quieres filtrar el listado. Se mostrarán todos los sensores conectados que estén instalados en ese lugar.
+
+Si necesitas filtrar por más de un criterio, puedes usar el panel de filtros de la vista de resultados.</value>
+    <comment>Contenido del panel de listado por lugar del sistema de ayuda.</comment>
+  </data>
+  <data name="ListadoPorModoContent.Text" xml:space="preserve">
+    <value>Ahora elige el modo de operación por el que quieres filtrar el listado. Se mostrarán los sensores conectados que estén funcionando en ese modo.
+
+Si necesitas filtrar por más de un criterio, puedes usar el panel de filtros de la vista de resultados.</value>
+  </data>
+  <data name="ListadoPorTipoContent.Text" xml:space="preserve">
+    <value>Ahora elige el lugar por el que quieres filtrar el listado. Se mostrarán todos los sensores conectados que sean de ese tipo.
+
+Si necesitas filtrar por más de un criterio, puedes usar el panel de filtros de la vista de resultados.</value>
   </data>
   <data name="NueIntroText.Text" xml:space="preserve">
     <value>Bienvenido al Visualizador de Datos de Sensores. Parece que es la primera vez que usas esta aplicación.
@@ -178,20 +196,5 @@ Según el tipo de sensor, estos ajustes serán diferentes. Al igual que los deta
 
 Para empezar, introduce los siguientes datos básicos sobre el servidor remoto:
 </value>
-  </data>
-  <data name="NuevoSensorNUE1Text.Text" xml:space="preserve">
-    <value>Empecemos conectando un nuevo sensor al sistema.
-
-Sigue las instrucciones de esta ventana, y cuando termines pulsa el botón 'Siguiente'</value>
-  </data>
-  <data name="NuevoSensorNUE2Text.Text" xml:space="preserve">
-    <value>Ahora debes indicar cómo se clasifica el sensor que estás conectando.
-
-Estos parámetros no son necesarios para la conexión, pero ayudarán a la hora de filtrar y ordenar listados de sensores.</value>
-  </data>
-  <data name="NuevoSensorNUE3Text.Text" xml:space="preserve">
-    <value>Según el tipo de sensor que estés intentando conectar, puede que tengas que introducir datos adicionales. Si es así, sigue las instrucciones que se muestran en pantalla.
-
-Con esto termina la introducción a la aplicación. Si tienes más preguntas, consulta la documentación.</value>
   </data>
 </root>

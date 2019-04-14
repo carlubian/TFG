@@ -28,7 +28,6 @@ namespace TFG.UWP
     /// </summary>
     public sealed partial class NuevoSensor : Page
     {
-        private bool ShowIntro = false;
         private int Step;
 
         public NuevoSensor()
@@ -46,18 +45,10 @@ namespace TFG.UWP
             FieldOps.SelectedIndex = 0;
             FieldLocation.ItemsSource = ValoresCriterio.Localizacion;
             FieldLocation.SelectedIndex = 0;
-
-            Step = 1;
         }
 
-        protected async override void OnNavigatedTo(NavigationEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (true.Equals(e.Parameter))
-            {
-                ShowIntro = true;
-                await new NuevoSensorNUE1().ShowAsync();
-            }
-
             Step = 1;
         }
         
@@ -88,9 +79,6 @@ namespace TFG.UWP
                 GridStep1.Visibility = Visibility.Collapsed;
                 GridStep2.Visibility = Visibility.Visible;
 
-                if (ShowIntro)
-                    await new NuevoSensorNUE2().ShowAsync();
-
                 return;
             }
             if (Step is 2)
@@ -105,9 +93,6 @@ namespace TFG.UWP
                 
                 GridStep2.Visibility = Visibility.Collapsed;
                 GridStep3.Visibility = Visibility.Visible;
-
-                if (ShowIntro)
-                    await new NuevoSensorNUE3().ShowAsync();
 
                 return;
             }
@@ -143,7 +128,8 @@ namespace TFG.UWP
         // F1 también abre el sistema de asistencia
         private void Grid_KeyUp(object sender, KeyRoutedEventArgs e)
         {
-            if (e.Key is Windows.System.VirtualKey.F1)
+            if (e.Key is Windows.System.VirtualKey.F1
+                || e.Key is Windows.System.VirtualKey.NumberPad0)
                 Button_Click_1(this, null);
         }
     }

@@ -105,7 +105,8 @@ namespace TFG.UWP
         // F1 también abre el sistema de asistencia
         private void Grid_KeyUp(object sender, KeyRoutedEventArgs e)
         {
-            if (e.Key is Windows.System.VirtualKey.F1)
+            if (e.Key is Windows.System.VirtualKey.F1
+                || e.Key is Windows.System.VirtualKey.NumberPad0)
                 Button_Click_2(this, null);
         }
     }

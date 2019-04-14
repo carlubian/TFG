@@ -25,7 +25,6 @@ namespace TFG.UWP
     public sealed partial class VistaListado : Page
     {
         private Visualization Filters;
-        private IList<Sensor> sensores;
 
         public VistaListado()
         {
@@ -34,11 +33,9 @@ namespace TFG.UWP
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            var tupla = (System.Runtime.CompilerServices.ITuple)e.Parameter;
-            Filters = tupla[1] as Visualization;
-            sensores = tupla[0] as IList<Sensor>;
+            Filters = e.Parameter as Visualization;
             LabelCriteria.Text = Filters.ToString();
-            ListaSensores.ItemsSource = Filters.Apply(sensores);
+            ListaSensores.ItemsSource = Filters.Apply(SessionStorage.Sensores);
 
             new Timer(_ => UpdateList(), null, 0, 30000);
         }
@@ -46,7 +43,7 @@ namespace TFG.UWP
         private void UpdateList()
         {
             _ = CoreApplication.MainView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
-                () => ListaSensores.ItemsSource = Filters.Apply(sensores));
+                () => ListaSensores.ItemsSource = Filters.Apply(SessionStorage.Sensores));
         }
         
         // Volver atrás
@@ -64,7 +61,7 @@ namespace TFG.UWP
             Filters = dialog.Filters;
             LabelCriteria.Text = Filters.ToString();
 
-            ListaSensores.ItemsSource = Filters.Apply(sensores);
+            ListaSensores.ItemsSource = Filters.Apply(SessionStorage.Sensores);
         }
 
         // Ver detalles del sensor seleccionado
@@ -89,7 +86,8 @@ namespace TFG.UWP
         // F1 también abre el sistema de asistencia
         private void Grid_KeyUp(object sender, KeyRoutedEventArgs e)
         {
-            if (e.Key is Windows.System.VirtualKey.F1)
+            if (e.Key is Windows.System.VirtualKey.F1
+                || e.Key is Windows.System.VirtualKey.NumberPad0)
                 Button_Click_4(this, null);
         }
     }

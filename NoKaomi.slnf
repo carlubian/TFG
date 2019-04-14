@@ -1,0 +1,9 @@
+{
+  "solution": {
+    "path": "TFG.sln",
+    "projects": [
+      "TFG.Core\\TFG.Core.csproj",
+      "TFG.UWP\\TFG.UWP.csproj"
+    ]
+  }
+}

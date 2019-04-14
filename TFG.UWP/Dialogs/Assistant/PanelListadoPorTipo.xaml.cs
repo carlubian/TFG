@@ -20,9 +20,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace TFG.UWP.Dialogs.Assistant
 {
-    public sealed partial class PanelListados : ContentDialog
+    public sealed partial class PanelListadoPorTipo : ContentDialog
     {
-        public PanelListados()
+        public PanelListadoPorTipo()
         {
             this.InitializeComponent();
         }
@@ -31,7 +31,7 @@ namespace TFG.UWP.Dialogs.Assistant
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            _ = new InicioAyuda().ShowAsync();
+            _ = new PanelListados().ShowAsync();
         }
 
         // Botón de 'Volver atrás' (Click derecho)
@@ -40,45 +40,61 @@ namespace TFG.UWP.Dialogs.Assistant
             this.Hide();
         }
 
-        // Botón de 'Posición 1' (por país)
+        // Botón de 'Posición 1' (Indefinido)
         private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        // Botón de 'Posición 2' (todos)
-        private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             this.Hide();
             (Window.Current.Content as Frame)?.Navigate(typeof(VistaListado), new Visualization
             {
+                TipoSensor = new PredicateCriteria
+                {
+                    Evaluate = str => str.Equals("Indefinido"),
+                    Verbose = $"de tipo Indefinido",
+                    StringValue = "Indefinido"
+                },
                 Operaciones = new AllEncompasingCriteria(),
-                TipoSensor = new AllEncompasingCriteria(),
                 Localizacion = new AllEncompasingCriteria(),
                 Pais = new AllEncompasingCriteria(),
                 Ordenacion = Ordenacion.Pais
             });
         }
 
-        // Botón de 'Posición 3' (por lugar)
+        // Botón de 'Posición 2' (Gocator)
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            (Window.Current.Content as Frame)?.Navigate(typeof(VistaListado), new Visualization
+            {
+                TipoSensor = new PredicateCriteria
+                {
+                    Evaluate = str => str.Equals("Gocator"),
+                    Verbose = $"de tipo Gocator",
+                    StringValue = "Gocator"
+                },
+                Operaciones = new AllEncompasingCriteria(),
+                Localizacion = new AllEncompasingCriteria(),
+                Pais = new AllEncompasingCriteria(),
+                Ordenacion = Ordenacion.Pais
+            });
+        }
+
+        // Botón de 'Posición 3' (TestGocator)
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            _ = new PanelListadoPorLugar().ShowAsync();
-        }
-
-        // Botón de 'Posición 6' (por tipo)
-        private void Button_Click_6(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-            _ = new PanelListadoPorTipo().ShowAsync();
-        }
-
-        // Botón de 'Posición 8' (por modo)
-        private void Button_Click_8(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-            _ = new PanelListadoPorModo().ShowAsync();
+            (Window.Current.Content as Frame)?.Navigate(typeof(VistaListado), new Visualization
+            {
+                TipoSensor = new PredicateCriteria
+                {
+                    Evaluate = str => str.Equals("TestGocator"),
+                    Verbose = $"de tipo TestGocator",
+                    StringValue = "TestGocator"
+                },
+                Operaciones = new AllEncompasingCriteria(),
+                Localizacion = new AllEncompasingCriteria(),
+                Pais = new AllEncompasingCriteria(),
+                Ordenacion = Ordenacion.Pais
+            });
         }
 
         // Utilizar el teclado numérico para navegar
@@ -101,12 +117,6 @@ namespace TFG.UWP.Dialogs.Assistant
                     break;
                 case Windows.System.VirtualKey.NumberPad5:
                     Button_Click(this, null);
-                    break;
-                case Windows.System.VirtualKey.NumberPad1:
-                    Button_Click_6(this, null);
-                    break;
-                case Windows.System.VirtualKey.NumberPad3:
-                    Button_Click_8(this, null);
                     break;
                 case Windows.System.VirtualKey.NumberPad0:
                     Button_RightTapped(this, null);

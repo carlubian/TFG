@@ -136,6 +136,15 @@
     <Compile Include="Dialogs\Assistant\PanelListados.xaml.cs">
       <DependentUpon>PanelListados.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\Assistant\PanelListadoPorLugar.xaml.cs">
+      <DependentUpon>PanelListadoPorLugar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Assistant\PanelListadoPorTipo.xaml.cs">
+      <DependentUpon>PanelListadoPorTipo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Assistant\PanelListadoPorModo.xaml.cs">
+      <DependentUpon>PanelListadoPorModo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\Assistant\_Plantilla.xaml.cs">
       <DependentUpon>_Plantilla.xaml</DependentUpon>
     </Compile>
@@ -147,15 +156,6 @@
     </Compile>
     <Compile Include="Dialogs\FiltrarListado.xaml.cs">
       <DependentUpon>FiltrarListado.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\NuevoSensorNUE3.xaml.cs">
-      <DependentUpon>NuevoSensorNUE3.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\NuevoSensorNUE2.xaml.cs">
-      <DependentUpon>NuevoSensorNUE2.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\NuevoSensorNUE1.xaml.cs">
-      <DependentUpon>NuevoSensorNUE1.xaml</DependentUpon>
     </Compile>
     <Compile Include="EditarSensor.xaml.cs">
       <DependentUpon>EditarSensor.xaml</DependentUpon>
@@ -170,6 +170,7 @@
       <DependentUpon>NuevoSensor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SessionStorage.cs" />
     <Compile Include="VistaListado.xaml.cs">
       <DependentUpon>VistaListado.xaml</DependentUpon>
     </Compile>
@@ -234,6 +235,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Dialogs\Assistant\PanelListadoPorLugar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\Assistant\PanelListadoPorTipo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\Assistant\PanelListadoPorModo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Dialogs\Assistant\_Plantilla.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -247,18 +260,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dialogs\FiltrarListado.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Dialogs\NuevoSensorNUE3.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Dialogs\NuevoSensorNUE2.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Dialogs\NuevoSensorNUE1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

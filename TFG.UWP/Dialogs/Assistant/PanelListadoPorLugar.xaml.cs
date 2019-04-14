@@ -20,9 +20,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace TFG.UWP.Dialogs.Assistant
 {
-    public sealed partial class PanelListados : ContentDialog
+    public sealed partial class PanelListadoPorLugar : ContentDialog
     {
-        public PanelListados()
+        public PanelListadoPorLugar()
         {
             this.InitializeComponent();
         }
@@ -31,7 +31,7 @@ namespace TFG.UWP.Dialogs.Assistant
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            _ = new InicioAyuda().ShowAsync();
+            _ = new PanelListados().ShowAsync();
         }
 
         // Botón de 'Volver atrás' (Click derecho)
@@ -40,45 +40,80 @@ namespace TFG.UWP.Dialogs.Assistant
             this.Hide();
         }
 
-        // Botón de 'Posición 1' (por país)
+        // Botón de 'Posición 1' (Planta)
         private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        // Botón de 'Posición 2' (todos)
-        private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             this.Hide();
             (Window.Current.Content as Frame)?.Navigate(typeof(VistaListado), new Visualization
             {
+                Localizacion = new PredicateCriteria
+                {
+                    Evaluate = str => str.Equals("Planta"),
+                    Verbose = $"en Planta",
+                    StringValue = "Planta"
+                },
                 Operaciones = new AllEncompasingCriteria(),
                 TipoSensor = new AllEncompasingCriteria(),
-                Localizacion = new AllEncompasingCriteria(),
                 Pais = new AllEncompasingCriteria(),
                 Ordenacion = Ordenacion.Pais
             });
         }
 
-        // Botón de 'Posición 3' (por lugar)
+        // Botón de 'Posición 3' (Laboratorio)
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            _ = new PanelListadoPorLugar().ShowAsync();
+            (Window.Current.Content as Frame)?.Navigate(typeof(VistaListado), new Visualization
+            {
+                Localizacion = new PredicateCriteria
+                {
+                    Evaluate = str => str.Equals("Laboratorio"),
+                    Verbose = $"en Laboratorio",
+                    StringValue = "Laboratorio"
+                },
+                Operaciones = new AllEncompasingCriteria(),
+                TipoSensor = new AllEncompasingCriteria(),
+                Pais = new AllEncompasingCriteria(),
+                Ordenacion = Ordenacion.Pais
+            });
         }
 
-        // Botón de 'Posición 6' (por tipo)
+        // Botón de 'Posición 6' (Oficina)
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            _ = new PanelListadoPorTipo().ShowAsync();
+            (Window.Current.Content as Frame)?.Navigate(typeof(VistaListado), new Visualization
+            {
+                Localizacion = new PredicateCriteria
+                {
+                    Evaluate = str => str.Equals("Oficinas"),
+                    Verbose = $"en Oficinas",
+                    StringValue = "Oficinas"
+                },
+                Operaciones = new AllEncompasingCriteria(),
+                TipoSensor = new AllEncompasingCriteria(),
+                Pais = new AllEncompasingCriteria(),
+                Ordenacion = Ordenacion.Pais
+            });
         }
 
-        // Botón de 'Posición 8' (por modo)
+        // Botón de 'Posición 8' (Indefinido)
         private void Button_Click_8(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            _ = new PanelListadoPorModo().ShowAsync();
+            (Window.Current.Content as Frame)?.Navigate(typeof(VistaListado), new Visualization
+            {
+                Localizacion = new PredicateCriteria
+                {
+                    Evaluate = str => str.Equals("Indefinido"),
+                    Verbose = $"en Indefinido",
+                    StringValue = "Indefinido"
+                },
+                Operaciones = new AllEncompasingCriteria(),
+                TipoSensor = new AllEncompasingCriteria(),
+                Pais = new AllEncompasingCriteria(),
+                Ordenacion = Ordenacion.Pais
+            });
         }
 
         // Utilizar el teclado numérico para navegar
@@ -92,9 +127,6 @@ namespace TFG.UWP.Dialogs.Assistant
             {
                 case Windows.System.VirtualKey.NumberPad7:
                     Button_Click_1(this, null);
-                    break;
-                case Windows.System.VirtualKey.NumberPad8:
-                    Button_Click_2(this, null);
                     break;
                 case Windows.System.VirtualKey.NumberPad9:
                     Button_Click_3(this, null);

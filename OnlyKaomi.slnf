@@ -1,0 +1,10 @@
+{
+  "solution": {
+    "path": "TFG.sln",
+    "projects": [
+      "Kaomi.Legacy\\Kaomi.Legacy.csproj",
+      "Kaomi.Processes\\Kaomi.Processes.csproj",
+      "Kaomi.WebAPI.Legacy\\Kaomi.WebAPI.Legacy.csproj"
+    ]
+  }
+}
