@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="DotNet.Misc.Extensions" Version="1.0.0" />
-    <PackageReference Include="Kaomi.Client" Version="0.6.0" />
+    <PackageReference Include="Kaomi.Client" Version="0.6.1" />
     <PackageReference Include="System.Runtime.WindowsRuntime" Version="4.3.0" />
   </ItemGroup>
 
