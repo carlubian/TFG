@@ -116,9 +116,9 @@
                 <Button Width="128" Click="Button_Click_4"
                         Background="#FF0D88AA">
                     <StackPanel Orientation="Vertical">
-                        <Image Source="Assets/Icons/help.png"
+                        <Image Source="Assets/Icons/menu.png"
                            Width="64"/>
-                        <TextBlock Text="Ayuda"
+                        <TextBlock Text="Acceso Rápido"
                                    HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Button>

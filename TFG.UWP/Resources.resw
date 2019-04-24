@@ -143,15 +143,15 @@ Ver los detalles de un sensor mostrará información específica sobre su estado
 ¡Todo está listo para funcionar!</value>
   </data>
   <data name="InicioAyudaContent.Text" xml:space="preserve">
-    <value>¿Necesitas ayuda con algo? Elige el tema de entre las opciones que aparecen a la izquierda, y recibirás más información.
+    <value>Este es el sistema de Acceso Rápido. A través de la cuadrícula contextual podrás llegar a todas las opciones de la aplicación.
 
-Si en algún momento te pierdes y quieres salir, solo tienes que hacer clic derecho sobre el botón central para cerrar el sistema de ayuda.
+Si en algún momento te pierdes y quieres salir, solo tienes que hacer clic derecho sobre el botón central para cerrar el panel.
 
-Recuerda que también puedes usar el teclado numérico para navegar por los menús del sistema de ayuda.</value>
+Recuerda que también puedes usar el teclado numérico para navegar por la cuadrícula contextual.</value>
     <comment>Texto del diálogo inicial del sistema de asistencia.</comment>
   </data>
   <data name="InicioAyudaTitle.Text" xml:space="preserve">
-    <value>Sistema de ayuda</value>
+    <value>Acceso Rápido</value>
     <comment>Título del diálogo inicial del sistema de asistencia.</comment>
   </data>
   <data name="ListadoPorLugarContent.Text" xml:space="preserve">
@@ -162,6 +162,11 @@ Si necesitas filtrar por más de un criterio, puedes usar el panel de filtros de
   </data>
   <data name="ListadoPorModoContent.Text" xml:space="preserve">
     <value>Ahora elige el modo de operación por el que quieres filtrar el listado. Se mostrarán los sensores conectados que estén funcionando en ese modo.
+
+Si necesitas filtrar por más de un criterio, puedes usar el panel de filtros de la vista de resultados.</value>
+  </data>
+  <data name="ListadoPorPaisContent.Text" xml:space="preserve">
+    <value>Ahora elige el país por el que quieres filtrar el listado. Se mostrarán todos los sensores conectados que estén en ese país.
 
 Si necesitas filtrar por más de un criterio, puedes usar el panel de filtros de la vista de resultados.</value>
   </data>
@@ -196,5 +201,15 @@ Según el tipo de sensor, estos ajustes serán diferentes. Al igual que los deta
 
 Para empezar, introduce los siguientes datos básicos sobre el servidor remoto:
 </value>
+  </data>
+  <data name="SensorDetallesContent.Text" xml:space="preserve">
+    <value>Selecciona el sensor del que quieres ver detalles. Se mostrarán todos los datos disponibles de ese sensor.
+
+Ten en cuenta que si el sensor está desconectado, se mostrarán menos datos.</value>
+  </data>
+  <data name="SensorEliminarContent.Text" xml:space="preserve">
+    <value>Selecciona el sensor que quieres eliminar. Se desconectará del sistema, aunque su servidor remoto seguirá funcionando hasta que se desconecte manualmente.
+
+¡Cuidado! Esta acción es irreversible.</value>
   </data>
 </root>

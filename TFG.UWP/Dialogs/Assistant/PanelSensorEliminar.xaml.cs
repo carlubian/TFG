@@ -1,11 +1,15 @@
-﻿using System;
+﻿using ConfigAdapter.Xml;
+using DotNet.Misc.Extensions.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TFG.Core.Model;
 using Windows.Devices.Input;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -18,18 +22,20 @@ using Windows.UI.Xaml.Navigation;
 
 namespace TFG.UWP.Dialogs.Assistant
 {
-    public sealed partial class PanelSensores : ContentDialog
+    public sealed partial class PanelSensorEliminar : ContentDialog
     {
-        public PanelSensores()
+        public PanelSensorEliminar()
         {
             this.InitializeComponent();
+            ComboSensores.ItemsSource = SessionStorage.Sensores;
+            ComboSensores.SelectedIndex = 0;
         }
 
         // Botón de 'Volver atrás' (Click izquierdo)
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            _ = new InicioAyuda().ShowAsync();
+            _ = new PanelSensores().ShowAsync();
         }
 
         // Botón de 'Volver atrás' (Click derecho)
@@ -38,30 +44,30 @@ namespace TFG.UWP.Dialogs.Assistant
             this.Hide();
         }
 
-        // Botón de 'Posición 1' (Nuevo)
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        // Botón de 'Posición 2' (Eliminar)
+        private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            var sensor = ComboSensores.SelectedItem as Sensor;
+            var directory = ApplicationData.Current.LocalFolder.Path;
+            var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
+            var sensores = config.Read("ActiveSensors");
 
-        }
+            var result = sensores.Split('|', StringSplitOptions.RemoveEmptyEntries)
+                .Except(sensor.InternalID.Enumerate());
+            var newValue = "";
+            if (result.Count() is 0)
+                newValue = "";
+            else
+                newValue = result.Stringify(str => str, "|");
 
-        // Botón de 'Posición 3' (Editar)
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
+            config.Write("ActiveSensors", newValue);
+            config.DeleteSection(sensor.InternalID);
 
-        }
+            sensor.Deleted = true;
+            SessionStorage.Sensores.Remove(sensor);
 
-        // Botón de 'Posición 6' (Eliminar)
-        private void Button_Click_6(object sender, RoutedEventArgs e)
-        {
             this.Hide();
-            _ = new PanelSensorEliminar().ShowAsync();
-        }
-
-        // Botón de 'Posición 8' (Detalles)
-        private void Button_Click_8(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-            _ = new PanelSensorDetalles().ShowAsync();
+            _ = new PanelSensores().ShowAsync();
         }
 
         // Utilizar el teclado numérico para navegar
@@ -73,20 +79,11 @@ namespace TFG.UWP.Dialogs.Assistant
         {
             switch (e.Key)
             {
-                case Windows.System.VirtualKey.NumberPad7:
-                    Button_Click_1(this, null);
-                    break;
-                case Windows.System.VirtualKey.NumberPad9:
-                    Button_Click_3(this, null);
+                case Windows.System.VirtualKey.NumberPad8:
+                    Button_Click_2(this, null);
                     break;
                 case Windows.System.VirtualKey.NumberPad5:
                     Button_Click(this, null);
-                    break;
-                case Windows.System.VirtualKey.NumberPad1:
-                    Button_Click_6(this, null);
-                    break;
-                case Windows.System.VirtualKey.NumberPad3:
-                    Button_Click_8(this, null);
                     break;
                 case Windows.System.VirtualKey.NumberPad0:
                     Button_RightTapped(this, null);

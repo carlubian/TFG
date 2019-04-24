@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TFG.Core.Model;
 using Windows.Devices.Input;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -18,18 +19,20 @@ using Windows.UI.Xaml.Navigation;
 
 namespace TFG.UWP.Dialogs.Assistant
 {
-    public sealed partial class PanelSensores : ContentDialog
+    public sealed partial class PanelSensorDetalles : ContentDialog
     {
-        public PanelSensores()
+        public PanelSensorDetalles()
         {
             this.InitializeComponent();
+            ComboSensores.ItemsSource = SessionStorage.Sensores;
+            ComboSensores.SelectedIndex = 0;
         }
 
         // Botón de 'Volver atrás' (Click izquierdo)
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            _ = new InicioAyuda().ShowAsync();
+            _ = new PanelSensores().ShowAsync();
         }
 
         // Botón de 'Volver atrás' (Click derecho)
@@ -38,30 +41,12 @@ namespace TFG.UWP.Dialogs.Assistant
             this.Hide();
         }
 
-        // Botón de 'Posición 1' (Nuevo)
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        // Botón de 'Posición 3' (Editar)
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        // Botón de 'Posición 6' (Eliminar)
-        private void Button_Click_6(object sender, RoutedEventArgs e)
+        // Botón de 'Posición 2' (Seleccionar)
+        private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            _ = new PanelSensorEliminar().ShowAsync();
-        }
-
-        // Botón de 'Posición 8' (Detalles)
-        private void Button_Click_8(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-            _ = new PanelSensorDetalles().ShowAsync();
+            var sensor = ComboSensores.SelectedItem as Sensor;
+            (Window.Current.Content as Frame)?.Navigate(typeof(DetallesSensor), sensor);
         }
 
         // Utilizar el teclado numérico para navegar
@@ -73,20 +58,11 @@ namespace TFG.UWP.Dialogs.Assistant
         {
             switch (e.Key)
             {
-                case Windows.System.VirtualKey.NumberPad7:
-                    Button_Click_1(this, null);
-                    break;
-                case Windows.System.VirtualKey.NumberPad9:
-                    Button_Click_3(this, null);
+                case Windows.System.VirtualKey.NumberPad8:
+                    Button_Click_2(this, null);
                     break;
                 case Windows.System.VirtualKey.NumberPad5:
                     Button_Click(this, null);
-                    break;
-                case Windows.System.VirtualKey.NumberPad1:
-                    Button_Click_6(this, null);
-                    break;
-                case Windows.System.VirtualKey.NumberPad3:
-                    Button_Click_8(this, null);
                     break;
                 case Windows.System.VirtualKey.NumberPad0:
                     Button_RightTapped(this, null);

@@ -145,6 +145,15 @@
     <Compile Include="Dialogs\Assistant\PanelListadoPorModo.xaml.cs">
       <DependentUpon>PanelListadoPorModo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\Assistant\PanelListadoPorPais.xaml.cs">
+      <DependentUpon>PanelListadoPorPais.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Assistant\PanelSensorDetalles.xaml.cs">
+      <DependentUpon>PanelSensorDetalles.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Assistant\PanelSensorEliminar.xaml.cs">
+      <DependentUpon>PanelSensorEliminar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\Assistant\_Plantilla.xaml.cs">
       <DependentUpon>_Plantilla.xaml</DependentUpon>
     </Compile>
@@ -195,6 +204,7 @@
     <Content Include="Assets\Icons\import.png" />
     <Content Include="Assets\Icons\left-arrow.png" />
     <Content Include="Assets\Icons\list.png" />
+    <Content Include="Assets\Icons\menu.png" />
     <Content Include="Assets\Icons\right-arrow.png" />
     <Content Include="Assets\Icons\save.png" />
     <Content Include="Assets\Icons\SensorError.png" />
@@ -244,6 +254,18 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Dialogs\Assistant\PanelListadoPorModo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\Assistant\PanelListadoPorPais.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\Assistant\PanelSensorDetalles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\Assistant\PanelSensorEliminar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

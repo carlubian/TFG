@@ -43,7 +43,8 @@ namespace TFG.UWP.Dialogs.Assistant
         // Botón de 'Posición 1' (por país)
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            this.Hide();
+            _ = new PanelListadoPorPais().ShowAsync();
         }
 
         // Botón de 'Posición 2' (todos)
