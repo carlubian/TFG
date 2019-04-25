@@ -1,16 +1,13 @@
-﻿using Lmi3d.GoSdk;
-using Lmi3d.Zen;
-using Lmi3d.Zen.Io;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Kaomi.Processes
+﻿namespace Kaomi.Processes
 {
     class Program
     {
+        /// <summary>
+        /// Este código no debería ejecutarse
+        /// desde aquí, sino como proceso de
+        /// Kaomi a través de Gocator.
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             var gocator = new Gocator();

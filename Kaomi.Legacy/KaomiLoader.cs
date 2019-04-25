@@ -7,8 +7,6 @@ using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kaomi.Legacy
 {
@@ -75,10 +73,7 @@ namespace Kaomi.Legacy
         /// Lists all loaded assemblies from the server.
         /// </summary>
         /// <returns></returns>
-        public static IEnumerable<string> List()
-        {
-            return asms.Keys;
-        }
+        public static IEnumerable<string> List() => asms.Keys;
 
         /// <summary>
         /// Tells the server to unload an assembly from
@@ -122,20 +117,14 @@ namespace Kaomi.Legacy
         /// from the server.
         /// </summary>
         /// <returns></returns>
-        public static IEnumerable<string> ListProcesses()
-        {
-            return prcs.Select(kvp => $"[{kvp.Value.AssemblyId}] {kvp.Key}");
-        }
+        public static IEnumerable<string> ListProcesses() => prcs.Select(kvp => $"[{kvp.Value.AssemblyId}] {kvp.Key}");
 
         /// <summary>
         /// Checks whether a process has available results.
         /// </summary>
         /// <param name="processId">Process name</param>
         /// <returns></returns>
-        public static bool HasResults(string processId)
-        {
-            return prcs[processId].Results.Count > 0;
-        }
+        public static bool HasResults(string processId) => prcs[processId].Results.Count > 0;
 
         /// <summary>
         /// Gets all the pending results for a process,

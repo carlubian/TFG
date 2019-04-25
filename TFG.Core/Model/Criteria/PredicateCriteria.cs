@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace TFG.Core.Model.Criteria
 {
@@ -28,6 +26,6 @@ namespace TFG.Core.Model.Criteria
         /// </summary>
         public string StringValue { get; set; }
 
-        public override string ToString() => StringValue;
+        public override string ToString() => this.StringValue;
     }
 }

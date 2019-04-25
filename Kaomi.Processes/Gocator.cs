@@ -3,10 +3,7 @@ using Lmi3d.GoSdk;
 using Lmi3d.Zen;
 using Lmi3d.Zen.Io;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Kaomi.Processes
 {
@@ -20,35 +17,32 @@ namespace Kaomi.Processes
         {
             KApiLib.Construct();
             GoSdkLib.Construct();
-            system = new GoSystem();
-            ipAddress = KIpAddress.Parse("192.168.1.10");
-            sensor = system.FindSensorByIpAddress(ipAddress);
-            sensor.Connect();
+            this.system = new GoSystem();
+            this.ipAddress = KIpAddress.Parse("192.168.1.10");
+            this.sensor = this.system.FindSensorByIpAddress(this.ipAddress);
+            this.sensor.Connect();
 
             base.IterationDelay = TimeSpan.FromMinutes(1);
         }
 
-        public override void OnFinalize()
-        {
-            sensor.Disconnect();
-        }
+        public override void OnFinalize() => this.sensor.Disconnect();
 
         public override void OnIteration()
         {
             var result = new StringBuilder("[");
-            result.Append($"Modelo={sensor.Model}&");
-            result.Append($"Compatible={sensor.IsCompatible()}&");
-            result.Append($"Conectado={sensor.IsConnected()}&");
-            result.Append($"Protocolo={sensor.ProtocolVersion.Major}.{sensor.ProtocolVersion.Minor}.{sensor.ProtocolVersion.Release}.{sensor.ProtocolVersion.Build}&");
-            result.Append($"Firmware={sensor.FirmwareVersion.Major}.{sensor.FirmwareVersion.Minor}.{sensor.FirmwareVersion.Release}.{sensor.FirmwareVersion.Build}&");
-            result.Append($"Modo de Escaneo={sensor.ScanMode.ToString()}&");
-            result.Append($"Alineación={sensor.AlignmentState.ToString()}&");
-            result.Append($"Estado={sensor.State.ToString()}&");
-            result.Append($"Valor de encoder={sensor.Encoder()}&");
+            result.Append($"Modelo={this.sensor.Model}&");
+            result.Append($"Compatible={this.sensor.IsCompatible()}&");
+            result.Append($"Conectado={this.sensor.IsConnected()}&");
+            result.Append($"Protocolo={this.sensor.ProtocolVersion.Major}.{this.sensor.ProtocolVersion.Minor}.{this.sensor.ProtocolVersion.Release}.{this.sensor.ProtocolVersion.Build}&");
+            result.Append($"Firmware={this.sensor.FirmwareVersion.Major}.{this.sensor.FirmwareVersion.Minor}.{this.sensor.FirmwareVersion.Release}.{this.sensor.FirmwareVersion.Build}&");
+            result.Append($"Modo de Escaneo={this.sensor.ScanMode.ToString()}&");
+            result.Append($"Alineación={this.sensor.AlignmentState.ToString()}&");
+            result.Append($"Estado={this.sensor.State.ToString()}&");
+            result.Append($"Valor de encoder={this.sensor.Encoder()}&");
 
-            string job = "";
-            bool ignore = false;
-            sensor.LoadedJob(ref job, ref ignore);
+            var job = "";
+            var ignore = false;
+            this.sensor.LoadedJob(ref job, ref ignore);
             result.Append($"Perfil de Trabajo={job}");
 
             result.Append("|]");
@@ -57,7 +51,7 @@ namespace Kaomi.Processes
 
         public override void OnUserMessage(string message)
         {
-            
+
         }
     }
 }

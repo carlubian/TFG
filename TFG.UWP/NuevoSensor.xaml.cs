@@ -1,22 +1,14 @@
 ﻿using ConfigAdapter.Xml;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using TFG.Core;
 using TFG.Core.Model;
 using TFG.UWP.Dialogs;
 using TFG.UWP.Dialogs.Assistant;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
@@ -33,72 +25,66 @@ namespace TFG.UWP
         public NuevoSensor()
         {
             this.InitializeComponent();
-            GridStep1.Visibility = Visibility.Visible;
-            GridStep2.Visibility = Visibility.Collapsed;
-            GridStep3.Visibility = Visibility.Collapsed;
+            this.GridStep1.Visibility = Visibility.Visible;
+            this.GridStep2.Visibility = Visibility.Collapsed;
+            this.GridStep3.Visibility = Visibility.Collapsed;
 
-            FieldCountry.ItemsSource = ValoresCriterio.Pais;
-            FieldCountry.SelectedIndex = 0;
-            FieldType.ItemsSource = ValoresCriterio.TipoSensor;
-            FieldType.SelectedIndex = 0;
-            FieldOps.ItemsSource = ValoresCriterio.Operaciones;
-            FieldOps.SelectedIndex = 0;
-            FieldLocation.ItemsSource = ValoresCriterio.Localizacion;
-            FieldLocation.SelectedIndex = 0;
+            this.FieldCountry.ItemsSource = ValoresCriterio.Pais;
+            this.FieldCountry.SelectedIndex = 0;
+            this.FieldType.ItemsSource = ValoresCriterio.TipoSensor;
+            this.FieldType.SelectedIndex = 0;
+            this.FieldOps.ItemsSource = ValoresCriterio.Operaciones;
+            this.FieldOps.SelectedIndex = 0;
+            this.FieldLocation.ItemsSource = ValoresCriterio.Localizacion;
+            this.FieldLocation.SelectedIndex = 0;
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            Step = 1;
-        }
-        
+        protected override void OnNavigatedTo(NavigationEventArgs e) => this.Step = 1;
+
         // Hacer click sobre el botón 'Cancelar'
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.GoBack();
-        }
+        private void Button_Click(object sender, RoutedEventArgs e) => this.Frame.GoBack();
 
         // Nuevo botón de 'Siguiente' común a todos los pasos
         private async void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            if (Step is 1)
+            if (this.Step is 1)
             {
-                if (!Validate.IPAddress(FieldIP.Text))
+                if (!Validate.IPAddress(this.FieldIP.Text))
                 {
                     await new ErrorValidacion("Dirección IP").ShowAsync();
                     return;
                 }
-                if (!Validate.Port(FieldPort.Text))
+                if (!Validate.Port(this.FieldPort.Text))
                 {
                     await new ErrorValidacion("Puerto").ShowAsync();
                     return;
                 }
 
-                Step = 2;
+                this.Step = 2;
 
-                GridStep1.Visibility = Visibility.Collapsed;
-                GridStep2.Visibility = Visibility.Visible;
+                this.GridStep1.Visibility = Visibility.Collapsed;
+                this.GridStep2.Visibility = Visibility.Visible;
 
                 return;
             }
-            if (Step is 2)
+            if (this.Step is 2)
             {
-                if (!Validate.StringContainsText(FieldName.Text))
+                if (!Validate.StringContainsText(this.FieldName.Text))
                 {
                     await new ErrorValidacion("Nombre del sensor").ShowAsync();
                     return;
                 }
 
-                Step = 3;
-                
-                GridStep2.Visibility = Visibility.Collapsed;
-                GridStep3.Visibility = Visibility.Visible;
+                this.Step = 3;
+
+                this.GridStep2.Visibility = Visibility.Collapsed;
+                this.GridStep3.Visibility = Visibility.Visible;
 
                 return;
             }
-            if (Step is 3)
+            if (this.Step is 3)
             {
-                Step = 1;
+                this.Step = 1;
                 // TODO Validación
                 var directory = ApplicationData.Current.LocalFolder.Path;
                 var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
@@ -107,30 +93,27 @@ namespace TFG.UWP
                 var sensores = config.Read("ActiveSensors");
                 config.Write("ActiveSensors", $"{sensores}|SN{thisID}");
 
-                config.Write($"SN{thisID}:Name", FieldName.Text);
-                config.Write($"SN{thisID}:IP", FieldIP.Text);
-                config.Write($"SN{thisID}:Port", FieldPort.Text);
-                config.Write($"SN{thisID}:Type", FieldType.SelectedItem as string);
-                config.Write($"SN{thisID}:Country", FieldCountry.SelectedItem as string);
-                config.Write($"SN{thisID}:Location", FieldLocation.SelectedItem as string);
-                config.Write($"SN{thisID}:Operations", FieldOps.SelectedItem as string);
+                config.Write($"SN{thisID}:Name", this.FieldName.Text);
+                config.Write($"SN{thisID}:IP", this.FieldIP.Text);
+                config.Write($"SN{thisID}:Port", this.FieldPort.Text);
+                config.Write($"SN{thisID}:Type", this.FieldType.SelectedItem as string);
+                config.Write($"SN{thisID}:Country", this.FieldCountry.SelectedItem as string);
+                config.Write($"SN{thisID}:Location", this.FieldLocation.SelectedItem as string);
+                config.Write($"SN{thisID}:Operations", this.FieldOps.SelectedItem as string);
 
-                Frame.Navigate(typeof(MainPage));
+                this.Frame.Navigate(typeof(MainPage));
             }
         }
 
         // Abrir el sistema de asistencia
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            _ = new InicioAyuda().ShowAsync();
-        }
+        private void Button_Click_1(object sender, RoutedEventArgs e) => _ = new InicioAyuda().ShowAsync();
 
         // F1 también abre el sistema de asistencia
         private void Grid_KeyUp(object sender, KeyRoutedEventArgs e)
         {
             if (e.Key is Windows.System.VirtualKey.F1
                 || e.Key is Windows.System.VirtualKey.NumberPad0)
-                Button_Click_1(this, null);
+                this.Button_Click_1(this, null);
         }
     }
 }

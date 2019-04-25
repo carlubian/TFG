@@ -190,6 +190,7 @@
     </AppxManifest>
     <Content Include="Assets\Fonts\selawksl.ttf" />
     <PRIResource Include="Resources.resw" />
+    <None Include=".editorconfig" />
     <None Include="TFG.UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

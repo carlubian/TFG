@@ -2,21 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using TFG.UWP.Dialogs.Assistant;
 using Windows.ApplicationModel.Core;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -34,18 +26,15 @@ namespace TFG.UWP
         }
 
         // Volver sin guardar
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.GoBack();
-        }
+        private void Button_Click(object sender, RoutedEventArgs e) => this.Frame.GoBack();
 
         // Guardar ajustes
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (ValidateSettings())
+            if (this.ValidateSettings())
             {
-                SaveSettings();
-                Frame.GoBack();
+                this.SaveSettings();
+                this.Frame.GoBack();
             }
         }
 
@@ -62,14 +51,14 @@ namespace TFG.UWP
             if (wait is default(string))
                 wait = "20";
 
-            FieldAttempts.Text = attempts;
-            FieldWait.Text = wait;
+            this.FieldAttempts.Text = attempts;
+            this.FieldWait.Text = wait;
         }
 
         private bool ValidateSettings()
         {
-            var attempts = FieldAttempts.Text;
-            var wait = FieldWait.Text;
+            var attempts = this.FieldAttempts.Text;
+            var wait = this.FieldWait.Text;
 
             if (int.TryParse(attempts, out var n1) &&
                 int.TryParse(wait, out var n2) &&
@@ -82,11 +71,11 @@ namespace TFG.UWP
 
         private void SaveSettings()
         {
-            var directory = Windows.Storage.ApplicationData.Current.LocalFolder.Path;
+            var directory = ApplicationData.Current.LocalFolder.Path;
 
             var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
-            config.Write("Global:Attempts", FieldAttempts.Text);
-            config.Write("Global:Delay", FieldWait.Text);
+            config.Write("Global:Attempts", this.FieldAttempts.Text);
+            config.Write("Global:Delay", this.FieldWait.Text);
         }
 
         // Exportar ajustes
@@ -104,8 +93,8 @@ namespace TFG.UWP
 
             if (file != null)
             {
-                 await FileIO.WriteLinesAsync(file, 
-                    await FileIO.ReadLinesAsync(await ApplicationData.Current.LocalFolder.GetFileAsync("Settings.xml")) as IEnumerable<string>);
+                await FileIO.WriteLinesAsync(file,
+                   await FileIO.ReadLinesAsync(await ApplicationData.Current.LocalFolder.GetFileAsync("Settings.xml")) as IEnumerable<string>);
             }
         }
 
@@ -126,15 +115,12 @@ namespace TFG.UWP
                 await FileIO.WriteLinesAsync(await ApplicationData.Current.LocalFolder.GetFileAsync("Settings.xml"),
                     await FileIO.ReadLinesAsync(file) as IEnumerable<string>);
 
-                PopulateSettings();
+                this.PopulateSettings();
             }
         }
 
         // Abrir el sistema de asistencia
-        private void Button_Click_4(object sender, RoutedEventArgs e)
-        {
-            _ = new InicioAyuda().ShowAsync();
-        }
+        private void Button_Click_4(object sender, RoutedEventArgs e) => _ = new InicioAyuda().ShowAsync();
 
         // Restaurar datos de fábrica
         private async void Button_Click_5(object sender, RoutedEventArgs e)
@@ -164,7 +150,7 @@ namespace TFG.UWP
         {
             if (e.Key is Windows.System.VirtualKey.F1
                 || e.Key is Windows.System.VirtualKey.NumberPad0)
-                Button_Click_4(this, null);
+                this.Button_Click_4(this, null);
         }
     }
 }

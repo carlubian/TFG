@@ -1,9 +1,6 @@
 ﻿using Kaomi.Legacy.Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Kaomi.Processes
 {
@@ -13,8 +10,8 @@ namespace Kaomi.Processes
 
         public override void OnInitialize()
         {
-            Console = Request<KaomiPluginConsole>();
-            Console.WriteLine("[TestGocator] Este es un proceso de prueba. No debería estar presente en la versión final.",
+            this.Console = this.Request<KaomiPluginConsole>();
+            this.Console.WriteLine("[TestGocator] Este es un proceso de prueba. No debería estar presente en la versión final.",
                 OutputKind.Warning);
 
             base.IterationDelay = TimeSpan.FromSeconds(30);
@@ -24,7 +21,7 @@ namespace Kaomi.Processes
         {
 
         }
-        
+
         public override void OnIteration()
         {
             var random = new Random();

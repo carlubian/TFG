@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using TFG.Core.Model.SensorProperties;
-using Windows.UI;
-using Windows.UI.Xaml.Media;
 
 namespace TFG.Core
 {
@@ -35,7 +31,7 @@ namespace TFG.Core
         {
             // ¿Es la propiedad 'Conectado'?
             if (key is "Conectado")
-                return value is "True" 
+                return value is "True"
                     ? "32:128:32"
                     : "170:0:0";
             // ¿Es la propiedad 'Compatible'?
@@ -44,7 +40,7 @@ namespace TFG.Core
                     ? "32:128:32"
                     : "170:0:0";
             // ¿Es la propiedad 'Estado'?
-            if(key is "Estado")
+            if (key is "Estado")
                 return value is "Ready"
                     ? "235:193:0"
                     : "32:128:32";

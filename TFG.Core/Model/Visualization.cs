@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TFG.Core.Model.Criteria;
@@ -59,25 +58,27 @@ namespace TFG.Core.Model
             var result = new StringBuilder();
 
             // Caso especial: ningún filtro
-            if (TipoSensor is AllEncompasingCriteria && Pais is AllEncompasingCriteria
-                && Localizacion is AllEncompasingCriteria && Operaciones is AllEncompasingCriteria)
+            if (this.TipoSensor is AllEncompasingCriteria 
+                && this.Pais is AllEncompasingCriteria
+                && this.Localizacion is AllEncompasingCriteria 
+                && this.Operaciones is AllEncompasingCriteria)
                 result.Append("Mostrando todos los sensores ");
             else
             {
                 result.Append("Mostrando sensores ");
-                if (TipoSensor is PredicateCriteria ts)
+                if (this.TipoSensor is PredicateCriteria ts)
                     result.Append($"{ts.Verbose} ");
-                if (Pais is PredicateCriteria pa)
+                if (this.Pais is PredicateCriteria pa)
                     result.Append($"{pa.Verbose} ");
-                if (Localizacion is PredicateCriteria lc)
+                if (this.Localizacion is PredicateCriteria lc)
                     result.Append($"{lc.Verbose} ");
-                if (Operaciones is PredicateCriteria op)
+                if (this.Operaciones is PredicateCriteria op)
                     result.Append($"{op.Verbose} ");
             }
 
             result.Append("ordenados por ");
 
-            switch (Ordenacion)
+            switch (this.Ordenacion)
             {
                 case Ordenacion.TipoSensor:
                     result.Append("tipo de sensor.");
@@ -107,22 +108,22 @@ namespace TFG.Core.Model
         {
             var output = input;
 
-            if (TipoSensor is PredicateCriteria ts)
+            if (this.TipoSensor is PredicateCriteria ts)
                 output = output.Where(s => ts.Evaluate(s.Tipo));
-            if (Pais is PredicateCriteria pa)
+            if (this.Pais is PredicateCriteria pa)
                 output = output.Where(s => pa.Evaluate(s.Pais));
-            if (Localizacion is PredicateCriteria lc)
+            if (this.Localizacion is PredicateCriteria lc)
                 output = output.Where(s => lc.Evaluate(s.Lugar));
-            if (Operaciones is PredicateCriteria op)
+            if (this.Operaciones is PredicateCriteria op)
                 output = output.Where(s => op.Evaluate(s.Operaciones));
 
-            if (Ordenacion is Ordenacion.TipoSensor)
+            if (this.Ordenacion is Ordenacion.TipoSensor)
                 output = output.OrderBy(s => s.Tipo);
-            if (Ordenacion is Ordenacion.Pais)
+            if (this.Ordenacion is Ordenacion.Pais)
                 output = output.OrderBy(s => s.Pais);
-            if (Ordenacion is Ordenacion.Localizacion)
+            if (this.Ordenacion is Ordenacion.Localizacion)
                 output = output.OrderBy(s => s.Lugar);
-            if (Ordenacion is Ordenacion.Operaciones)
+            if (this.Ordenacion is Ordenacion.Operaciones)
                 output = output.OrderBy(s => s.Operaciones);
 
             // No mostrar sensores eliminados

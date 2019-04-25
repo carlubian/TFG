@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TFG.Core.Model.Criteria
+﻿namespace TFG.Core.Model.Criteria
 {
     /// <summary>
     /// Indica que este factor no va a ser filtrado,

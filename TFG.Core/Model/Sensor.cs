@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using TFG.Core.Model.SensorProperties;
-using Windows.UI.Xaml.Media;
-using Windows.UI;
+﻿using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Linq;
-using System.Collections.ObjectModel;
+using TFG.Core.Model.SensorProperties;
+using Windows.UI;
+using Windows.UI.Xaml.Media;
 
 namespace TFG.Core.Model
 {
@@ -28,11 +25,13 @@ namespace TFG.Core.Model
 
         private SolidColorBrush _brush = new SolidColorBrush(Color.FromArgb(255, 120, 128, 136));
 
-        public string StatusIcon { get
+        public string StatusIcon
+        {
+            get
             {
                 try
                 {
-                    var estado = TextualProperties.FirstOrDefault(p => p.Key is "Conectado");
+                    var estado = this.TextualProperties.FirstOrDefault(p => p.Key is "Conectado");
                     if (estado is null)
                         // No hay conexión con el servidor
                         return "SensorOffline.png";
@@ -44,7 +43,8 @@ namespace TFG.Core.Model
                         // El servidor dice que el sensor está desconectado
                         return "SensorError.png";
                 }
-                catch {
+                catch
+                {
                     return "SensorOffline.png";
                 }
             }
@@ -58,51 +58,51 @@ namespace TFG.Core.Model
             {
                 try
                 {
-                    var estado = TextualProperties.FirstOrDefault(p => p.Key is "Conectado");
+                    var estado = this.TextualProperties.FirstOrDefault(p => p.Key is "Conectado");
                     if (estado is null)
                         // No hay conexión con el servidor
-                        _brush = new SolidColorBrush(Color.FromArgb(255, 120, 128, 136));
+                        this._brush = new SolidColorBrush(Color.FromArgb(255, 120, 128, 136));
 
                     if (estado.Value is "True")
                         // El servidor dice que el sensor está conectado
-                        _brush = new SolidColorBrush(Color.FromArgb(255, 32, 128, 32));
+                        this._brush = new SolidColorBrush(Color.FromArgb(255, 32, 128, 32));
                     else
                         // El servidor dice que el sensor está desconectado
-                        _brush = new SolidColorBrush(Color.FromArgb(255, 170, 0, 0));
+                        this._brush = new SolidColorBrush(Color.FromArgb(255, 170, 0, 0));
                 }
                 catch { }
-                return _brush;
+                return this._brush;
             }
         }
 
         private KaomiClient Kaomi = null;
-        private Timer Timer;
+        private readonly Timer Timer;
 
         public Sensor()
         {
-            Deleted = false;
-            Timer = new Timer(_ => Parallel.Invoke(TimerTick), null, 0, 30000);
-            TextualProperties = new ObservableCollection<TextualProperty>();
-            NumericProperties = new ObservableCollection<NumericProperty>();
+            this.Deleted = false;
+            this.Timer = new Timer(_ => Parallel.Invoke(this.TimerTick), null, 0, 30000);
+            this.TextualProperties = new ObservableCollection<TextualProperty>();
+            this.NumericProperties = new ObservableCollection<NumericProperty>();
         }
 
         private void TimerTick()
         {
-            if (Deleted is true)
+            if (this.Deleted is true)
                 return;
-            if (Kaomi is null)
-                Kaomi = KaomiClient.Connect(IP, int.Parse(Puerto));
+            if (this.Kaomi is null)
+                this.Kaomi = KaomiClient.Connect(this.IP, int.Parse(this.Puerto));
 
-            if (Kaomi.Connected())
+            if (this.Kaomi.Connected())
             {
                 // El proceso debe llamarse como el tipo del sensor
-                Kaomi.AttachProcess(Tipo);
+                this.Kaomi.AttachProcess(this.Tipo);
 
-                if (Kaomi.HasResults() is true)
+                if (this.Kaomi.HasResults() is true)
                 {
-                    var result = Kaomi.LatestResult();
+                    var result = this.Kaomi.LatestResult();
                     var textual = KaomiResponseParser.Parse(result);
-                    TextualProperties = new ObservableCollection<TextualProperty>(textual);
+                    this.TextualProperties = new ObservableCollection<TextualProperty>(textual);
                 }
                 else
                 {

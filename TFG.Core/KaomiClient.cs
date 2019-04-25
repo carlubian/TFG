@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Kaomi.Client;
 using System.Linq;
-using Kaomi.Client;
 
 namespace TFG.Core
 {
@@ -20,13 +17,10 @@ namespace TFG.Core
         /// <param name="ip">Dirección IP</param>
         /// <param name="puerto">Puerto</param>
         /// <returns></returns>
-        public static KaomiClient Connect(string ip, int puerto)
+        public static KaomiClient Connect(string ip, int puerto) => new KaomiClient
         {
-            return new KaomiClient
-            {
-                server = KaomiServer.ConnectTo(ip, puerto)
-            };
-        }
+            server = KaomiServer.ConnectTo(ip, puerto)
+        };
 
         /// <summary>
         /// Checks whether a server is actually connected.
@@ -36,7 +30,7 @@ namespace TFG.Core
         {
             try
             {
-                return server.IsListening();
+                return this.server.IsListening();
             }
             catch
             {
@@ -49,29 +43,20 @@ namespace TFG.Core
         /// the given ID (case invariant).
         /// </summary>
         /// <param name="pid">Process ID</param>
-        public void AttachProcess(string pid)
-        {
-            process = server.AllAssemblies().AssemblyList
+        public void AttachProcess(string pid) => this.process = this.server.AllAssemblies().AssemblyList
                 .SelectMany(asm => asm.AllProcesses().ProcessList)
                 .FirstOrDefault(p => p.Id.ToUpperInvariant().Equals(pid.ToUpperInvariant()));
-        }
 
         /// <summary>
         /// Checks whether the process has results available.
         /// </summary>
         /// <returns></returns>
-        public bool? HasResults()
-        {
-            return process?.HasResults().HasResults;
-        }
+        public bool? HasResults() => this.process?.HasResults().HasResults;
 
         /// <summary>
         /// Returns the latest result of the process.
         /// </summary>
         /// <returns></returns>
-        public string LatestResult()
-        {
-            return process?.GetResults().Results.Last();
-        }
+        public string LatestResult() => this.process?.GetResults().Results.Last();
     }
 }

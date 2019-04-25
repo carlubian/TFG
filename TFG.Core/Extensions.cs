@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TFG.Core
+﻿namespace TFG.Core
 {
     public static class Extensions
     {

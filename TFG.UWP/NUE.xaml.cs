@@ -2,20 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using TFG.UWP.Dialogs.Assistant;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -60,21 +52,18 @@ namespace TFG.UWP
                 };
                 await dialog.ShowAsync();
 
-                Frame.Navigate(typeof(MainPage));
+                this.Frame.Navigate(typeof(MainPage));
             }
         }
 
         // Saltar la introducción y empezar de cero
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(MainPage));
-        }
+        private void Button_Click_2(object sender, RoutedEventArgs e) => this.Frame.Navigate(typeof(MainPage));
 
         // Abrir el sistema de asistencia
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             await new InicioAyuda().ShowAsync();
-            Frame.Navigate(typeof(MainPage));
+            this.Frame.Navigate(typeof(MainPage));
         }
 
         // F1 también abre el sistema de asistencia
@@ -82,7 +71,7 @@ namespace TFG.UWP
         {
             if (e.Key is Windows.System.VirtualKey.F1
                 || e.Key is Windows.System.VirtualKey.NumberPad0)
-                Button_Click(this, null);
+                this.Button_Click(this, null);
         }
     }
 }

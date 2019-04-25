@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Windows.UI.Xaml.Media;
-
-namespace TFG.Core.Model.SensorProperties
+﻿namespace TFG.Core.Model.SensorProperties
 {
     public class TextualProperty
     {

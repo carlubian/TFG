@@ -182,7 +182,7 @@ Si prefieres empezar de cero, pulsa el botón 'Saltar' para saltarte la introduc
 
 Si ya has usado la aplicación antes y tienes una copia de seguridad de los ajustes, pulsa el botón 'Importar' para recuperar la configuración anterior.
 
-Si quieres abrir el sistema de asistencia para recibir ayuda o utilizar las funciones de esta aplicación de forma sencilla, pulsa el botón 'Ayuda'. Ten en cuenta que el botón de ayuda aparece en todas las pantallas, y podrás usarlo siempre que necesites asistencia.</value>
+Si quieres abrir el sistema de acceso rápido para utilizar las funciones de esta aplicación de forma sencilla, pulsa el botón 'Acceso Rápido'. Ten en cuenta que este botón aparece en todas las pantallas, y podrás usarlo siempre como alternativa al esquema de navegación estándar.</value>
   </data>
   <data name="NuevoSensorClasiText.Text" xml:space="preserve">
     <value>¡Estupendo! El servidor remoto parece estar funcionando correctamente.

@@ -5,25 +5,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using TFG.Core;
 using TFG.Core.Model;
 using TFG.Core.Model.Criteria;
 using TFG.UWP.Dialogs.Assistant;
-using Windows.ApplicationModel.Core;
 using Windows.Devices.Geolocation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Storage;
-using Windows.System.Threading;
-using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Maps;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0xc0a
 
@@ -82,12 +72,12 @@ namespace TFG.UWP
                         Title = kvp.Key
                     });
                 });
-            MapControl1.Layers.Add(new MapElementsLayer
+            this.MapControl1.Layers.Add(new MapElementsLayer
             {
                 ZIndex = 1,
                 MapElements = elements
             });
-            MapControl1.Center = new Geopoint(new BasicGeoposition
+            this.MapControl1.Center = new Geopoint(new BasicGeoposition
             {
                 Latitude = 40.42,
                 Longitude = -3.70
@@ -101,7 +91,7 @@ namespace TFG.UWP
             var country = clickedIcon.Title;
 
             // Ver solo los sensores de ese país
-            Frame.Navigate(typeof(VistaListado), new Visualization
+            this.Frame.Navigate(typeof(VistaListado), new Visualization
             {
                 TipoSensor = new AllEncompasingCriteria(),
                 Localizacion = new AllEncompasingCriteria(),
@@ -117,35 +107,23 @@ namespace TFG.UWP
         }
 
         // Hacer click sobre el botón 'Nuevo sensor'
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(NuevoSensor));
-        }
+        private void Button_Click(object sender, RoutedEventArgs e) => this.Frame.Navigate(typeof(NuevoSensor));
 
         // Hacer click sobre el botón 'Ajustes'
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(Ajustes));
-        }
+        private void Button_Click_1(object sender, RoutedEventArgs e) => this.Frame.Navigate(typeof(Ajustes));
 
         // Mostrar todos los sensores
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(VistaListado), Visualization.Default);
-        }
+        private void Button_Click_2(object sender, RoutedEventArgs e) => this.Frame.Navigate(typeof(VistaListado), Visualization.Default);
 
         // Abrir el sistema de asistencia
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            _ = new InicioAyuda().ShowAsync();
-        }
+        private void Button_Click_3(object sender, RoutedEventArgs e) => _ = new InicioAyuda().ShowAsync();
 
         // F1 también abre el sistema de asistencia
         private void Grid_KeyUp(object sender, KeyRoutedEventArgs e)
         {
             if (e.Key is Windows.System.VirtualKey.F1
                 || e.Key is Windows.System.VirtualKey.NumberPad0)
-                Button_Click_3(this, null);
+                this.Button_Click_3(this, null);
         }
     }
 }
