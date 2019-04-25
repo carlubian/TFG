@@ -5,11 +5,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TFG.Core;
 using TFG.Core.Model;
 using TFG.Core.Model.Criteria;
 using TFG.UWP.Dialogs.Assistant;
 using Windows.Devices.Geolocation;
 using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Maps;
@@ -69,7 +71,8 @@ namespace TFG.UWP
                             Longitude = kvp.Value.longitud
                         }),
                         ZIndex = 0,
-                        Title = kvp.Key
+                        Title = kvp.Key,
+                        Image = RandomAccessStreamReference.CreateFromUri(Estado.SensoresEnPais(SessionStorage.Sensores, kvp.Key))
                     });
                 });
             this.MapControl1.Layers.Add(new MapElementsLayer

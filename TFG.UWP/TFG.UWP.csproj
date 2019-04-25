@@ -154,6 +154,9 @@
     <Compile Include="Dialogs\Assistant\PanelSensorEliminar.xaml.cs">
       <DependentUpon>PanelSensorEliminar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\Assistant\PanelSensorNuevoStep1.xaml.cs">
+      <DependentUpon>PanelSensorNuevoStep1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\Assistant\_Plantilla.xaml.cs">
       <DependentUpon>_Plantilla.xaml</DependentUpon>
     </Compile>
@@ -179,6 +182,7 @@
       <DependentUpon>NuevoSensor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SensorBuilder.cs" />
     <Compile Include="SessionStorage.cs" />
     <Compile Include="VistaListado.xaml.cs">
       <DependentUpon>VistaListado.xaml</DependentUpon>
@@ -267,6 +271,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Dialogs\Assistant\PanelSensorEliminar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\Assistant\PanelSensorNuevoStep1.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

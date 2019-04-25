@@ -26,7 +26,8 @@ namespace TFG.UWP.Dialogs.Assistant
         // Botón de 'Posición 1' (Nuevo)
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            this.Hide();
+            _ = new PanelSensorNuevoStep1().ShowAsync();
         }
 
         // Botón de 'Posición 3' (Editar)

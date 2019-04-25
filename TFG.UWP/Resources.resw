@@ -212,4 +212,9 @@ Ten en cuenta que si el sensor está desconectado, se mostrarán menos datos.</v
 
 ¡Cuidado! Esta acción es irreversible.</value>
   </data>
+  <data name="SensorNuevoStep1Content.Text" xml:space="preserve">
+    <value>Escribe los datos que identifican el endpoint donde se encuentra el sensor.
+
+Para que todo funcione es necesario que un servidor remoto con el proceso adecuado se esté ejecutando en el ordenador indicado.</value>
+  </data>
 </root>

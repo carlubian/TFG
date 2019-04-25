@@ -10,10 +10,12 @@ namespace TFG.UWP
     internal static class SessionStorage
     {
         internal static ObservableCollection<Sensor> Sensores { get; set; }
+        internal static SensorBuilder SensorBeingBuilt { get; set; }
 
         static SessionStorage()
         {
             Sensores = new ObservableCollection<Sensor>();
+            SensorBeingBuilt = null;
         }
     }
 }

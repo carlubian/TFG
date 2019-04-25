@@ -11,6 +11,7 @@ namespace TFG.UWP.Dialogs.Assistant
         public InicioAyuda()
         {
             this.InitializeComponent();
+            SessionStorage.SensorBeingBuilt = null;
         }
 
         // Botón de 'Volver atrás' (Click izquierdo)
