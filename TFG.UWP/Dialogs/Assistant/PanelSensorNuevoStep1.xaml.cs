@@ -17,8 +17,8 @@ namespace TFG.UWP.Dialogs.Assistant
                 SessionStorage.SensorBeingBuilt = new SensorBuilder();
             else
             {
-                FieldIP.Text = sensor.IP;
-                FieldPort.Text = sensor.Puerto;
+                this.FieldIP.Text = sensor.IP;
+                this.FieldPort.Text = sensor.Puerto;
             }
         }
 
@@ -35,9 +35,10 @@ namespace TFG.UWP.Dialogs.Assistant
         // Botón de 'Posición 2' (Continuar)
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-           SessionStorage.SensorBeingBuilt = SessionStorage.SensorBeingBuilt
-                .WithIP(FieldIP.Text)
-                .WithPuerto(FieldPort.Text);
+            // TODO Validación
+            SessionStorage.SensorBeingBuilt = SessionStorage.SensorBeingBuilt
+                .WithIP(this.FieldIP.Text)
+                .WithPuerto(this.FieldPort.Text);
 
             this.Hide();
             _ = new PanelSensorNuevoStep2().ShowAsync();

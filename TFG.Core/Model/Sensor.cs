@@ -91,7 +91,14 @@ namespace TFG.Core.Model
             if (this.Deleted is true)
                 return;
             if (this.Kaomi is null)
-                this.Kaomi = KaomiClient.Connect(this.IP, int.Parse(this.Puerto));
+                try
+                {
+                    this.Kaomi = KaomiClient.Connect(this.IP, int.Parse(this.Puerto));
+                }
+                catch
+                {
+                    return;
+                }
 
             if (this.Kaomi.Connected())
             {

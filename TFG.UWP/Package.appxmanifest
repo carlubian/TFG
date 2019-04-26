@@ -16,7 +16,7 @@
   <Properties>
     <DisplayName>TFG.UWP</DisplayName>
     <PublisherDisplayName>portflat</PublisherDisplayName>
-    <Logo>Assets\StoreLogo.png</Logo>
+    <Logo>Assets\IconsUWP\StoreLogo.png</Logo>
   </Properties>
 
   <Dependencies>
@@ -33,12 +33,12 @@
       EntryPoint="TFG.UWP.App">
       <uap:VisualElements
         DisplayName="TFG.UWP"
-        Square150x150Logo="Assets\Square150x150Logo.png"
-        Square44x44Logo="Assets\Square44x44Logo.png"
+        Square150x150Logo="Assets\IconsUWP\Square150x150Logo.png"
+        Square44x44Logo="Assets\IconsUWP\Square44x44Logo.png"
         Description="TFG.UWP"
         BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
-        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:DefaultTile Wide310x150Logo="Assets\IconsUWP\Wide310x150Logo.png" Square71x71Logo="Assets\IconsUWP\SmallTile.png" Square310x310Logo="Assets\IconsUWP\LargeTile.png"/>
+        <uap:SplashScreen Image="Assets\IconsUWP\SplashScreen.png"  BackgroundColor="#003C92"/>
       </uap:VisualElements>
     </Application>
   </Applications>

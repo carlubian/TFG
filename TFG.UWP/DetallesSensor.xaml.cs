@@ -62,6 +62,8 @@ namespace TFG.UWP
                 () => this.ListTextual.ItemsSource = this.sensor.TextualProperties);
             _ = CoreApplication.MainView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
                 () => this.StatusIcon.Source = new BitmapImage(new Uri($"ms-appx:///Assets/Icons/{this.sensor.StatusIcon}")));
+            _ = CoreApplication.MainView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
+               () => this.ColorBar.Background = sensor.ColorEstado);
         }
 
         // Volver atrás

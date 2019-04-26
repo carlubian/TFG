@@ -9,7 +9,16 @@ namespace TFG.UWP
     /// </summary>
     internal static class SessionStorage
     {
+        /// <summary>
+        /// Lista de sensores conectados. Es preferible
+        /// utilizar esta lista antes que procesar el
+        /// archivo de configuración directamente.
+        /// </summary>
         internal static ObservableCollection<Sensor> Sensores { get; set; }
+        /// <summary>
+        /// Sensor en proceso de ser construido
+        /// mediante los paneles de acceso rápido.
+        /// </summary>
         internal static SensorBuilder SensorBeingBuilt { get; set; }
 
         static SessionStorage()

@@ -20,7 +20,7 @@ namespace TFG.Core
                 var partes = ajuste.Split('=');
                 yield return new TextualProperty
                 {
-                    Key = partes[0],
+                    Key = partes[0].Replace("[", ""),
                     Value = partes[1],
                     Color = GetForeground(partes[0], partes[1])
                 };

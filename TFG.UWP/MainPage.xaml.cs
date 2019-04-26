@@ -5,10 +5,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
 using TFG.Core;
 using TFG.Core.Model;
 using TFG.Core.Model.Criteria;
 using TFG.UWP.Dialogs.Assistant;
+using Windows.ApplicationModel.Core;
 using Windows.Devices.Geolocation;
 using Windows.Storage;
 using Windows.Storage.Streams;
@@ -52,7 +54,22 @@ namespace TFG.UWP
                     });
                 });
             }
+            UpdateMapIcons();
+            new Timer(_ =>
+            {
+                _ = CoreApplication.MainView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
+                () => this.UpdateMapIcons());
+            }, null, 1500, 30000);
 
+            this.MapControl1.Center = new Geopoint(new BasicGeoposition
+            {
+                Latitude = 40.42,
+                Longitude = -3.70
+            });
+        }
+
+        private void UpdateMapIcons()
+        {
             // Buscar todos los países en los que hay sensores
             var paises = SessionStorage.Sensores
                 .Select(sensor => sensor.Pais)
@@ -75,15 +92,11 @@ namespace TFG.UWP
                         Image = RandomAccessStreamReference.CreateFromUri(Estado.SensoresEnPais(SessionStorage.Sensores, kvp.Key))
                     });
                 });
+            this.MapControl1.Layers.Clear();
             this.MapControl1.Layers.Add(new MapElementsLayer
             {
                 ZIndex = 1,
                 MapElements = elements
-            });
-            this.MapControl1.Center = new Geopoint(new BasicGeoposition
-            {
-                Latitude = 40.42,
-                Longitude = -3.70
             });
         }
 

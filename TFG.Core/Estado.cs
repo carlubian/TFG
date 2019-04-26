@@ -15,12 +15,15 @@ namespace TFG.Core
                 .Distinct();
 
             // Si alguno tiene error, mostrar icono rojo
-            if (estados.Contains("Error"))
+            if (estados.Any(n => n.Contains("Error")))
                 return new Uri("https://placehold.it/24/aa0000/000000?text=+");
 
             // Si todos están desconectados, mostrar icono gris
             if (estados.All(n => n.Contains("Offline")))
-                return new Uri("https://placehold.it/24/208020/780888?text=+");
+                return new Uri("https://placehold.it/24/788088/000000?text=+");
+            // Si alguno está desconectado, mostrar icono amarillo
+            else if (estados.Any(n => n.Contains("Offline")))
+                return new Uri("https://placehold.it/24/ecb300/000000?text=+");
 
             // En otro caso, devolver icono verde
             return new Uri("https://placehold.it/24/208020/000000?text=+");
