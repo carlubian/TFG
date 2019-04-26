@@ -217,4 +217,29 @@ Ten en cuenta que si el sensor está desconectado, se mostrarán menos datos.</v
 
 Para que todo funcione es necesario que un servidor remoto con el proceso adecuado se esté ejecutando en el ordenador indicado.</value>
   </data>
+  <data name="SensorNuevoStep2Content.Text" xml:space="preserve">
+    <value>Ahora elige el tipo de sensor. 
+
+Cada tipo de sensor tiene un proceso modular propio que debe estar ejecutándose en el servidor remoto.</value>
+  </data>
+  <data name="SensorNuevoStep3Content.Text" xml:space="preserve">
+    <value>Selecciona el país en el que el sensor se encuentra instalado.
+
+Este valor solo se usa para filtrar y ordenar sensores, pero no afectará al funcionamiento del resto del sistema.</value>
+  </data>
+  <data name="SensorNuevoStep4Content.Text" xml:space="preserve">
+    <value>Selecciona el lugar de instalación del sensor.
+
+Este valor solo se usa para filtrar y ordenar sensores, pero no afectará al funcionamiento del resto del sistema.</value>
+  </data>
+  <data name="SensorNuevoStep5Content.Text" xml:space="preserve">
+    <value>Elige el modo de funcionamiento del sensor.
+
+Este valor solo se usa para filtrar y ordenar sensores, pero no afectará al funcionamiento del resto del sistema.</value>
+  </data>
+  <data name="SensorNuevoStep6Content.Text" xml:space="preserve">
+    <value>Por último, escribe un nombre para el sensor.
+
+Este valor es únicamente para facilitar la identificación del sensor, por lo que puedes incluir cualquier criterio que sea necesario.</value>
+  </data>
 </root>

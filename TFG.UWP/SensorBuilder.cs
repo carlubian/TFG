@@ -9,15 +9,15 @@ namespace TFG.UWP
 {
     internal class SensorBuilder
     {
-        private string InternalID { get; }
+        internal string InternalID { get; }
 
-        private string Nombre { get; set; }
-        private string IP { get; set; }
-        private string Puerto { get; set; }
-        private string Tipo { get; set; }
-        private string Pais { get; set; }
-        private string Lugar { get; set; }
-        private string Operaciones { get; set; }
+        internal string Nombre { get; set; }
+        internal string IP { get; set; }
+        internal string Puerto { get; set; }
+        internal string Tipo { get; set; }
+        internal string Pais { get; set; }
+        internal string Lugar { get; set; }
+        internal string Operaciones { get; set; }
 
         internal SensorBuilder()
         {

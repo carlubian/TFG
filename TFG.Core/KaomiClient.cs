@@ -17,10 +17,20 @@ namespace TFG.Core
         /// <param name="ip">Dirección IP</param>
         /// <param name="puerto">Puerto</param>
         /// <returns></returns>
-        public static KaomiClient Connect(string ip, int puerto) => new KaomiClient
+        public static KaomiClient Connect(string ip, int puerto)
         {
-            server = KaomiServer.ConnectTo(ip, puerto)
-        };
+            try
+            {
+                return new KaomiClient
+                {
+                    server = KaomiServer.ConnectTo(ip, puerto)
+                };
+            }
+            catch
+            {
+                return new KaomiClient();
+            }
+        }
 
         /// <summary>
         /// Checks whether a server is actually connected.

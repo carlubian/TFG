@@ -157,6 +157,21 @@
     <Compile Include="Dialogs\Assistant\PanelSensorNuevoStep1.xaml.cs">
       <DependentUpon>PanelSensorNuevoStep1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\Assistant\PanelSensorNuevoStep5.xaml.cs">
+      <DependentUpon>PanelSensorNuevoStep5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Assistant\PanelSensorNuevoStep4.xaml.cs">
+      <DependentUpon>PanelSensorNuevoStep4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Assistant\PanelSensorNuevoStep3.xaml.cs">
+      <DependentUpon>PanelSensorNuevoStep3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Assistant\PanelSensorNuevoStep2.xaml.cs">
+      <DependentUpon>PanelSensorNuevoStep2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Assistant\PanelSensorNuevoStep6.xaml.cs">
+      <DependentUpon>PanelSensorNuevoStep6.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\Assistant\_Plantilla.xaml.cs">
       <DependentUpon>_Plantilla.xaml</DependentUpon>
     </Compile>
@@ -275,6 +290,26 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Dialogs\Assistant\PanelSensorNuevoStep1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\Assistant\PanelSensorNuevoStep5.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\Assistant\PanelSensorNuevoStep4.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\Assistant\PanelSensorNuevoStep3.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\Assistant\PanelSensorNuevoStep2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\Assistant\PanelSensorNuevoStep6.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

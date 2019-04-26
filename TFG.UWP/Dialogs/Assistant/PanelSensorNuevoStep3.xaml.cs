@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml;
+﻿using TFG.Core.Model;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 
@@ -6,27 +7,25 @@ using Windows.UI.Xaml.Input;
 
 namespace TFG.UWP.Dialogs.Assistant
 {
-    public sealed partial class PanelSensorNuevoStep1 : ContentDialog
+    public sealed partial class PanelSensorNuevoStep3 : ContentDialog
     {
-        public PanelSensorNuevoStep1()
+        public PanelSensorNuevoStep3()
         {
             this.InitializeComponent();
+            this.ComboPais.ItemsSource = ValoresCriterio.Pais;
 
             var sensor = SessionStorage.SensorBeingBuilt;
-            if (sensor is null)
-                SessionStorage.SensorBeingBuilt = new SensorBuilder();
+            if (sensor.Pais is null)
+                this.ComboPais.SelectedIndex = 0;
             else
-            {
-                FieldIP.Text = sensor.IP;
-                FieldPort.Text = sensor.Puerto;
-            }
+                this.ComboPais.SelectedItem = sensor.Pais;
         }
 
         // Botón de 'Volver atrás' (Click izquierdo)
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            _ = new PanelSensores().ShowAsync();
+            _ = new PanelSensorNuevoStep2().ShowAsync();
         }
 
         // Botón de 'Volver atrás' (Click derecho)
@@ -35,12 +34,10 @@ namespace TFG.UWP.Dialogs.Assistant
         // Botón de 'Posición 2' (Continuar)
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-           SessionStorage.SensorBeingBuilt = SessionStorage.SensorBeingBuilt
-                .WithIP(FieldIP.Text)
-                .WithPuerto(FieldPort.Text);
-
+            SessionStorage.SensorBeingBuilt = SessionStorage.SensorBeingBuilt
+                .WithPais(this.ComboPais.SelectedItem.ToString());
             this.Hide();
-            _ = new PanelSensorNuevoStep2().ShowAsync();
+            _ = new PanelSensorNuevoStep4().ShowAsync();
         }
 
         // Utilizar el teclado numérico para navegar

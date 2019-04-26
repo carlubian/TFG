@@ -1,4 +1,8 @@
-﻿using Windows.UI.Xaml;
+﻿using ConfigAdapter.Xml;
+using System;
+using System.IO;
+using Windows.Storage;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 
@@ -6,41 +10,47 @@ using Windows.UI.Xaml.Input;
 
 namespace TFG.UWP.Dialogs.Assistant
 {
-    public sealed partial class PanelSensorNuevoStep1 : ContentDialog
+    public sealed partial class PanelSensorNuevoStep6 : ContentDialog
     {
-        public PanelSensorNuevoStep1()
+        public PanelSensorNuevoStep6()
         {
             this.InitializeComponent();
-
-            var sensor = SessionStorage.SensorBeingBuilt;
-            if (sensor is null)
-                SessionStorage.SensorBeingBuilt = new SensorBuilder();
-            else
-            {
-                FieldIP.Text = sensor.IP;
-                FieldPort.Text = sensor.Puerto;
-            }
         }
 
         // Botón de 'Volver atrás' (Click izquierdo)
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            _ = new PanelSensores().ShowAsync();
+            _ = new PanelSensorNuevoStep5().ShowAsync();
         }
 
         // Botón de 'Volver atrás' (Click derecho)
         private void Button_RightTapped(object sender, RightTappedRoutedEventArgs e) => this.Hide();
 
-        // Botón de 'Posición 2' (Continuar)
+        // Botón de 'Posición 2' (Finalizar)
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-           SessionStorage.SensorBeingBuilt = SessionStorage.SensorBeingBuilt
-                .WithIP(FieldIP.Text)
-                .WithPuerto(FieldPort.Text);
+            SessionStorage.SensorBeingBuilt = SessionStorage.SensorBeingBuilt
+                .WithNombre(this.FieldNombre.Text);
 
             this.Hide();
-            _ = new PanelSensorNuevoStep2().ShowAsync();
+            var sensor = SessionStorage.SensorBeingBuilt.Build();
+
+            var directory = ApplicationData.Current.LocalFolder.Path;
+            var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
+            var thisID = DateTime.Now.Ticks;
+
+            var sensores = config.Read("ActiveSensors");
+            config.Write("ActiveSensors", $"{sensores}|SN{thisID}");
+
+            config.Write($"SN{thisID}:Name", sensor.Nombre);
+            config.Write($"SN{thisID}:IP", sensor.IP);
+            config.Write($"SN{thisID}:Port", sensor.Puerto);
+            config.Write($"SN{thisID}:Type", sensor.Tipo);
+            config.Write($"SN{thisID}:Country", sensor.Pais);
+            config.Write($"SN{thisID}:Location", sensor.Lugar);
+            config.Write($"SN{thisID}:Operations", sensor.Operaciones);
+            (Window.Current.Content as Frame)?.Navigate(typeof(DetallesSensor), sensor);
         }
 
         // Utilizar el teclado numérico para navegar

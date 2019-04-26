@@ -6,41 +6,48 @@ using Windows.UI.Xaml.Input;
 
 namespace TFG.UWP.Dialogs.Assistant
 {
-    public sealed partial class PanelSensorNuevoStep1 : ContentDialog
+    public sealed partial class PanelSensorNuevoStep5 : ContentDialog
     {
-        public PanelSensorNuevoStep1()
+        public PanelSensorNuevoStep5()
         {
             this.InitializeComponent();
-
-            var sensor = SessionStorage.SensorBeingBuilt;
-            if (sensor is null)
-                SessionStorage.SensorBeingBuilt = new SensorBuilder();
-            else
-            {
-                FieldIP.Text = sensor.IP;
-                FieldPort.Text = sensor.Puerto;
-            }
         }
 
         // Botón de 'Volver atrás' (Click izquierdo)
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            _ = new PanelSensores().ShowAsync();
+            _ = new PanelSensorNuevoStep4().ShowAsync();
         }
 
         // Botón de 'Volver atrás' (Click derecho)
         private void Button_RightTapped(object sender, RightTappedRoutedEventArgs e) => this.Hide();
 
-        // Botón de 'Posición 2' (Continuar)
+        // Botón de 'Posición 1' (Pruebas)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            SessionStorage.SensorBeingBuilt = SessionStorage.SensorBeingBuilt
+                .WithOps("Pruebas");
+            this.Hide();
+            _ = new PanelSensorNuevoStep6().ShowAsync();
+        }
+
+        // Botón de 'Posición 2' (Producción)
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-           SessionStorage.SensorBeingBuilt = SessionStorage.SensorBeingBuilt
-                .WithIP(FieldIP.Text)
-                .WithPuerto(FieldPort.Text);
-
+            SessionStorage.SensorBeingBuilt = SessionStorage.SensorBeingBuilt
+                .WithOps("Produccion");
             this.Hide();
-            _ = new PanelSensorNuevoStep2().ShowAsync();
+            _ = new PanelSensorNuevoStep6().ShowAsync();
+        }
+
+        // Botón de 'Posición 3' (Indefinido)
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            SessionStorage.SensorBeingBuilt = SessionStorage.SensorBeingBuilt
+                .WithOps("Indefinido");
+            this.Hide();
+            _ = new PanelSensorNuevoStep6().ShowAsync();
         }
 
         // Utilizar el teclado numérico para navegar
@@ -52,8 +59,14 @@ namespace TFG.UWP.Dialogs.Assistant
         {
             switch (e.Key)
             {
+                case Windows.System.VirtualKey.NumberPad7:
+                    this.Button_Click_1(this, null);
+                    break;
                 case Windows.System.VirtualKey.NumberPad8:
                     this.Button_Click_2(this, null);
+                    break;
+                case Windows.System.VirtualKey.NumberPad9:
+                    this.Button_Click_3(this, null);
                     break;
                 case Windows.System.VirtualKey.NumberPad5:
                     this.Button_Click(this, null);
