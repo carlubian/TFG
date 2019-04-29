@@ -32,7 +32,8 @@ namespace TFG.UWP.Dialogs.Assistant
         // Botón de 'Posición 3' (Ajustes)
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-
+            this.Hide();
+            (Window.Current.Content as Frame)?.Navigate(typeof(Ajustes), null);
         }
 
         // Botón de 'Posición 6' (Listados)
@@ -42,7 +43,7 @@ namespace TFG.UWP.Dialogs.Assistant
             _ = new PanelListados().ShowAsync();
         }
 
-        // Botón de 'Posición 8' (Voz)
+        // Botón de 'Posición 8'
         private void Button_Click_8(object sender, RoutedEventArgs e)
         {
 

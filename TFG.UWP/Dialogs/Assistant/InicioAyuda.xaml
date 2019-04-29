@@ -53,7 +53,7 @@
             <Button Grid.Row="2" Grid.Column="2"
                     Width="96" Height="96"
                     Click="Button_Click_8">
-                Voz
+                
             </Button>
         </Grid>
         

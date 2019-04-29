@@ -38,7 +38,7 @@ namespace TFG.UWP
                 () => this.ListaSensores.ItemsSource = this.Filters.Apply(SessionStorage.Sensores));
 
         // Volver atrás
-        private void Button_Click(object sender, RoutedEventArgs e) => this.Frame.GoBack();
+        private void Button_Click(object sender, RoutedEventArgs e) => Navigation.GoBack(this);
 
         // Mostrar diálogo de filtros
         private async void Button_Click_2(object sender, RoutedEventArgs e)
@@ -52,7 +52,7 @@ namespace TFG.UWP
             this.ListaSensores.ItemsSource = this.Filters.Apply(SessionStorage.Sensores);
         }
 
-        // Ver detalles del sensor seleccionado
+        // Ver detalles del sensor seleccionado (Antiguo)
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             if (this.ListaSensores.SelectedItem is null)
@@ -62,6 +62,13 @@ namespace TFG.UWP
             }
 
             var sensor = this.ListaSensores.SelectedItem as Sensor;
+            this.Frame.Navigate(typeof(DetallesSensor), sensor);
+        }
+
+        // Ahora se ven detalles pulsando directamente sobre la lista
+        private void ListaSensores_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var sensor = e.ClickedItem as Sensor;
             this.Frame.Navigate(typeof(DetallesSensor), sensor);
         }
 

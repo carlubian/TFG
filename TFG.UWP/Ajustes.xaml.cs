@@ -26,7 +26,7 @@ namespace TFG.UWP
         }
 
         // Volver sin guardar
-        private void Button_Click(object sender, RoutedEventArgs e) => this.Frame.GoBack();
+        private void Button_Click(object sender, RoutedEventArgs e) => Navigation.GoBack(this);
 
         // Guardar ajustes
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -34,7 +34,7 @@ namespace TFG.UWP
             if (this.ValidateSettings())
             {
                 this.SaveSettings();
-                this.Frame.GoBack();
+                Navigation.GoBack(this);
             }
         }
 

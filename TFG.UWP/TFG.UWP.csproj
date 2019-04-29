@@ -190,6 +190,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Navigation.cs" />
     <Compile Include="NUE.xaml.cs">
       <DependentUpon>NUE.xaml</DependentUpon>
     </Compile>

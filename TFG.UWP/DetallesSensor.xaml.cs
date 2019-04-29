@@ -67,7 +67,7 @@ namespace TFG.UWP
         }
 
         // Volver atrás
-        private void Button_Click(object sender, RoutedEventArgs e) => this.Frame.GoBack();
+        private void Button_Click(object sender, RoutedEventArgs e) => Navigation.GoBack(this);
 
         // Editar datos del sensor
         private void Button_Click_1(object sender, RoutedEventArgs e) => this.Frame.Navigate(typeof(EditarSensor), this.sensor);

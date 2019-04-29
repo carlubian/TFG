@@ -40,7 +40,9 @@
             </Grid>
 
             <ListView Grid.Row="2" x:Name="ListaSensores"
-                      SelectionMode="Single">
+                      SelectionMode="Single"
+                      ItemClick="ListaSensores_ItemClick"
+                      IsItemClickEnabled="True">
                 <ListView.Resources>
                     <SolidColorBrush x:Key="ListViewItemBackgroundSelected" Color="#505050" />
                     <SolidColorBrush x:Key="ListViewItemBackgroundSelectedPointerOver" Color="#505050" />
@@ -101,14 +103,14 @@
                                    HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Button>
-                <Button Width="128" Click="Button_Click_3">
+                <!--<Button Width="128" Click="Button_Click_3">
                     <StackPanel Orientation="Vertical">
                         <Image Source="Assets/Icons/details.png"
                            Width="64"/>
                         <TextBlock Text="Ver detalles"
                                    HorizontalAlignment="Center"/>
                     </StackPanel>
-                </Button>
+                </Button>-->
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Grid.Row="1"

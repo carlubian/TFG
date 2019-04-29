@@ -46,7 +46,7 @@ namespace TFG.UWP
         }
 
         // Cancelar modificaciones
-        private void Button_Click(object sender, RoutedEventArgs e) => this.Frame.GoBack();
+        private void Button_Click(object sender, RoutedEventArgs e) => Navigation.GoBack(this);
 
         // Guardar modificaciones
         private async void Button_Click_1(object sender, RoutedEventArgs e)

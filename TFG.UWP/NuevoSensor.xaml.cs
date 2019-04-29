@@ -42,7 +42,7 @@ namespace TFG.UWP
         protected override void OnNavigatedTo(NavigationEventArgs e) => this.Step = 1;
 
         // Hacer click sobre el botón 'Cancelar'
-        private void Button_Click(object sender, RoutedEventArgs e) => this.Frame.GoBack();
+        private void Button_Click(object sender, RoutedEventArgs e) => Navigation.GoBack(this);
 
         // Nuevo botón de 'Siguiente' común a todos los pasos
         private async void Button_Click_4(object sender, RoutedEventArgs e)
