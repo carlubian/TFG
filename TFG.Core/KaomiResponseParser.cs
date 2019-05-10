@@ -5,7 +5,7 @@ namespace TFG.Core
 {
     internal static class KaomiResponseParser
     {
-        internal static IEnumerable<TextualProperty> Parse(string response)
+        internal static (IEnumerable<TextualProperty> textual, IEnumerable<NumericProperty> numeric) Parse(string response)
         {
             response.Replace("[", "");
             response.Replace("]", "");
@@ -14,17 +14,24 @@ namespace TFG.Core
 
             // Ajustes textuales
             var ajtex = categorias[0].Split('&');
+            var textual = new List<TextualProperty>();
 
             foreach (var ajuste in ajtex)
             {
                 var partes = ajuste.Split('=');
-                yield return new TextualProperty
+                textual.Add(new TextualProperty
                 {
                     Key = partes[0].Replace("[", ""),
                     Value = partes[1],
                     Color = GetForeground(partes[0], partes[1])
-                };
+                });
             }
+
+            // Ajustes numéricos
+            var ajnum = categorias[1].Split('&');
+            var numeric = new List<NumericProperty>();
+
+            return (textual, numeric);
         }
 
         private static string GetForeground(string key, string value)

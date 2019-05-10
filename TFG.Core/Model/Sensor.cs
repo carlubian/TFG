@@ -74,8 +74,9 @@ namespace TFG.Core.Model
                 if (this.Kaomi.HasResults() is true)
                 {
                     var result = this.Kaomi.LatestResult();
-                    var textual = KaomiResponseParser.Parse(result);
+                    var (textual, numeric) = KaomiResponseParser.Parse(result);
                     this.TextualProperties = new ObservableCollection<TextualProperty>(textual);
+                    this.NumericProperties = new ObservableCollection<NumericProperty>(numeric);
                 }
                 else
                 {
