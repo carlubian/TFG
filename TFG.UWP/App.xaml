@@ -15,7 +15,7 @@
         </Style>
         <Style TargetType="Button">
             <Setter Property="FontFamily" Value="Assets/Fonts/selawksl.ttf#Selawik"/>
-            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontSize" Value="18"/>
             <Setter Property="Foreground" Value="#FFF0F5FA"/>
             <Setter Property="Background" Value="#FF003C92"/>
             <Setter Property="Margin" Value="4"/>
@@ -30,12 +30,23 @@
         <Style TargetType="TextBlock">
             <Setter Property="Margin" Value="4"/>
             <Setter Property="FontFamily" Value="Assets/Fonts/selawksl.ttf#Selawik"/>
-            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontSize" Value="20"/>
             <Setter Property="Foreground" Value="#FFF0F5FA"/>
         </Style>
         <Style TargetType="TextBox">
             <Setter Property="Margin" Value="4"/>
             <Setter Property="FontFamily" Value="Assets/Fonts/selawksl.ttf#Selawik"/>
+            <Setter Property="Foreground" Value="#FFF0F5FA"/>
+        </Style>
+        <Style TargetType="RadioButton">
+            <Setter Property="FontFamily" Value="Assets/Fonts/selawksl.ttf#Selawik"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Foreground" Value="#FFF0F5FA"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Margin" Value="4"/>
+            <Setter Property="FontFamily" Value="Assets/Fonts/selawksl.ttf#Selawik"/>
+            <Setter Property="FontSize" Value="18"/>
             <Setter Property="Foreground" Value="#FFF0F5FA"/>
         </Style>
         <Style TargetType="uwp:RadialGauge">

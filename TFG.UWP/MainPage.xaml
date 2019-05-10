@@ -40,7 +40,7 @@
                     <StackPanel Orientation="Vertical">
                         <Image Source="Assets/Icons/add.png"
                            Width="64"/>
-                        <TextBlock Text="Nuevo sensor"
+                        <TextBlock Text="Conectar"
                                    HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Button>
@@ -48,7 +48,7 @@
                     <StackPanel Orientation="Vertical">
                         <Image Source="Assets/Icons/list.png"
                            Width="64"/>
-                        <TextBlock Text="Mostrar todos"
+                        <TextBlock Text="Ver todos"
                                    HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Button>
@@ -56,7 +56,7 @@
                     <StackPanel Orientation="Vertical">
                         <Image Source="Assets/Icons/settings.png"
                            Width="64"/>
-                        <TextBlock Text="Configuración"
+                        <TextBlock Text="Ajustes"
                                    HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Button>
@@ -68,7 +68,7 @@
                     <StackPanel Orientation="Vertical">
                         <Image Source="Assets/Icons/menu.png"
                            Width="64"/>
-                        <TextBlock Text="Acceso Rápido"
+                        <TextBlock Text="Fast Track"
                                    HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Button>

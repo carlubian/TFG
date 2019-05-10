@@ -23,7 +23,7 @@
             </Grid.RowDefinitions>
             
             <TextBlock Grid.Row="0"
-                       FontSize="36"
+                       FontSize="42"
                        Text="Visualizador de datos de sensores"
                        HorizontalAlignment="Center"/>
 
@@ -67,7 +67,7 @@
                     <StackPanel Orientation="Vertical">
                         <Image Source="Assets/Icons/menu.png"
                            Width="64"/>
-                        <TextBlock Text="Acceso Rápido"
+                        <TextBlock Text="Fast Track"
                                    HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Button>

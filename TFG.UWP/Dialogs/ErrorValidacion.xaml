@@ -12,13 +12,13 @@
 
     <Grid Background="Transparent">
         <StackPanel Orientation="Vertical">
-            <TextBlock FontSize="20"
+            <TextBlock FontSize="24"
                    Text="Error de validación"
                    TextWrapping="Wrap"/>
-            <TextBlock FontSize="16"
+            <TextBlock FontSize="18"
                    Text="El siguiente campo tiene un valor incorrecto. Por favor, revisa su formato y contenido:"
                    TextWrapping="Wrap"/>
-            <TextBlock FontSize="16"
+            <TextBlock FontSize="18"
                    x:Name="FieldName"
                    TextWrapping="Wrap" Foreground="#FFECB300"/>
         </StackPanel>

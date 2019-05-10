@@ -118,23 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AyudaListadosContent.Text" xml:space="preserve">
-    <value>¿Cómo quieres filtrar el listado?
+    <value>Elige el criterio que quieres usar para filtrar la lista de sensores.
 
-Por país: Mostrará solo los sensores localizados en el país elegido.
-Ver todos: Mostrará todos los sensores conectados.
-Por lugar: Mostrará solo los sensores instalados en un lugar (oficina, laboratorio, ...) elegido.
-Por tipo: Mostrará solo los sensores del tipo elegido.
-Por modo: Mostrará solo los sensores en modo elegido (pruebas o producción).</value>
+También puedes elegir verlos todos.</value>
     <comment>Contenido del panel inicial de listados del sistema de ayuda.</comment>
   </data>
   <data name="AyudaSensoresContent.Text" xml:space="preserve">
-    <value>Conectar un nuevo sensor lo hará aparecer en los listados. Asegúrate de que el ordenador donde está el sensor tenga instalado un servidor Kaomi con el proceso correspondiente.
+    <value>Desde aquí puedes controlar los sensores conectados al sistema.
 
-Editar un sensor te permite modificar alguno de sus ajustes.
-
-Eliminar un sensor lo desconectará de la aplicación, pero el servidor Kaomi seguirá funcionando a no ser que lo cierres manualmente.
-
-Ver los detalles de un sensor mostrará información específica sobre su estado y conexión.</value>
+Ten en cuenta que para que la conexión funcione, el servidor remoto debe estar ejecutando un proceso modular adecuado al tipo de sensor.</value>
     <comment>Contenido del panel inicial de sensores del sistema de ayuda.</comment>
   </data>
   <data name="DetallesSensorIndef.Text" xml:space="preserve">
@@ -143,11 +135,11 @@ Ver los detalles de un sensor mostrará información específica sobre su estado
 ¡Todo está listo para funcionar!</value>
   </data>
   <data name="InicioAyudaContent.Text" xml:space="preserve">
-    <value>Este es el sistema de Acceso Rápido. A través de la cuadrícula contextual podrás llegar a todas las opciones de la aplicación.
+    <value>Este es el sistema de Acceso Rápido. A través de la cuadrícula podrás llegar a todas las opciones de la aplicación.
 
-Si en algún momento te pierdes y quieres salir, solo tienes que hacer clic derecho sobre el botón central para cerrar el panel.
+Si en algún momento te pierdes, solo tienes que hacer clic derecho sobre el botón central para cerrar el panel.
 
-Recuerda que también puedes usar el teclado numérico para navegar por la cuadrícula contextual.</value>
+Recuerda que también puedes usar el teclado numérico para navegar.</value>
     <comment>Texto del diálogo inicial del sistema de asistencia.</comment>
   </data>
   <data name="InicioAyudaTitle.Text" xml:space="preserve">
@@ -213,9 +205,7 @@ Ten en cuenta que si el sensor está desconectado, se mostrarán menos datos.</v
 ¡Cuidado! Esta acción es irreversible.</value>
   </data>
   <data name="SensorNuevoStep1Content.Text" xml:space="preserve">
-    <value>Escribe los datos que identifican el endpoint donde se encuentra el sensor.
-
-Para que todo funcione es necesario que un servidor remoto con el proceso adecuado se esté ejecutando en el ordenador indicado.</value>
+    <value>Escribe los datos que identifican el servidor remoto donde se encuentra el sensor.</value>
   </data>
   <data name="SensorNuevoStep2Content.Text" xml:space="preserve">
     <value>Ahora elige el tipo de sensor. 

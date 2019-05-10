@@ -14,10 +14,10 @@
 
     <Grid Background="Transparent">
         <StackPanel Orientation="Vertical">
-            <TextBlock FontSize="20"
+            <TextBlock FontSize="24"
                    Text="Confirmar eliminación"
                    TextWrapping="Wrap"/>
-            <TextBlock FontSize="16"
+            <TextBlock FontSize="18"
                    Text="¿Estás seguro de que quieres eliminar este sensor? La eliminación es irreversible."
                    TextWrapping="Wrap"/>
         </StackPanel>

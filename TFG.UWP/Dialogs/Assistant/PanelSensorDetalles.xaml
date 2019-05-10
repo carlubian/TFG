@@ -33,12 +33,12 @@
             </Grid.ColumnDefinitions>
 
             <Button Grid.Row="0" Grid.Column="1"
-                    Width="96" Height="96"
+                    Width="112" Height="112"
                     Click="Button_Click_2">
                 Seleccionar
             </Button>
             <Button Grid.Row="1" Grid.Column="1"
-                    Width="96" Height="96"
+                    Width="112" Height="112"
                     Background="#FF586068"
                     Click="Button_Click"
                     RightTapped="Button_RightTapped">
@@ -46,20 +46,20 @@
                        Height="48"/>
             </Button>
             <Rectangle Grid.Row="2" Grid.Column="0"
-                    Width="96" Height="96"/>
+                    Width="112" Height="112"/>
             <Rectangle Grid.Row="2" Grid.Column="2"
-                    Width="96" Height="96"/>
+                    Width="112" Height="112"/>
         </Grid>
         
         <!-- Columna derecha: Contenido del panel -->
         <StackPanel Orientation="Vertical" Grid.Column="1"
-                    Width="312">
-            <TextBlock FontSize="24"
+                    Width="362">
+            <TextBlock FontSize="28"
                        Text="Detalles de sensor" />
             <TextBlock TextWrapping="Wrap"
                        x:Uid="SensorDetallesContent"
                        Text="Contenido del panel, normalmente explicando información contextual." />
-            <ComboBox x:Name="ComboSensores" Width="300"
+            <ComboBox x:Name="ComboSensores" Width="350"
                       HorizontalAlignment="Center">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
@@ -69,22 +69,22 @@
                                        Source="{Binding StatusIcon, Converter={StaticResource StringToBitmapImage}}"/>
                                 <TextBlock Text="{Binding Nombre}"
                                        Foreground="{Binding ColorEstado}"
-                                       FontSize="20"
+                                       FontSize="22"
                                            Margin="8, 4, 4, 4"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="{Binding Tipo}" 
                                            Foreground="#FFF0F5FA" Margin="4"
-                                           FontSize="12"/>
+                                           FontSize="16"/>
                                 <TextBlock Text="{Binding Pais}" 
                                            Foreground="#FFF0F5FA" Margin="4"
-                                           FontSize="12"/>
+                                           FontSize="16"/>
                                 <TextBlock Text="{Binding Lugar}" 
                                            Foreground="#FFF0F5FA" Margin="4"
-                                           FontSize="12"/>
+                                           FontSize="16"/>
                                 <TextBlock Text="{Binding Operaciones}" 
                                            Foreground="#FFF0F5FA" Margin="4"
-                                           FontSize="12"/>
+                                           FontSize="16"/>
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>

@@ -28,13 +28,14 @@
             </Grid.RowDefinitions>
 
             <TextBlock Grid.Row="0"
-                       FontSize="36"
+                       FontSize="42"
                        Text="Lista de sensores"
                        HorizontalAlignment="Center"/>
 
             <Grid Grid.Row="1" Background="Transparent">
                 <TextBlock HorizontalAlignment="Left"
-                           FontSize="20"
+                           FontSize="24"
+                           TextWrapping="Wrap"
                            Text="Filtro actual: [ESPAÑA][PRODUCCIÓN]"
                            x:Name="LabelCriteria"/>
             </Grid>
@@ -120,7 +121,7 @@
                     <StackPanel Orientation="Vertical">
                         <Image Source="Assets/Icons/menu.png"
                            Width="64"/>
-                        <TextBlock Text="Acceso Rápido"
+                        <TextBlock Text="Fast Track"
                                    HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Button>

@@ -41,42 +41,43 @@
 
                 <StackPanel Orientation="Vertical"
                             Grid.Column="1">
-                    <TextBlock Foreground="#FF889098"
+                    <TextBlock Foreground="#FFA0B0B8"
                                Text="Datos básicos"/>
                     <Rectangle Height="4" Fill="#FF003C92"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical"
                             Grid.Column="2">
-                    <TextBlock Foreground="#FF889098"
+                    <TextBlock Foreground="#FFA0B0B8"
                                Text="Clasificación"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical"
                             Grid.Column="3">
-                    <TextBlock Foreground="#FF889098"
+                    <TextBlock Foreground="#FFA0B0B8"
                                Text="Otros detalles"/>
                 </StackPanel>
             </Grid>
 
             <TextBlock Grid.Row="1"
-                       FontSize="36"
+                       FontSize="42"
                        Text="Conectar nuevo sensor"
                        HorizontalAlignment="Center"/>
 
             <TextBlock Grid.Row="2"
-                       FontSize="20"
+                       FontSize="24"
                        TextWrapping="Wrap"
                        x:Uid="NuevoSensorIntroText"/>
 
-            <StackPanel Orientation="Vertical" Grid.Row="3">
+            <StackPanel Orientation="Vertical" Grid.Row="3"
+                        HorizontalAlignment="Center">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Dirección IP"
-                               Width="128"/>
+                               Width="200"/>
                     <TextBox PlaceholderText="192.168.1.1"
                              x:Name="FieldIP" Width="160"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Puerto"
-                               Width="128"/>
+                               Width="200"/>
                     <TextBox PlaceholderText="5000"
                              x:Name="FieldPort" Width="160"/>
                 </StackPanel>
@@ -106,57 +107,58 @@
 
                 <StackPanel Orientation="Vertical"
                             Grid.Column="1">
-                    <TextBlock Foreground="#FF889098"
+                    <TextBlock Foreground="#FFA0B0B8"
                                Text="Datos básicos"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical"
                             Grid.Column="2">
-                    <TextBlock Foreground="#FF889098"
+                    <TextBlock Foreground="#FFA0B0B8"
                                Text="Clasificación"/>
                     <Rectangle Height="4" Fill="#FF003C92"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical"
                             Grid.Column="3">
-                    <TextBlock Foreground="#FF889098"
+                    <TextBlock Foreground="#FFA0B0B8"
                                Text="Otros detalles"/>
                 </StackPanel>
             </Grid>
 
             <TextBlock Grid.Row="1"
-                       FontSize="36"
+                       FontSize="42"
                        Text="Algo más de información"
                        HorizontalAlignment="Center"/>
 
             <TextBlock Grid.Row="2"
-                       FontSize="20"
+                       FontSize="24"
                        TextWrapping="Wrap"
                        x:Uid="NuevoSensorClasiText"/>
 
-            <StackPanel Orientation="Vertical" Grid.Row="3">
+            <StackPanel Orientation="Vertical" Grid.Row="3"
+                        HorizontalAlignment="Center">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Nombre del sensor"
-                               Width="128"/>
+                               Width="200"/>
                     <TextBox PlaceholderText="Nuevo sensor sin nombre"
                              x:Name="FieldName" Width="192"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Tipo de sensor"
-                               Width="128"/>
+                               Width="200"/>
                     <ComboBox x:Name="FieldType" Width="192"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="País de origen"
-                               Width="128"/>
+                               Width="200"/>
                     <ComboBox x:Name="FieldCountry" Width="192"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Lugar de instalación"
-                               Width="128"/>
+                               Width="200"/>
                     <ComboBox x:Name="FieldLocation" Width="192"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Operaciones"
-                               Width="128"/>
+                               Width="200"/>
                     <ComboBox x:Name="FieldOps" Width="192"/>
                 </StackPanel>
             </StackPanel>
@@ -185,29 +187,29 @@
 
                 <StackPanel Orientation="Vertical"
                             Grid.Column="1">
-                    <TextBlock Foreground="#FF889098"
+                    <TextBlock Foreground="#FFA0B0B8"
                                Text="Datos básicos"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical"
                             Grid.Column="2">
-                    <TextBlock Foreground="#FF889098"
+                    <TextBlock Foreground="#FFA0B0B8"
                                Text="Clasificación"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical"
                             Grid.Column="3">
-                    <TextBlock Foreground="#FF889098"
+                    <TextBlock Foreground="#FFA0B0B8"
                                Text="Otros detalles"/>
                     <Rectangle Height="4" Fill="#FF003C92"/>
                 </StackPanel>
             </Grid>
 
             <TextBlock Grid.Row="1"
-                       FontSize="36"
+                       FontSize="42"
                        Text="Ajustes finales"
                        HorizontalAlignment="Center"/>
 
             <TextBlock Grid.Row="2"
-                       FontSize="20"
+                       FontSize="24"
                        TextWrapping="Wrap"
                        x:Uid="NuevoSensorFinalText"/>
 
@@ -217,7 +219,9 @@
             <Grid Grid.Row="3"
                   x:Name="GridAjustesIndef"
                   Background="Transparent">
-                <TextBlock x:Uid="DetallesSensorIndef"/>
+                <TextBlock x:Uid="DetallesSensorIndef"
+                           TextWrapping="Wrap"
+                           HorizontalAlignment="Center"/>
             </Grid>
         </Grid>
 
@@ -254,7 +258,7 @@
                     <StackPanel Orientation="Vertical">
                         <Image Source="Assets/Icons/menu.png"
                            Width="64"/>
-                        <TextBlock Text="Acceso Rápido"
+                        <TextBlock Text="Fast Track"
                                    HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Button>

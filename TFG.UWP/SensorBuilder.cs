@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TFG.Core.Model;
 
 namespace TFG.UWP
@@ -21,7 +17,7 @@ namespace TFG.UWP
 
         internal SensorBuilder()
         {
-            InternalID = $"SN{DateTime.Now.Ticks}";
+            this.InternalID = $"SN{DateTime.Now.Ticks}";
         }
 
         internal SensorBuilder WithNombre(string nombre)
@@ -66,20 +62,17 @@ namespace TFG.UWP
             return this;
         }
 
-        internal Sensor Build()
+        internal Sensor Build() => new Sensor
         {
-            return new Sensor
-            {
-                InternalID = this.InternalID,
-                Deleted = false,
-                IP = this.IP,
-                Lugar = this.Lugar,
-                Nombre = this.Nombre,
-                Operaciones = this.Operaciones,
-                Pais = this.Pais,
-                Puerto = this.Puerto,
-                Tipo = this.Tipo
-            };
-        }
+            InternalID = this.InternalID,
+            Deleted = false,
+            IP = this.IP,
+            Lugar = this.Lugar,
+            Nombre = this.Nombre,
+            Operaciones = this.Operaciones,
+            Pais = this.Pais,
+            Puerto = this.Puerto,
+            Tipo = this.Tipo
+        };
     }
 }

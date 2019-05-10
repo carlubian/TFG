@@ -28,22 +28,22 @@
             </Grid.ColumnDefinitions>
 
             <Button Grid.Row="0" Grid.Column="0"
-                    Width="96" Height="96"
+                    Width="112" Height="112"
                     Click="Button_Click_1">
                 Por país
             </Button>
             <Button Grid.Row="0" Grid.Column="1"
-                    Width="96" Height="96"
+                    Width="112" Height="112"
                     Click="Button_Click_2">
                 Ver todos
             </Button>
             <Button Grid.Row="0" Grid.Column="2"
-                    Width="96" Height="96"
+                    Width="112" Height="112"
                     Click="Button_Click_3">
                 Por lugar
             </Button>
             <Button Grid.Row="1" Grid.Column="1"
-                    Width="96" Height="96"
+                    Width="112" Height="112"
                     Background="#FF586068"
                     Click="Button_Click"
                     RightTapped="Button_RightTapped">
@@ -51,12 +51,12 @@
                        Height="48"/>
             </Button>
             <Button Grid.Row="2" Grid.Column="0"
-                    Width="96" Height="96"
+                    Width="112" Height="112"
                     Click="Button_Click_6">
                 Por tipo
             </Button>
             <Button Grid.Row="2" Grid.Column="2"
-                    Width="96" Height="96"
+                    Width="112" Height="112"
                     Click="Button_Click_8">
                 Por modo
             </Button>
@@ -64,8 +64,8 @@
         
         <!-- Columna derecha: Contenido del panel -->
         <StackPanel Orientation="Vertical" Grid.Column="1"
-                    Width="312">
-            <TextBlock FontSize="24"
+                    Width="362">
+            <TextBlock FontSize="28"
                        Text="Ver listados" />
             <TextBlock TextWrapping="Wrap"
                        x:Uid="AyudaListadosContent"

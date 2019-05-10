@@ -20,29 +20,33 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" FontSize="20"
+        <TextBlock Grid.Row="0" FontSize="24"
                    Text="Filtrar listado:"/>
 
         <StackPanel Orientation="Vertical" Grid.Row="1">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Tipo de sensor" Width="96"/>
+                <TextBlock Text="Tipo de sensor" Width="150"
+                           FontSize="18"/>
                 <ComboBox x:Name="FieldTipo" Width="160"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="País" Width="96"/>
+                <TextBlock Text="País" Width="150"
+                           FontSize="18"/>
                 <ComboBox x:Name="FieldPais" Width="160"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Localización" Width="96"/>
+                <TextBlock Text="Localización" Width="150"
+                           FontSize="18"/>
                 <ComboBox x:Name="FieldLugar" Width="160"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Operaciones" Width="96"/>
+                <TextBlock Text="Operaciones" Width="150"
+                           FontSize="18"/>
                 <ComboBox x:Name="FieldOps" Width="160"/>
             </StackPanel>
         </StackPanel>
 
-        <TextBlock Grid.Row="2" FontSize="20"
+        <TextBlock Grid.Row="2" FontSize="24"
                    Text="Ordenar listado:"/>
 
         <StackPanel Orientation="Vertical" Grid.Row="3">

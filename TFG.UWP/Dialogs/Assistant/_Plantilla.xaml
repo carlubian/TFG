@@ -28,27 +28,27 @@
             </Grid.ColumnDefinitions>
 
             <Button Grid.Row="0" Grid.Column="0"
-                    Width="96" Height="96"
+                    Width="112" Height="112"
                     Click="Button_Click_1">
                 Posición 1
             </Button>
             <Button Grid.Row="0" Grid.Column="1"
-                    Width="96" Height="96"
+                    Width="112" Height="112"
                     Click="Button_Click_2">
                 Posición 2
             </Button>
             <Button Grid.Row="0" Grid.Column="2"
-                    Width="96" Height="96"
+                    Width="112" Height="112"
                     Click="Button_Click_3">
                 Posición 3
             </Button>
             <Button Grid.Row="1" Grid.Column="0"
-                    Width="96" Height="96"
+                    Width="112" Height="112"
                     Click="Button_Click_4">
                 Posición 4
             </Button>
             <Button Grid.Row="1" Grid.Column="1"
-                    Width="96" Height="96"
+                    Width="112" Height="112"
                     Background="#FF586068"
                     Click="Button_Click"
                     RightTapped="Button_RightTapped">
@@ -56,22 +56,22 @@
                        Height="48"/>
             </Button>
             <Button Grid.Row="1" Grid.Column="2"
-                    Width="96" Height="96"
+                    Width="112" Height="112"
                     Click="Button_Click_5">
                 Posición 5
             </Button>
             <Button Grid.Row="2" Grid.Column="0"
-                    Width="96" Height="96"
+                    Width="112" Height="112"
                     Click="Button_Click_6">
                 Posición 6
             </Button>
             <Button Grid.Row="2" Grid.Column="1"
-                    Width="96" Height="96"
+                    Width="112" Height="112"
                     Click="Button_Click_7">
                 Posición 7
             </Button>
             <Button Grid.Row="2" Grid.Column="2"
-                    Width="96" Height="96"
+                    Width="112" Height="112"
                     Click="Button_Click_8">
                 Posición 8
             </Button>
@@ -79,8 +79,8 @@
         
         <!-- Columna derecha: Contenido del panel -->
         <StackPanel Orientation="Vertical" Grid.Column="1"
-                    Width="312">
-            <TextBlock FontSize="24"
+                    Width="362">
+            <TextBlock FontSize="28"
                        Text="Título del panel" />
             <TextBlock TextWrapping="Wrap"
                        Text="Contenido del panel, normalmente explicando información contextual." />

@@ -31,7 +31,7 @@
             </Grid.RowDefinitions>
 
             <TextBlock Grid.Row="0"
-                       FontSize="36"
+                       FontSize="42"
                        Text="Detalles del sensor"
                        HorizontalAlignment="Center"/>
 
@@ -47,25 +47,25 @@
 
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Nombre del sensor"
-                               Width="128" VerticalAlignment="Center"/>
+                               Width="200" VerticalAlignment="Center"/>
                         <TextBlock x:Name="FieldName" FontSize="20"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Dirección IP"
-                               Width="128" VerticalAlignment="Center"/>
+                               Width="200" VerticalAlignment="Center"/>
                         <TextBlock x:Name="FieldIP" FontSize="20"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Puerto"
-                               Width="128" VerticalAlignment="Center"/>
+                               Width="200" VerticalAlignment="Center"/>
                         <TextBlock x:Name="FieldPort" FontSize="20"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Estado"
-                               Width="128" VerticalAlignment="Center"/>
+                               Width="200" VerticalAlignment="Center"/>
                         <Image x:Name="StatusIcon" Width="32" Height="32" 
                                Tapped="StatusIcon_Tapped" />
                     </StackPanel>
@@ -75,25 +75,25 @@
 
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Tipo del sensor"
-                               Width="128" VerticalAlignment="Center"/>
+                               Width="200" VerticalAlignment="Center"/>
                         <TextBlock x:Name="FieldType" FontSize="20"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="País"
-                               Width="128" VerticalAlignment="Center"/>
+                               Width="200" VerticalAlignment="Center"/>
                         <TextBlock x:Name="FieldCountry" FontSize="20"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Localización"
-                               Width="128" VerticalAlignment="Center"/>
+                               Width="200" VerticalAlignment="Center"/>
                         <TextBlock x:Name="FieldLocation" FontSize="20"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Operaciones"
-                               Width="128" VerticalAlignment="Center"/>
+                               Width="200" VerticalAlignment="Center"/>
                         <TextBlock x:Name="FieldOps" FontSize="20"/>
                     </StackPanel>
 
@@ -185,7 +185,7 @@
                     <StackPanel Orientation="Vertical">
                         <Image Source="Assets/Icons/menu.png"
                            Width="64"/>
-                        <TextBlock Text="Acceso Rápido"
+                        <TextBlock Text="Fast Track"
                                    HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Button>

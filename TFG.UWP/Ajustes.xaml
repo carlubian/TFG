@@ -21,7 +21,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0"
-                       FontSize="36"
+                       FontSize="42"
                        Text="Configuración del sistema"
                        HorizontalAlignment="Center"/>
             
@@ -29,30 +29,35 @@
 
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Intentos de conexión"
-                               Width="170"/>
+                               Width="240"/>
                     <TextBox PlaceholderText="1"
                              x:Name="FieldAttempts" Width="192"/>
-                    <TextBlock Foreground="#FF889098"
+                    <TextBlock Foreground="#FFA0B0B8"
+                               TextWrapping="Wrap"
                                Text="Número de intentos antes de decidir que un sensor es inalcanzable."/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Tiempo de espera"
-                               Width="170"/>
+                               Width="240"/>
                     <TextBox PlaceholderText="20"
                              x:Name="FieldWait" Width="192"/>
-                    <TextBlock Foreground="#FF889098"
+                    <TextBlock Foreground="#FFA0B0B8"
+                               TextWrapping="Wrap"
                                Text="Segundos antes de descartar un intento de conexión como fallido."/>
                 </StackPanel>
 
                 <!-- Esta opción debe ser la última -->
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Restaurar datos de fábrica"
-                               Width="170"/>
+                               Width="240"
+                               VerticalAlignment="Center"/>
                     <Button Content="Restaurar" Width="192"
                             Background="#FFAA0000"
                             Click="Button_Click_5"/>
-                    <TextBlock Foreground="#FF889098"
+                    <TextBlock Foreground="#FFA0B0B8"
+                               TextWrapping="Wrap"
+                               VerticalAlignment="Center"
                                Text="Elimina todos los datos y ajustes del usuario, dejando la aplicación lista para empezar de nuevo."/>
                 </StackPanel>
 
@@ -109,7 +114,7 @@
                     <StackPanel Orientation="Vertical">
                         <Image Source="Assets/Icons/menu.png"
                            Width="64"/>
-                        <TextBlock Text="Acceso Rápido"
+                        <TextBlock Text="Fast Track"
                                    HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Button>

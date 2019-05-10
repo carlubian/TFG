@@ -21,7 +21,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0"
-                       FontSize="36"
+                       FontSize="42"
                        Text="Modificar sensor"
                        HorizontalAlignment="Center"/>
 
@@ -29,60 +29,67 @@
 
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Nombre"
-                               Width="128"/>
+                               Width="150"/>
                     <TextBox PlaceholderText="Sensor sin nombre"
                              x:Name="FieldName" Width="192"/>
-                    <TextBlock Foreground="#FF889098"
+                    <TextBlock Foreground="#FFA0B0B8"
+                               TextWrapping="Wrap"
                                Text="Nombre que se mostrará asociado al sensor."/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Dirección IP"
-                               Width="128"/>
+                               Width="150"/>
                     <TextBox PlaceholderText="192.168.0.0"
                              x:Name="FieldIP" Width="192"/>
-                    <TextBlock Foreground="#FF889098"
+                    <TextBlock Foreground="#FFA0B0B8"
+                               TextWrapping="Wrap"
                                Text="Punto de conexión al servidor remoto donde está alojado el sensor."/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Puerto"
-                               Width="128"/>
+                               Width="150"/>
                     <TextBox PlaceholderText="5000"
                              x:Name="FieldPort" Width="192"/>
-                    <TextBlock Foreground="#FF889098"
+                    <TextBlock Foreground="#FFA0B0B8"
+                               TextWrapping="Wrap"
                                Text="Punto de conexión al servidor remoto donde está alojado el sensor"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Tipo de sensor"
-                               Width="128"/>
+                               Width="150"/>
                     <ComboBox x:Name="FieldType" Width="192"/>
-                    <TextBlock Foreground="#FF889098"
+                    <TextBlock Foreground="#FFA0B0B8"
+                               TextWrapping="Wrap"
                                Text="Indica de qué tipo es el sensor (y qué proceso modular debe usarse)."/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="País"
-                               Width="128"/>
+                               Width="150"/>
                     <ComboBox x:Name="FieldCountry" Width="192"/>
-                    <TextBlock Foreground="#FF889098"
+                    <TextBlock Foreground="#FFA0B0B8"
+                               TextWrapping="Wrap"
                                Text="Usado con fines de filtrado y clasificación en la interfaz."/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Localización"
-                               Width="128"/>
+                               Width="150"/>
                     <ComboBox x:Name="FieldLocation" Width="192"/>
-                    <TextBlock Foreground="#FF889098"
+                    <TextBlock Foreground="#FFA0B0B8"
+                               TextWrapping="Wrap"
                                Text="Usado con fines de filtrado y clasificación en la interfaz."/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Operaciones"
-                               Width="128"/>
+                               Width="150"/>
                     <ComboBox x:Name="FieldOps" Width="192"/>
-                    <TextBlock Foreground="#FF889098"
+                    <TextBlock Foreground="#FFA0B0B8"
+                               TextWrapping="Wrap"
                                Text="Usado con fines de filtrado y clasificación en la interfaz."/>
                 </StackPanel>
 
@@ -122,7 +129,7 @@
                     <StackPanel Orientation="Vertical">
                         <Image Source="Assets/Icons/menu.png"
                            Width="64"/>
-                        <TextBlock Text="Acceso Rápido"
+                        <TextBlock Text="Fast Track"
                                    HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Button>
