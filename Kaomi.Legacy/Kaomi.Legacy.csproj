@@ -31,8 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ConfigAdapter, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ConfigAdapter.2.1.0\lib\net461\ConfigAdapter.dll</HintPath>
+    <Reference Include="ConfigAdapter, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ConfigAdapter.2.2.0\lib\net461\ConfigAdapter.dll</HintPath>
     </Reference>
     <Reference Include="ConfigAdapter.Xml, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ConfigAdapter.Xml.2.1.1\lib\net461\ConfigAdapter.Xml.dll</HintPath>
