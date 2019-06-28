@@ -32,28 +32,6 @@ namespace TFG.UWP
         {
             this.InitializeComponent();
 
-            var directory = ApplicationData.Current.LocalFolder.Path;
-            var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
-
-            var ids = config.Read("ActiveSensors");
-            if (!(ids is default(string)))
-            {
-                SessionStorage.Sensores.Clear();
-                ids.Split('|', StringSplitOptions.RemoveEmptyEntries).ForEach(id =>
-                {
-                    SessionStorage.Sensores.Add(new Sensor
-                    {
-                        Nombre = config.Read($"{id}:Name"),
-                        IP = config.Read($"{id}:IP"),
-                        Puerto = config.Read($"{id}:Port"),
-                        Pais = config.Read($"{id}:Country"),
-                        Tipo = config.Read($"{id}:Type"),
-                        Lugar = config.Read($"{id}:Location"),
-                        Operaciones = config.Read($"{id}:Operations"),
-                        InternalID = id
-                    });
-                });
-            }
             UpdateMapIcons();
             new Timer(_ =>
             {
@@ -71,7 +49,7 @@ namespace TFG.UWP
         private void UpdateMapIcons()
         {
             // Buscar todos los países en los que hay sensores
-            var paises = SessionStorage.Sensores
+            var paises = SessionStorage.GetSensores()
                 .Select(sensor => sensor.Pais)
                 .Distinct()
                 .ToArray();
@@ -89,7 +67,7 @@ namespace TFG.UWP
                         }),
                         ZIndex = 0,
                         Title = kvp.Key,
-                        Image = RandomAccessStreamReference.CreateFromUri(Estado.SensoresEnPais(SessionStorage.Sensores, kvp.Key))
+                        Image = RandomAccessStreamReference.CreateFromUri(Estado.SensoresEnPais(SessionStorage.GetSensores(), kvp.Key))
                     });
                 });
             this.MapControl1.Layers.Clear();

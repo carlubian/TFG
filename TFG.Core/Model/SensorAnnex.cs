@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using TFG.Core.Model.SensorProperties;
 using Windows.UI;
@@ -13,6 +14,10 @@ namespace TFG.Core.Model
         public ObservableCollection<NumericProperty> NumericProperties { get; set; }
 
         private SolidColorBrush _brush = new SolidColorBrush(Color.FromArgb(255, 120, 128, 136));
+
+        public bool StatusNotified { get; set; }
+
+        private readonly IList<ISensorStatusListener> Listeners = new List<ISensorStatusListener>();
 
         public string StatusIcon
         {
@@ -55,5 +60,9 @@ namespace TFG.Core.Model
         }
 
         private KaomiClient Kaomi = null;
+
+        public void AddListener(ISensorStatusListener listener) => Listeners.Add(listener);
+
+        public void ClearListeners() => Listeners.Clear();
     }
 }

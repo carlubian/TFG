@@ -101,6 +101,19 @@ namespace TFG.UWP
                 config.Write($"SN{thisID}:Location", this.FieldLocation.SelectedItem as string);
                 config.Write($"SN{thisID}:Operations", this.FieldOps.SelectedItem as string);
 
+                var sensor = new Sensor
+                {
+                    InternalID = $"SN{thisID}",
+                    IP = this.FieldIP.Text,
+                    Lugar = this.FieldLocation.SelectedItem as string,
+                    Nombre = this.FieldName.Text,
+                    Operaciones = this.FieldOps.SelectedItem as string,
+                    Pais = this.FieldCountry.SelectedItem as string,
+                    Puerto = this.FieldPort.Text,
+                    Tipo = this.FieldType.SelectedItem as string
+                };
+                SessionStorage.AddSensor(sensor);
+
                 this.Frame.Navigate(typeof(MainPage));
             }
         }

@@ -29,13 +29,13 @@ namespace TFG.UWP
         {
             this.Filters = e.Parameter as Visualization;
             this.LabelCriteria.Text = this.Filters.ToString();
-            this.ListaSensores.ItemsSource = this.Filters.Apply(SessionStorage.Sensores);
+            this.ListaSensores.ItemsSource = this.Filters.Apply(SessionStorage.GetSensores());
 
             new Timer(_ => this.UpdateList(), null, 0, 30000);
         }
 
         private void UpdateList() => _ = CoreApplication.MainView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
-                () => this.ListaSensores.ItemsSource = this.Filters.Apply(SessionStorage.Sensores));
+                () => this.ListaSensores.ItemsSource = this.Filters.Apply(SessionStorage.GetSensores()));
 
         // Volver atrás
         private void Button_Click(object sender, RoutedEventArgs e) => Navigation.GoBack(this);
@@ -49,7 +49,7 @@ namespace TFG.UWP
             this.Filters = dialog.Filters;
             this.LabelCriteria.Text = this.Filters.ToString();
 
-            this.ListaSensores.ItemsSource = this.Filters.Apply(SessionStorage.Sensores);
+            this.ListaSensores.ItemsSource = this.Filters.Apply(SessionStorage.GetSensores());
         }
 
         // Ver detalles del sensor seleccionado (Antiguo)

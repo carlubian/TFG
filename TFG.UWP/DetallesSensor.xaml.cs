@@ -24,7 +24,7 @@ namespace TFG.UWP
     /// </summary>
     public sealed partial class DetallesSensor : Page
     {
-        private Sensor sensor;
+        internal Sensor sensor;
 
         public DetallesSensor()
         {

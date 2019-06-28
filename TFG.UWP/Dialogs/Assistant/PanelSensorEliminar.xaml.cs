@@ -18,7 +18,7 @@ namespace TFG.UWP.Dialogs.Assistant
         public PanelSensorEliminar()
         {
             this.InitializeComponent();
-            this.ComboSensores.ItemsSource = SessionStorage.Sensores;
+            this.ComboSensores.ItemsSource = SessionStorage.GetSensores();
             this.ComboSensores.SelectedIndex = 0;
         }
 
@@ -52,7 +52,7 @@ namespace TFG.UWP.Dialogs.Assistant
             config.DeleteSection(sensor.InternalID);
 
             sensor.Deleted = true;
-            SessionStorage.Sensores.Remove(sensor);
+            SessionStorage.RemoveSensor(sensor);
 
             this.Hide();
             _ = new PanelSensores().ShowAsync();

@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using DotNet.Misc.Extensions.Linq;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -27,15 +28,33 @@ namespace TFG.Core.Model
                 {
                     var estado = this.TextualProperties.FirstOrDefault(p => p.Key is "Conectado");
                     if (estado is null)
+                    {
+                        if (StatusNotified is false)
+                        {
+                            StatusNotified = true;
+                            Listeners.ForEach(l => l.OnStatusChanged(this, SensorStatus.Offline));
+                        }
                         // No hay conexión con el servidor
                         return SensorStatus.Offline;
+                    }
 
                     if (estado.Value is "True")
+                    {
+                        if (StatusNotified is true)
+                            StatusNotified = false;
                         // El servidor dice que el sensor está conectado
                         return SensorStatus.Online;
+                    }
                     else
+                    {
+                        if (StatusNotified is false)
+                        {
+                            StatusNotified = true;
+                            Listeners.ForEach(l => l.OnStatusChanged(this, SensorStatus.Error));
+                        }
                         // El servidor dice que el sensor está desconectado
                         return SensorStatus.Error;
+                    }
                 }
                 catch
                 {
@@ -47,6 +66,7 @@ namespace TFG.Core.Model
         public Sensor()
         {
             this.Deleted = false;
+            this.StatusNotified = false;
             new Timer(_ => Parallel.Invoke(this.TimerTick), null, 0, 30000);
             this.TextualProperties = new ObservableCollection<TextualProperty>();
             this.NumericProperties = new ObservableCollection<NumericProperty>();

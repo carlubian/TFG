@@ -12,7 +12,7 @@ namespace TFG.UWP.Dialogs.Assistant
         public PanelSensorDetalles()
         {
             this.InitializeComponent();
-            this.ComboSensores.ItemsSource = SessionStorage.Sensores;
+            this.ComboSensores.ItemsSource = SessionStorage.GetSensores();
             this.ComboSensores.SelectedIndex = 0;
         }
 
