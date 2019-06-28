@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml;
+﻿using TFG.Core.Model;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 
@@ -6,49 +7,56 @@ using Windows.UI.Xaml.Input;
 
 namespace TFG.UWP.Dialogs.Assistant
 {
-    public sealed partial class PanelSensores : ContentDialog
+    public sealed partial class PanelSensorEditarStep4 : ContentDialog
     {
-        public PanelSensores()
+        private Sensor sensor;
+
+        public PanelSensorEditarStep4(Sensor sensor)
         {
             this.InitializeComponent();
+            this.sensor = sensor;
         }
 
         // Botón de 'Volver atrás' (Click izquierdo)
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            _ = new InicioAyuda().ShowAsync();
+            _ = new PanelSensorEditarStep3(sensor).ShowAsync();
         }
 
         // Botón de 'Volver atrás' (Click derecho)
         private void Button_RightTapped(object sender, RightTappedRoutedEventArgs e) => this.Hide();
 
-        // Botón de 'Posición 1' (Nuevo)
+        // Botón de 'Posición 1' (Laboratorio)
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            sensor.Lugar = "Laboratorio";
             this.Hide();
-            _ = new PanelSensorNuevoStep1().ShowAsync();
+            _ = new PanelSensorEditarStep5(sensor).ShowAsync();
         }
 
-        // Botón de 'Posición 3' (Editar)
+        // Botón de 'Posición 3' (Planta)
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
+            sensor.Lugar = "Planta";
             this.Hide();
-            _ = new PanelSensorEditarStep0().ShowAsync();
+            _ = new PanelSensorEditarStep5(sensor).ShowAsync();
         }
 
-        // Botón de 'Posición 6' (Eliminar)
+        // Botón de 'Posición 6' (Oficinas)
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
+            sensor.Lugar = "Oficinas";
             this.Hide();
-            _ = new PanelSensorEliminar().ShowAsync();
+            _ = new PanelSensorEditarStep5(sensor).ShowAsync();
         }
 
-        // Botón de 'Posición 8' (Detalles)
+        // Botón de 'Posición 8' (Indefinido)
         private void Button_Click_8(object sender, RoutedEventArgs e)
         {
+            sensor.Lugar = "Indefinido";
             this.Hide();
-            _ = new PanelSensorDetalles().ShowAsync();
+            _ = new PanelSensorEditarStep5(sensor).ShowAsync();
         }
 
         // Utilizar el teclado numérico para navegar

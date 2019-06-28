@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml;
+﻿using TFG.Core.Model;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 
@@ -6,49 +7,48 @@ using Windows.UI.Xaml.Input;
 
 namespace TFG.UWP.Dialogs.Assistant
 {
-    public sealed partial class PanelSensores : ContentDialog
+    public sealed partial class PanelSensorEditarStep5 : ContentDialog
     {
-        public PanelSensores()
+        private Sensor sensor;
+
+        public PanelSensorEditarStep5(Sensor sensor)
         {
             this.InitializeComponent();
+            this.sensor = sensor;
         }
 
         // Botón de 'Volver atrás' (Click izquierdo)
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            _ = new InicioAyuda().ShowAsync();
+            _ = new PanelSensorEditarStep4(sensor).ShowAsync();
         }
 
         // Botón de 'Volver atrás' (Click derecho)
         private void Button_RightTapped(object sender, RightTappedRoutedEventArgs e) => this.Hide();
 
-        // Botón de 'Posición 1' (Nuevo)
+        // Botón de 'Posición 1' (Pruebas)
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            sensor.Operaciones = "Pruebas";
             this.Hide();
-            _ = new PanelSensorNuevoStep1().ShowAsync();
+            _ = new PanelSensorEditarStep6(sensor).ShowAsync();
         }
 
-        // Botón de 'Posición 3' (Editar)
+        // Botón de 'Posición 2' (Producción)
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            sensor.Operaciones = "Produccion";
+            this.Hide();
+            _ = new PanelSensorEditarStep6(sensor).ShowAsync();
+        }
+
+        // Botón de 'Posición 3' (Indefinido)
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
+            sensor.Operaciones = "Indefinido";
             this.Hide();
-            _ = new PanelSensorEditarStep0().ShowAsync();
-        }
-
-        // Botón de 'Posición 6' (Eliminar)
-        private void Button_Click_6(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-            _ = new PanelSensorEliminar().ShowAsync();
-        }
-
-        // Botón de 'Posición 8' (Detalles)
-        private void Button_Click_8(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-            _ = new PanelSensorDetalles().ShowAsync();
+            _ = new PanelSensorEditarStep6(sensor).ShowAsync();
         }
 
         // Utilizar el teclado numérico para navegar
@@ -63,17 +63,14 @@ namespace TFG.UWP.Dialogs.Assistant
                 case Windows.System.VirtualKey.NumberPad7:
                     this.Button_Click_1(this, null);
                     break;
+                case Windows.System.VirtualKey.NumberPad8:
+                    this.Button_Click_2(this, null);
+                    break;
                 case Windows.System.VirtualKey.NumberPad9:
                     this.Button_Click_3(this, null);
                     break;
                 case Windows.System.VirtualKey.NumberPad5:
                     this.Button_Click(this, null);
-                    break;
-                case Windows.System.VirtualKey.NumberPad1:
-                    this.Button_Click_6(this, null);
-                    break;
-                case Windows.System.VirtualKey.NumberPad3:
-                    this.Button_Click_8(this, null);
                     break;
                 case Windows.System.VirtualKey.NumberPad0:
                     this.Button_RightTapped(this, null);

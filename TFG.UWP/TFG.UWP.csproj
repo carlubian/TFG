@@ -130,6 +130,9 @@
     <Compile Include="Dialogs\Assistant\InicioAyuda.xaml.cs">
       <DependentUpon>InicioAyuda.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\Assistant\PanelSensorEditarStep0.xaml.cs">
+      <DependentUpon>PanelSensorEditarStep0.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\Assistant\PanelSensores.xaml.cs">
       <DependentUpon>PanelSensores.xaml</DependentUpon>
     </Compile>
@@ -154,8 +157,23 @@
     <Compile Include="Dialogs\Assistant\PanelSensorEliminar.xaml.cs">
       <DependentUpon>PanelSensorEliminar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\Assistant\PanelSensorEditarStep1.xaml.cs">
+      <DependentUpon>PanelSensorEditarStep1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\Assistant\PanelSensorNuevoStep1.xaml.cs">
       <DependentUpon>PanelSensorNuevoStep1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Assistant\PanelSensorEditarStep2.xaml.cs">
+      <DependentUpon>PanelSensorEditarStep2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Assistant\PanelSensorEditarStep3.xaml.cs">
+      <DependentUpon>PanelSensorEditarStep3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Assistant\PanelSensorEditarStep4.xaml.cs">
+      <DependentUpon>PanelSensorEditarStep4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Assistant\PanelSensorEditarStep5.xaml.cs">
+      <DependentUpon>PanelSensorEditarStep5.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\Assistant\PanelSensorNuevoStep5.xaml.cs">
       <DependentUpon>PanelSensorNuevoStep5.xaml</DependentUpon>
@@ -168,6 +186,9 @@
     </Compile>
     <Compile Include="Dialogs\Assistant\PanelSensorNuevoStep2.xaml.cs">
       <DependentUpon>PanelSensorNuevoStep2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Assistant\PanelSensorEditarStep6.xaml.cs">
+      <DependentUpon>PanelSensorEditarStep6.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\Assistant\PanelSensorNuevoStep6.xaml.cs">
       <DependentUpon>PanelSensorNuevoStep6.xaml</DependentUpon>
@@ -304,6 +325,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Dialogs\Assistant\PanelSensorEditarStep0.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Dialogs\Assistant\PanelSensores.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -336,7 +361,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Dialogs\Assistant\PanelSensorEditarStep1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Dialogs\Assistant\PanelSensorNuevoStep1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\Assistant\PanelSensorEditarStep2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\Assistant\PanelSensorEditarStep3.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\Assistant\PanelSensorEditarStep4.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\Assistant\PanelSensorEditarStep5.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -353,6 +398,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Dialogs\Assistant\PanelSensorNuevoStep2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\Assistant\PanelSensorEditarStep6.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

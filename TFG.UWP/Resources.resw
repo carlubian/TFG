@@ -199,6 +199,37 @@ Para empezar, introduce los siguientes datos básicos sobre el servidor remoto:
 
 Ten en cuenta que si el sensor está desconectado, se mostrarán menos datos.</value>
   </data>
+  <data name="SensorEditarStep0Content.Text" xml:space="preserve">
+    <value>Selecciona el sensor que quieres editar. Podrás cambiar los parámetros necesarios paso a paso.</value>
+  </data>
+  <data name="SensorEditarStep1Content.Text" xml:space="preserve">
+    <value>Estos son los datos que el sensor tiene sobre su servidor remoto. Puedes modificarlos si quieres, o continuar si están bien.</value>
+  </data>
+  <data name="SensorEditarStep2Content.Text" xml:space="preserve">
+    <value>Selecciona el nuevo tipo que va a tener este sensor.
+
+Cada tipo de sensor tiene un proceso modular propio que debe estar ejecutándose en el servidor remoto.</value>
+  </data>
+  <data name="SensorEditarStep3Content.Text" xml:space="preserve">
+    <value>Selecciona el nuevo país en el que el sensor se encuentra instalado.
+
+Este valor solo se usa para filtrar y ordenar sensores, pero no afectará al funcionamiento del resto del sistema.</value>
+  </data>
+  <data name="SensorEditarStep4Content.Text" xml:space="preserve">
+    <value>Selecciona el nuevo lugar de instalación del sensor.
+
+Este valor solo se usa para filtrar y ordenar sensores, pero no afectará al funcionamiento del resto del sistema.</value>
+  </data>
+  <data name="SensorEditarStep5Content.Text" xml:space="preserve">
+    <value>Selecciona el nuevo modo de funcionamiento del sensor.
+
+Este valor solo se usa para filtrar y ordenar sensores, pero no afectará al funcionamiento del resto del sistema.</value>
+  </data>
+  <data name="SensorEditarStep6Content.Text" xml:space="preserve">
+    <value>Por último, escribe el nuevo nombre para el sensor.
+
+Este valor es únicamente para facilitar la identificación del sensor, por lo que puedes incluir cualquier criterio que sea necesario.</value>
+  </data>
   <data name="SensorEliminarContent.Text" xml:space="preserve">
     <value>Selecciona el sensor que quieres eliminar. Se desconectará del sistema, aunque su servidor remoto seguirá funcionando hasta que se desconecte manualmente.
 
