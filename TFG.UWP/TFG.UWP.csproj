@@ -448,7 +448,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="ConfigAdapter">
-      <Version>2.2.1</Version>
+      <Version>2.2.2</Version>
     </PackageReference>
     <PackageReference Include="ConfigAdapter.Xml">
       <Version>2.3.1</Version>
