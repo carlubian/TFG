@@ -61,7 +61,7 @@
       <Version>2.2.2</Version>
     </PackageReference>
     <PackageReference Include="ConfigAdapter.Xml">
-      <Version>2.3.1</Version>
+      <Version>2.3.2</Version>
     </PackageReference>
     <PackageReference Include="DotNet.Misc.Extensions">
       <Version>1.2.0</Version>
