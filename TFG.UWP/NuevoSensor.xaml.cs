@@ -80,6 +80,25 @@ namespace TFG.UWP
                 this.GridStep2.Visibility = Visibility.Collapsed;
                 this.GridStep3.Visibility = Visibility.Visible;
 
+                switch (this.FieldType.SelectedItem as string)
+                {
+                    case "Indefinido":
+                        GridAjustesIndef.Visibility = Visibility.Visible;
+                        GridAjustesGocator.Visibility = Visibility.Collapsed;
+                        GridAjustesTestGocator.Visibility = Visibility.Collapsed;
+                        break;
+                    case "Gocator":
+                        GridAjustesIndef.Visibility = Visibility.Collapsed;
+                        GridAjustesGocator.Visibility = Visibility.Visible;
+                        GridAjustesTestGocator.Visibility = Visibility.Collapsed;
+                        break;
+                    case "TestGocator":
+                        GridAjustesIndef.Visibility = Visibility.Collapsed;
+                        GridAjustesGocator.Visibility = Visibility.Collapsed;
+                        GridAjustesTestGocator.Visibility = Visibility.Visible;
+                        break;
+                }
+
                 return;
             }
             if (this.Step is 3)

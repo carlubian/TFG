@@ -205,7 +205,7 @@
 
             <TextBlock Grid.Row="1"
                        FontSize="42"
-                       Text="Ajustes finales"
+                       Text="Detalles finales"
                        HorizontalAlignment="Center"/>
 
             <TextBlock Grid.Row="2"
@@ -220,6 +220,20 @@
                   x:Name="GridAjustesIndef"
                   Background="Transparent">
                 <TextBlock x:Uid="DetallesSensorIndef"
+                           TextWrapping="Wrap"
+                           HorizontalAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Row="3"
+                  x:Name="GridAjustesGocator"
+                  Background="Transparent">
+                <TextBlock x:Uid="DetallesSensorGocator"
+                           TextWrapping="Wrap"
+                           HorizontalAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Row="3"
+                  x:Name="GridAjustesTestGocator"
+                  Background="Transparent">
+                <TextBlock x:Uid="DetallesSensorTestGocator"
                            TextWrapping="Wrap"
                            HorizontalAlignment="Center"/>
             </Grid>

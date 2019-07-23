@@ -129,10 +129,22 @@ También puedes elegir verlos todos.</value>
 Ten en cuenta que para que la conexión funcione, el servidor remoto debe estar ejecutando un proceso modular adecuado al tipo de sensor.</value>
     <comment>Contenido del panel inicial de sensores del sistema de ayuda.</comment>
   </data>
-  <data name="DetallesSensorIndef.Text" xml:space="preserve">
-    <value>No necesitamos ningún dato adicional para este tipo de sensor.
+  <data name="DetallesSensorGocator.Text" xml:space="preserve">
+    <value>Los sensores de tipo Gocator se consideran en estado correcto cuando están encendidos y procesando perfiles.
 
-¡Todo está listo para funcionar!</value>
+Si el sensor está conectado pero en reposo, se considera que su estado es incorrecto.
+
+Por supuesto, si el sensor está desconectado, el sistema lo indicará.</value>
+  </data>
+  <data name="DetallesSensorIndef.Text" xml:space="preserve">
+    <value>Este sensor no tiene un tipo concreto especificado, por lo que no se recibirán datos del mismo.
+
+A efectos prácticos, el sistema considerará que está siempre desconectado.</value>
+  </data>
+  <data name="DetallesSensorTestGocator.Text" xml:space="preserve">
+    <value>Este sensor simula un dispositivo Gocator real, pero envía datos simulados.
+
+El estado variará entre correcto e incorrecto a intervalos aleatorios.</value>
   </data>
   <data name="InicioAyudaContent.Text" xml:space="preserve">
     <value>Este es el sistema de Acceso Rápido. A través de la cuadrícula podrás llegar a todas las opciones de la aplicación.
@@ -183,9 +195,9 @@ Ahora, necesitamos algunos datos más para saber dónde colocar el nuevo sensor.
 </value>
   </data>
   <data name="NuevoSensorFinalText.Text" xml:space="preserve">
-    <value>Lo único que falta ahora es determinar algunos ajustes propios del tipo de sensor elegido.
+    <value>Según el tipo de sensor elegido, el comportamiento del sistema puede variar ligeramente.
 
-Según el tipo de sensor, estos ajustes serán diferentes. Al igual que los detalles anteriores, también pueden ser modificados en cualquier momento.
+A continuación se detallan las características del sensor actual, así como los criterios que determinan si su estado es correcto o incorrecto.
 </value>
   </data>
   <data name="NuevoSensorIntroText.Text" xml:space="preserve">
