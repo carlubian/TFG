@@ -94,6 +94,8 @@ namespace TFG.UWP
             var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
             config.Write("Global:Attempts", this.FieldAttempts.Text);
             config.Write("Global:Delay", this.FieldWait.Text);
+
+            new AvisoReiniciar().ShowAsync();
         }
 
         // Exportar ajustes
@@ -134,6 +136,7 @@ namespace TFG.UWP
                     await FileIO.ReadLinesAsync(file) as IEnumerable<string>);
 
                 this.PopulateSettings();
+                new AvisoReiniciar().ShowAsync();
             }
         }
 
@@ -145,19 +148,9 @@ namespace TFG.UWP
         {
             // TODO Habría que mostrar un diálogo de confirmación.
 
-            var directory = Windows.Storage.ApplicationData.Current.LocalFolder.Path;
-
-            var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
-
-            // Eliminar todos los sensores conectados
-            var sensores = config.Read("ActiveSensors")
-                                 .Split('|', StringSplitOptions.RemoveEmptyEntries);
-            foreach (var sensor in sensores)
-                config.DeleteSection(sensor);
-            config.Write("ActiveSensors", "");
-
-            // Preparar la NUE para el próximo arranque
-            config.DeleteKey("ExistingUser");
+            var directory = ApplicationData.Current.LocalFolder.Path;
+            var file = Path.Combine(directory, "Settings.xml");
+            File.Delete(file);
 
             // Reiniciar la aplicación
             await CoreApplication.RequestRestartAsync("");

@@ -1,0 +1,23 @@
+﻿<ContentDialog
+    x:Class="TFG.UWP.Dialogs.AvisoReiniciar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TFG.UWP.Dialogs"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    PrimaryButtonText="Aceptar"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    RequestedTheme="Dark" Background="#FF003C92">
+
+    <Grid Background="Transparent">
+        <StackPanel Orientation="Vertical">
+            <TextBlock FontSize="24"
+                   Text="Ajustes modificados"
+                   TextWrapping="Wrap"/>
+            <TextBlock FontSize="18"
+                   Text="Para que la nueva configuración se aplique correctamente, la aplicación se reiniciará."
+                   TextWrapping="Wrap"/>
+        </StackPanel>
+    </Grid>
+</ContentDialog>

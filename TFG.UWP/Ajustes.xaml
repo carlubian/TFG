@@ -19,6 +19,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0"
                        FontSize="42"
@@ -62,7 +63,12 @@
                 </StackPanel>
 
             </StackPanel>
-            
+
+            <TextBlock Grid.Row="2"
+                       Text="Al hacer cambios o importar un archivo de configuración existente, la aplicación se reiniciará."
+                       HorizontalAlignment="Center"
+                       Foreground="#ECB300"/>
+
         </Grid>
 
         <Grid Grid.Column="1" Margin="0">
