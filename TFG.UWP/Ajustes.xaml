@@ -38,13 +38,13 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Tiempo de espera"
+                    <TextBlock Text="Intervalo de actualización"
                                Width="240"/>
                     <TextBox PlaceholderText="20"
                              x:Name="FieldWait" Width="192"/>
                     <TextBlock Foreground="#FFA0B0B8"
                                TextWrapping="Wrap"
-                               Text="Segundos antes de descartar un intento de conexión como fallido."/>
+                               Text="Segundos que pasan entre cada actualización de los sensores."/>
                 </StackPanel>
 
                 <!-- Esta opción debe ser la última -->

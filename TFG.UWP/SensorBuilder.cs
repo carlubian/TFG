@@ -1,5 +1,8 @@
-﻿using System;
+﻿using ConfigAdapter.Xml;
+using System;
+using System.IO;
 using TFG.Core.Model;
+using Windows.Storage;
 
 namespace TFG.UWP
 {
@@ -62,17 +65,31 @@ namespace TFG.UWP
             return this;
         }
 
-        internal Sensor Build() => new Sensor
+        internal Sensor Build()
         {
-            InternalID = this.InternalID,
-            Deleted = false,
-            IP = this.IP,
-            Lugar = this.Lugar,
-            Nombre = this.Nombre,
-            Operaciones = this.Operaciones,
-            Pais = this.Pais,
-            Puerto = this.Puerto,
-            Tipo = this.Tipo
-        };
+            var directory = ApplicationData.Current.LocalFolder.Path;
+            var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
+            var intentos = config.Read("Global:Attempts");
+            var delay = config.Read("Global:Delay");
+            var intentoss = -1;
+            if (!int.TryParse(intentos, out intentoss))
+                intentoss = 1;
+            var delayy = -1;
+            if (!int.TryParse(delay, out delayy))
+                delayy = 60;
+
+            return new Sensor(intentoss, delayy)
+            {
+                InternalID = this.InternalID,
+                Deleted = false,
+                IP = this.IP,
+                Lugar = this.Lugar,
+                Nombre = this.Nombre,
+                Operaciones = this.Operaciones,
+                Pais = this.Pais,
+                Puerto = this.Puerto,
+                Tipo = this.Tipo
+            };
+        }
     }
 }

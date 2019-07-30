@@ -1,4 +1,5 @@
 ﻿using DotNet.Misc.Extensions.Linq;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading;
@@ -19,6 +20,8 @@ namespace TFG.Core.Model
         public string Pais { get; set; }
         public string Lugar { get; set; }
         public string Operaciones { get; set; }
+
+        private int intentos;
 
         public SensorStatus Status
         {
@@ -63,11 +66,18 @@ namespace TFG.Core.Model
             }
         }
 
-        public Sensor()
+        public Sensor(int intentos, int delay)
         {
+            // Validar parámetros
+            if (intentos <= 0 || intentos > 10)
+                throw new ArgumentException("Número de intentos incorrecto [0..10]", nameof(intentos));
+            if (delay < 10 || delay > 600)
+                throw new ArgumentException("Intervalo de actualización incorrecto [10..600]", nameof(delay));
+
+            this.intentos = intentos;
             this.Deleted = false;
             this.StatusNotified = false;
-            new Timer(_ => Parallel.Invoke(this.TimerTick), null, 0, 30000);
+            new Timer(_ => Parallel.Invoke(this.TimerTick), null, 0, delay * 1000);
             this.TextualProperties = new ObservableCollection<TextualProperty>();
             this.NumericProperties = new ObservableCollection<NumericProperty>();
         }

@@ -199,6 +199,9 @@
     <Compile Include="Dialogs\ConfirmarEliminacion.xaml.cs">
       <DependentUpon>ConfirmarEliminacion.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\ErrorRango.xaml.cs">
+      <DependentUpon>ErrorRango.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\ErrorValidacion.xaml.cs">
       <DependentUpon>ErrorValidacion.xaml</DependentUpon>
     </Compile>
@@ -416,6 +419,10 @@
     <Page Include="Dialogs\ConfirmarEliminacion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ErrorRango.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Dialogs\ErrorValidacion.xaml">
       <SubType>Designer</SubType>

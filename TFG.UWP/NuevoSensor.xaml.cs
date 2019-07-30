@@ -109,6 +109,15 @@ namespace TFG.UWP
                 var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
                 var thisID = DateTime.Now.Ticks;
 
+                var intentos = config.Read("Global:Attempts");
+                var delay = config.Read("Global:Delay");
+                var intentoss = -1;
+                if (!int.TryParse(intentos, out intentoss))
+                    intentoss = 1;
+                var delayy = -1;
+                if (!int.TryParse(delay, out delayy))
+                    delayy = 60;
+
                 var sensores = config.Read("ActiveSensors");
                 config.Write("ActiveSensors", $"{sensores}|SN{thisID}");
 
@@ -120,7 +129,7 @@ namespace TFG.UWP
                 config.Write($"SN{thisID}:Location", this.FieldLocation.SelectedItem as string);
                 config.Write($"SN{thisID}:Operations", this.FieldOps.SelectedItem as string);
 
-                var sensor = new Sensor
+                var sensor = new Sensor(intentoss, delayy)
                 {
                     InternalID = $"SN{thisID}",
                     IP = this.FieldIP.Text,

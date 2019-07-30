@@ -97,6 +97,7 @@ namespace TFG.UWP
             config.DeleteSection(this.sensor.InternalID);
 
             this.sensor.Deleted = true;
+            SessionStorage.RemoveSensor(sensor);
 
             this.Frame.GoBack();
         }

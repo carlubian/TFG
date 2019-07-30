@@ -66,6 +66,14 @@ namespace TFG.UWP
                     var directory = ApplicationData.Current.LocalFolder.Path;
                     var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
                     var nueSetting = config.Read("ExistingUser");
+                    var intentos = config.Read("Global:Attempts");
+                    var delay = config.Read("Global:Delay");
+                    var intentoss = -1;
+                    if (!int.TryParse(intentos, out intentoss))
+                        intentoss = 1;
+                    var delayy = -1;
+                    if (!int.TryParse(delay, out delayy))
+                        delayy = 60;
 
                     if (nueSetting is default(string))
                         rootFrame.Navigate(typeof(NUE), e.Arguments);
@@ -77,7 +85,7 @@ namespace TFG.UWP
                             SessionStorage.ClearSensores();
                             ids.Split('|', StringSplitOptions.RemoveEmptyEntries).ForEach(id =>
                             {
-                                SessionStorage.AddSensor(new Sensor
+                                SessionStorage.AddSensor(new Sensor(intentoss, delayy)
                                 {
                                     Nombre = config.Read($"{id}:Name"),
                                     IP = config.Read($"{id}:IP"),
@@ -148,6 +156,14 @@ namespace TFG.UWP
 
                         var directory = ApplicationData.Current.LocalFolder.Path;
                         var config = XmlConfig.From(Path.Combine(directory, "Settings.xml"));
+                        var intentos = config.Read("Global:Attempts");
+                        var delay = config.Read("Global:Delay");
+                        var intentoss = -1;
+                        if (!int.TryParse(intentos, out intentoss))
+                            intentoss = 1;
+                        var delayy = -1;
+                        if (!int.TryParse(delay, out delayy))
+                            delayy = 60;
 
                         var ids = config.Read("ActiveSensors");
                         if (!(ids is default(string)))
@@ -155,7 +171,7 @@ namespace TFG.UWP
                             SessionStorage.ClearSensores();
                             ids.Split('|', StringSplitOptions.RemoveEmptyEntries).ForEach(id =>
                             {
-                                SessionStorage.AddSensor(new Sensor
+                                SessionStorage.AddSensor(new Sensor(intentoss, delayy)
                                 {
                                     Nombre = config.Read($"{id}:Name"),
                                     IP = config.Read($"{id}:IP"),

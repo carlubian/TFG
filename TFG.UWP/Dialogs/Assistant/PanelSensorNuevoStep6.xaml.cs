@@ -50,6 +50,9 @@ namespace TFG.UWP.Dialogs.Assistant
             config.Write($"SN{thisID}:Country", sensor.Pais);
             config.Write($"SN{thisID}:Location", sensor.Lugar);
             config.Write($"SN{thisID}:Operations", sensor.Operaciones);
+
+            SessionStorage.AddSensor(sensor);
+
             (Window.Current.Content as Frame)?.Navigate(typeof(DetallesSensor), sensor);
         }
 

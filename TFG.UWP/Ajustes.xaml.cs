@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using TFG.UWP.Dialogs;
 using TFG.UWP.Dialogs.Assistant;
 using Windows.ApplicationModel.Core;
 using Windows.Storage;
@@ -49,7 +50,7 @@ namespace TFG.UWP
             if (attempts is default(string))
                 attempts = "1";
             if (wait is default(string))
-                wait = "20";
+                wait = "60";
 
             this.FieldAttempts.Text = attempts;
             this.FieldWait.Text = wait;
@@ -57,16 +58,33 @@ namespace TFG.UWP
 
         private bool ValidateSettings()
         {
-            var attempts = this.FieldAttempts.Text;
-            var wait = this.FieldWait.Text;
+            // Validar datos
+            var intentos = this.FieldAttempts.Text;
+            var delay = this.FieldWait.Text;
+            var intentoss = -1;
+            if (!int.TryParse(intentos, out intentoss))
+            {
+                new ErrorValidacion("Intentos de conexión").ShowAsync();
+                return false;
+            }
+            var delayy = -1;
+            if (!int.TryParse(delay, out delayy))
+            {
+                new ErrorValidacion("Intervalo de actualización").ShowAsync();
+                return false;
+            }
+            if (intentoss <= 0 || intentoss > 10)
+            {
+                new ErrorRango("Intentos de conexión", 1, 10).ShowAsync();
+                return false;
+            }
+            if (delayy < 10 || delayy > 600)
+            {
+                new ErrorRango("Intervalo de actualización", 10, 600).ShowAsync();
+                return false;
+            }
 
-            if (int.TryParse(attempts, out var n1) &&
-                int.TryParse(wait, out var n2) &&
-                n1 > 0 && n1 < 11 &&
-                n2 > 5 && n2 < 180)
-                return true;
-
-            return false;
+            return true;
         }
 
         private void SaveSettings()
