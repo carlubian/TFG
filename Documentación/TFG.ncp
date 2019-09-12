@@ -1,0 +1,569 @@
+<Project>
+  <Name>TFG</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>TFG.UWP</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>MainPage</Name>
+        <Access>Public</Access>
+        <Location left="53" top="490" />
+        <Size width="479" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private System.Threading.Timer updateTimer</Member>
+        <Member type="Constructor">public MainPage()</Member>
+        <Member type="Method">private void UpdateMapIcons()</Member>
+        <Member type="Method">private void MapControl_MapElementClick(MapControl sender, MapElementClickEventArgs args)</Member>
+        <Member type="Method">private void NewSensor_Click(object sender, RoutedEventArgs args)</Member>
+        <Member type="Method">private void Settings_Click(object sender, RoutedEventArgs args)</Member>
+        <Member type="Method">private void AllSensors_Click(object sender, RoutedEventArgs args)</Member>
+        <Member type="Method">private void QuickAccess_Click(object sender, RoutedEventArgs args)</Member>
+        <Modifier>Sealed</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>App</Name>
+        <Access>Default</Access>
+        <Location left="53" top="15" />
+        <Size width="475" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public App()</Member>
+        <Member type="Method">protected void OnLaunched(LaunchActivatedEventArgs args)</Member>
+        <Member type="Method">protected void OnActivated(IActivatedEventArgs args)</Member>
+        <Member type="Method">void OnNavigationFailed(object sender, NavigationFailedEventArgs args)</Member>
+        <Member type="Method">private void OnSuspending(object sender, SuspendingEventArgs args)</Member>
+        <Modifier>Sealed</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>SessionStorage</Name>
+        <Access>Internal</Access>
+        <Location left="716" top="189" />
+        <Size width="336" height="179" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">private static ObservableCollection&lt;Sensor&gt; Sensores { get; set; }</Member>
+        <Member type="Constructor">SessionStorage()</Member>
+        <Member type="Method">internal static void AddSensor(Sensor sensor)</Member>
+        <Member type="Method">internal static void RemoveSensor(Sensor sensor)</Member>
+        <Member type="Method">internal static void ClearSensors()</Member>
+        <Member type="Method">internal static ReadOnlyObservableCollection&lt;Sensor&gt; GetSensores()</Member>
+        <Modifier>Static</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>SensorStatusListener</Name>
+        <Access>Internal</Access>
+        <Location left="1110" top="225" />
+        <Size width="359" height="102" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void OnStatusChanged(Sensor sender, SensorStatus status)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Ajustes</Name>
+        <Access>Public</Access>
+        <Location left="53" top="764" />
+        <Size width="479" height="247" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public Ajustes()</Member>
+        <Member type="Method">private void PopulateSettings()</Member>
+        <Member type="Method">private bool ValidateSettings()</Member>
+        <Member type="Method">private void SaveSettings()</Member>
+        <Member type="Method">private void GoBack_Click(object sender, RoutedEventArgs args)</Member>
+        <Member type="Method">private void Save_Click(object sender, RoutedEventArgs args)</Member>
+        <Member type="Method">private void Export_Click(object sender, RoutedEventArgs args)</Member>
+        <Member type="Method">private void Import_Click(object sender, RoutedEventArgs args)</Member>
+        <Member type="Method">private void Restore_Click(object sender, RoutedEventArgs args)</Member>
+        <Member type="Method">private void QuickAccess_Click(object sender, RoutedEventArgs args)</Member>
+        <Modifier>Sealed</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>NuevoSensor</Name>
+        <Access>Public</Access>
+        <Location left="602" top="764" />
+        <Size width="479" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private int Step</Member>
+        <Member type="Constructor">public NuevoSensor()</Member>
+        <Member type="Method">protected void OnNavigatedTo(NavigationEventArgs args)</Member>
+        <Member type="Method">private void Cancel_Click(object sender, RoutedEventArgs args)</Member>
+        <Member type="Method">private void Next_Click(object sender, RoutedEventArgs args)</Member>
+        <Member type="Method">private void QuickAccess_Click(object sender, RoutedEventArgs args)</Member>
+        <Modifier>Sealed</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>VistaListado</Name>
+        <Access>Public</Access>
+        <Location left="1146" top="764" />
+        <Size width="479" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Visualization Filters</Member>
+        <Member type="Constructor">public VistaListado()</Member>
+        <Member type="Method">protected void OnNavigatedTo(NavigationEventArgs args)</Member>
+        <Member type="Method">private void UpdateList()</Member>
+        <Member type="Method">private void ListaSensores_ItemClick(object sender, ItemClickEventArgs args)</Member>
+        <Member type="Method">private void GoBack_Click(object sender, RoutedEventArgs args)</Member>
+        <Member type="Method">private void Filter_Click(object sender, RoutedEventArgs args)</Member>
+        <Member type="Method">private void QuickAccess_Click(object sender, RoutedEventArgs args)</Member>
+        <Modifier>Sealed</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>DetallesSensor</Name>
+        <Access>Public</Access>
+        <Location left="1686" top="764" />
+        <Size width="479" height="230" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">internal Sensor sensor</Member>
+        <Member type="Constructor">public DetallesSensor()</Member>
+        <Member type="Method">protected void OnNavigatedTo(NavigationEventArgs args)</Member>
+        <Member type="Method">private void UpdateProperties()</Member>
+        <Member type="Method">private void GoBack_Click(object sender, RoutedEventArgs args)</Member>
+        <Member type="Method">private void Edit_Click(object sender, RoutedEventArgs args)</Member>
+        <Member type="Method">private void Delete_Click(object sender, RoutedEventArgs args)</Member>
+        <Member type="Method">private void StatusIcon_Tapped(object sender, TappedRoutedEventArgs args)</Member>
+        <Member type="Method">private void QuickAccess_Click(object sender, RoutedEventArgs args)</Member>
+        <Modifier>Sealed</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>EditarSensor</Name>
+        <Access>Public</Access>
+        <Location left="1686" top="1050" />
+        <Size width="479" height="179" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Sensor sensor</Member>
+        <Member type="Constructor">public EditarSensor()</Member>
+        <Member type="Method">protected void OnNavigatedTo(NavigationEventArgs args)</Member>
+        <Member type="Method">private void Cancel_Click(object sender, RoutedEventArgs args)</Member>
+        <Member type="Method">private void Save_Click(object sender, RoutedEventArgs args)</Member>
+        <Member type="Method">private void QuickAccess_Click(object sender, RoutedEventArgs args)</Member>
+        <Modifier>Sealed</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>NUE</Name>
+        <Access>Public</Access>
+        <Location left="53" top="288" />
+        <Size width="479" height="145" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public NUE()</Member>
+        <Member type="Method">public void Import_Click(object sender, RoutedEventArgs args)</Member>
+        <Member type="Method">private void Skip_Click(object sender, RoutedEventArgs args)</Member>
+        <Member type="Method">private void QuickAccess_Click(object sender, RoutedEventArgs args)</Member>
+        <Modifier>Sealed</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="1" second="0">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="1" second="2">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="2">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="4">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="5">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="5" second="2">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="2" second="3">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="6">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="6" second="2">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="7" second="2">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="6" second="7">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="7" second="8">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="1" second="9">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="9" second="0">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>TFG.UWP.Dialogs</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>AvisoReiniciar</Name>
+        <Access>Public</Access>
+        <Location left="83" top="48" />
+        <Size width="586" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public AvisoReiniciar()</Member>
+        <Member type="Method">private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)</Member>
+        <Modifier>Sealed</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>ConfirmarEliminacion</Name>
+        <Access>Public</Access>
+        <Location left="83" top="211" />
+        <Size width="586" height="145" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public bool Result</Member>
+        <Member type="Constructor">public ConfirmarEliminacion()</Member>
+        <Member type="Method">private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)</Member>
+        <Member type="Method">private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)</Member>
+        <Modifier>Sealed</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>ErrorRango</Name>
+        <Access>Public</Access>
+        <Location left="83" top="411" />
+        <Size width="586" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public ErrorRango(string fieldName, int min, int max)</Member>
+        <Member type="Method">private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)</Member>
+        <Modifier>Sealed</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>ErrorValidacion</Name>
+        <Access>Public</Access>
+        <Location left="730" top="411" />
+        <Size width="586" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public ErrorValidacion(string fieldName)</Member>
+        <Member type="Method">private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)</Member>
+        <Modifier>Sealed</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>FiltrarListado</Name>
+        <Access>Public</Access>
+        <Location left="730" top="211" />
+        <Size width="586" height="145" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public Visualization Filters { get; private set; }</Member>
+        <Member type="Constructor">public FiltrarListado(Visualization Filters)</Member>
+        <Member type="Method">private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)</Member>
+        <Member type="Method">private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)</Member>
+        <Modifier>Sealed</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships />
+  </ProjectItem>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>TFG.Core</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>KaomiClient</Name>
+        <Access>Public</Access>
+        <Location left="56" top="56" />
+        <Size width="288" height="196" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private KaomiServer server</Member>
+        <Member type="Field">private KaomiProcess process</Member>
+        <Member type="Method">public static KaomiClient Connect(string ip, string port)</Member>
+        <Member type="Method">public bool Connected()</Member>
+        <Member type="Method">public void AttachProcess(string pid)</Member>
+        <Member type="Method">public bool? HasResults()</Member>
+        <Member type="Method">public string LatestResult()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>KaomiResponseParser</Name>
+        <Access>Internal</Access>
+        <Location left="56" top="868" />
+        <Size width="566" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">internal static ValueTuple&lt;IEnumerable&lt;TextualProperty&gt;, IEnumerable&lt;NumericProperty&gt;&gt; Parse(string response)</Member>
+        <Member type="Method">private static string GetForeground(string key, string value)</Member>
+        <Modifier>Static</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Validate</Name>
+        <Access>Public</Access>
+        <Location left="56" top="288" />
+        <Size width="288" height="128" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public static bool IPAddress(string text)</Member>
+        <Member type="Method">public static bool Port(string text)</Member>
+        <Member type="Method">public static bool ServerAt(string ip, string port)</Member>
+        <Modifier>Static</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Estado</Name>
+        <Access>Public</Access>
+        <Location left="403" top="56" />
+        <Size width="382" height="94" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public static Uri SensoresEnPais(IEnumerable&lt;Sensor&gt; sensores, string pais)</Member>
+        <Modifier>Static</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Visualization</Name>
+        <Access>Public</Access>
+        <Location left="403" top="288" />
+        <Size width="382" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public static Visualization Default</Member>
+        <Member type="Method">public override string ToString()</Member>
+        <Member type="Method">public IEnumerable&lt;Sensor&gt; Apply(IEnumerable&lt;Sensor&gt; source)</Member>
+        <Member type="Property">public ICriteria TipoSensor { get; set; }</Member>
+        <Member type="Property">public ICriteria Pais { get; set; }</Member>
+        <Member type="Property">public ICriteria Localizacion { get; set; }</Member>
+        <Member type="Property">public ICriteria Operaciones { get; set; }</Member>
+        <Member type="Property">public Ordenacion Ordenacion { get; set; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Enum">
+        <Name>Ordenacion</Name>
+        <Access>Public</Access>
+        <Location left="854" top="324" />
+        <Size width="162" height="129" />
+        <Collapsed>False</Collapsed>
+        <Value>TipoSensor</Value>
+        <Value>Pais</Value>
+        <Value>Localizacion</Value>
+        <Value>Operaciones</Value>
+      </Entity>
+      <Entity type="Interface">
+        <Name>ICriteria</Name>
+        <Access>Public</Access>
+        <Location left="403" top="552" />
+        <Size width="382" height="61" />
+        <Collapsed>False</Collapsed>
+      </Entity>
+      <Entity type="Class">
+        <Name>AllEncompasingCriteria</Name>
+        <Access>Public</Access>
+        <Location left="239" top="688" />
+        <Size width="277" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public AllEncompasingCriteria()</Member>
+        <Member type="Method">public override string ToString()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>PredicateCriteria</Name>
+        <Access>Public</Access>
+        <Location left="650" top="688" />
+        <Size width="277" height="145" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public Predicate&lt;string&gt; Evaluate { get; set; }</Member>
+        <Member type="Property">public string Verbose { get; set; }</Member>
+        <Member type="Property">public string StringValue { get; set; }</Member>
+        <Member type="Method">public override string ToString()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>NumericProperty</Name>
+        <Access>Public</Access>
+        <Location left="56" top="1043" />
+        <Size width="207" height="162" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public int Min { get; set; }</Member>
+        <Member type="Property">public int Value { get; set; }</Member>
+        <Member type="Property">public int Max { get; set; }</Member>
+        <Member type="Property">public int Tick { get; set; }</Member>
+        <Member type="Property">public string Caption { get; set; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>TextualProperty</Name>
+        <Access>Public</Access>
+        <Location left="416" top="1043" />
+        <Size width="207" height="128" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public string Key { get; set; }</Member>
+        <Member type="Property">public string Value { get; set; }</Member>
+        <Member type="Property">public string Color { get; set; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Coordinates</Name>
+        <Access>Public</Access>
+        <Location left="650" top="868" />
+        <Size width="366" height="94" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public static IDictionary&lt;string, ValueTuple&lt;double, double&gt;&gt; Country</Member>
+        <Modifier>Static</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Sensor</Name>
+        <Access>Public</Access>
+        <Location left="1069" top="56" />
+        <Size width="405" height="451" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private int intentos</Member>
+        <Member type="Field">private SolidColorBrush brush</Member>
+        <Member type="Field">private readonly IList&lt;ISensorStatusListener&gt; Listeners</Member>
+        <Member type="Property">public string InternalID { get; set; }</Member>
+        <Member type="Property">public string Nombre { get; set; }</Member>
+        <Member type="Property">public string IP { get; set; }</Member>
+        <Member type="Property">public string Puerto { get; set; }</Member>
+        <Member type="Property">public string Tipo { get; set; }</Member>
+        <Member type="Property">public string Pais { get; set; }</Member>
+        <Member type="Property">public string Lugar { get; set; }</Member>
+        <Member type="Property">public string Operaciones { get; set; }</Member>
+        <Member type="Property">public ObservableCollection&lt;TextualProperty&gt; TextualProperties { get; set; }</Member>
+        <Member type="Property">public ObservableCollection&lt;NumericProperty&gt; NumericProperties { get; set; }</Member>
+        <Member type="Property">public SensorStatus Status { get; }</Member>
+        <Member type="Property">public bool StatusNotified { get; set; }</Member>
+        <Member type="Property">public string StatusIcon { get; }</Member>
+        <Member type="Property">public bool Deleted { get; set; }</Member>
+        <Member type="Property">public SolidColorBrush ColorEstado { get; }</Member>
+        <Member type="Constructor">public Sensor(int intentos, int delay)</Member>
+        <Member type="Method">private void TimerTick()</Member>
+        <Member type="Method">public void AddListener(ISensorStatusListener listener)</Member>
+        <Member type="Method">public void ClearListeners()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Enum">
+        <Name>SensorStatus</Name>
+        <Access>Public</Access>
+        <Location left="1069" top="580" />
+        <Size width="162" height="112" />
+        <Collapsed>False</Collapsed>
+        <Value>Online</Value>
+        <Value>Offline</Value>
+        <Value>Error</Value>
+      </Entity>
+      <Entity type="Interface">
+        <Name>SensorStatusListener</Name>
+        <Access>Public</Access>
+        <Location left="1251" top="580" />
+        <Size width="357" height="78" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">void OnStatusChanged(Sensor sender, SensorStatus status)</Member>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="4" second="5">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Dependency" first="7" second="6">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Dependency" first="8" second="6">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="1" second="9">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="1" second="10">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="12" second="13">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="12" second="14">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>

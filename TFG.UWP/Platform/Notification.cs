@@ -6,12 +6,16 @@ using Windows.UI.Notifications;
 
 namespace TFG.UWP.Platform
 {
+    /// <summary>
+    /// Clase que abstrae la emisión de notificaciones
+    /// UWP para los cambios de estado de sensores.
+    /// </summary>
     internal static class Notification
     {
         internal static void Show(Sensor sensor, SensorStatus status)
         {
             var title = "Un sensor tiene problemas";
-            var content = $"El sensor {sensor.Nombre} ha pasado estado {status.ToString()}";
+            var content = $"El sensor {sensor.Nombre} ha pasado a estado {status.ToString()}";
 
             var visual = new ToastVisual()
             {
