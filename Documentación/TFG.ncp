@@ -150,112 +150,84 @@
     </Entities>
     <Relationships>
       <Relationship type="Association" first="1" second="0">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="1" second="2">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="2">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="4">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="5">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="5" second="2">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="2" second="3">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="6">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="6" second="2">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="7" second="2">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="6" second="7">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="7" second="8">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="1" second="9">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="9" second="0">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -513,6 +485,150 @@
     </Entities>
     <Relationships>
       <Relationship type="Association" first="4" second="5">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Dependency" first="7" second="6">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Dependency" first="8" second="6">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="1" second="9">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="1" second="10">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="12" second="13">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="12" second="14">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Kaomi.Core</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>KaomiLoadContext</Name>
+        <Access>Public</Access>
+        <Location left="90" top="64" />
+        <Size width="319" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public KaomiLoadContext()</Member>
+        <Member type="Method">protected override Assembly Load(AssemblyName name)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>KaomiLoader</Name>
+        <Access>Public</Access>
+        <Location left="90" top="222" />
+        <Size width="319" height="281" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">internal static IDictionary&lt;string, Assembly&gt; asms { get; set; }</Member>
+        <Member type="Property">internal static IDictionary&lt;string, KaomiTaskHost&gt; prcs { get; set; }</Member>
+        <Member type="Constructor">static KaomiLoader()</Member>
+        <Member type="Method">public static bool IsActive()</Member>
+        <Member type="Method">public static void PullFromUri(string filename, Uri uri)</Member>
+        <Member type="Method">public static string Load(string path)</Member>
+        <Member type="Method">public static IEnumerable&lt;string&gt; List()</Member>
+        <Member type="Method">public static void Unload(string id)</Member>
+        <Member type="Method">public static void InstanceProcess(string id, string type)</Member>
+        <Member type="Method">public static IEnumerable&lt;string&gt; ListProcesses()</Member>
+        <Member type="Method">public static bool HasResults(string processId)</Member>
+        <Member type="Method">public static void SendMessage(string processId, string message)</Member>
+        <Modifier>Static</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>KaomiTaskHost</Name>
+        <Access>Internal</Access>
+        <Location left="518" top="222" />
+        <Size width="332" height="264" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">internal string AssemblyId { get; set; }</Member>
+        <Member type="Property">internal KaomiProcess Process { get; set; }</Member>
+        <Member type="Property">internal bool Finalize { get; set; }</Member>
+        <Member type="Property">internal Queue&lt;string&gt; UserCommand { get; set; }</Member>
+        <Member type="Property">internal Queue&lt;string&gt; Results { get; set; }</Member>
+        <Member type="Property">private Task Task { get; set; }</Member>
+        <Member type="Constructor">public KaomiTaskHost(string assemblyId, KaomiProcess process)</Member>
+        <Member type="Method">private void ScaffoldAndRun()</Member>
+        <Member type="Method">private void RunProcess()</Member>
+        <Member type="Method">private void CheckUserMessage()</Member>
+        <Member type="Method">private void WaitForIteration(TimeSpan timeSpan)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>KaomiProcess</Name>
+        <Access>Public</Access>
+        <Location left="518" top="568" />
+        <Size width="332" height="230" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public bool RequestFinalization { get; set; }</Member>
+        <Member type="Property">internal KaomiTaskHost TaskHost { get; set; }</Member>
+        <Member type="Property">public TimeSpan IterationDelay { get; set; }</Member>
+        <Member type="Method">public T Request&lt;T&gt;()</Member>
+        <Member type="Method">public void NotifyResult(string result)</Member>
+        <Member type="Method">public abstract void OnInitialize()</Member>
+        <Member type="Method">public abstract void OnIteration()</Member>
+        <Member type="Method">public abstract void OnUserMessage(string message)</Member>
+        <Member type="Method">public abstract void OnFinalize()</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>OneTimeProcess</Name>
+        <Access>Public</Access>
+        <Location left="518" top="865" />
+        <Size width="332" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public override void OnIteration()</Member>
+        <Member type="Method">public abstract void DoWork()</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>KaomiPlugin</Name>
+        <Access>Public</Access>
+        <Location left="938" top="568" />
+        <Size width="332" height="94" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public abstract void Initialize(string callingAssembly)</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>KaomiPluginConfiguration</Name>
+        <Access>Public</Access>
+        <Location left="938" top="728" />
+        <Size width="332" height="162" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Config config</Member>
+        <Member type="Method">public override void Initialize(string callingAssembly)</Member>
+        <Member type="Method">public string Read(string key)</Member>
+        <Member type="Method">public void Write(string key, string value)</Member>
+        <Member type="Method">public IDictionary&lt;string, string&gt; SettingsIn(string section)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="1" second="2">
         <Label>
         </Label>
         <StartOrientation>Horizontal</StartOrientation>
@@ -520,19 +636,7 @@
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Dependency" first="7" second="6">
-        <Label>
-        </Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-      </Relationship>
-      <Relationship type="Dependency" first="8" second="6">
-        <Label>
-        </Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-      </Relationship>
-      <Relationship type="Association" first="1" second="9">
+      <Relationship type="Association" first="2" second="3">
         <Label>
         </Label>
         <StartOrientation>Vertical</StartOrientation>
@@ -540,7 +644,137 @@
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="1" second="10">
+      <Relationship type="Dependency" first="4" second="3">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="3" second="5">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Dependency" first="6" second="5">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Kaomi.WebAPI</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Program</Name>
+        <Access>Public</Access>
+        <Location left="90" top="70" />
+        <Size width="321" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public static void Main(string[] args)</Member>
+        <Member type="Method">public static IWebHostBuilder CreateWebHostBuilder(string[] args)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Startup</Name>
+        <Access>Public</Access>
+        <Location left="479" top="70" />
+        <Size width="413" height="162" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public IConfiguration Configuration { get; }</Member>
+        <Member type="Constructor">public Startup(IConfiguration configuration)</Member>
+        <Member type="Method">public void ConfigureServices(IServiceCollection services)</Member>
+        <Member type="Method">public void Configure(IApplicationBuilder app, IHostApplicationLifetime lifetime)</Member>
+        <Member type="Method">private void OnShutdown()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>KaomiController</Name>
+        <Access>Public</Access>
+        <Location left="479" top="292" />
+        <Size width="413" height="247" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public ActionResult&lt;string&gt; Get()</Member>
+        <Member type="Method">public ActionResult&lt;string&gt; PullFromUri(string fileName, string uri)</Member>
+        <Member type="Method">public ActionResult&lt;string&gt; Load(string path)</Member>
+        <Member type="Method">public ActionResult&lt;string&gt; ListAssemblies()</Member>
+        <Member type="Method">public ActionResult&lt;string&gt; Unload(string path)</Member>
+        <Member type="Method">public ActionResult&lt;string&gt; InstanceProcess(string id, string type)</Member>
+        <Member type="Method">public ActionResult&lt;string&gt; ListProcesses()</Member>
+        <Member type="Method">public ActionResult&lt;string&gt; HasResults(string process)</Member>
+        <Member type="Method">public ActionResult&lt;string&gt; GetProcesses(string process)</Member>
+        <Member type="Method">public ActionResult&lt;string&gt; SendMessage(string process, string message)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships />
+  </ProjectItem>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>ConfigAdapter</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Config</Name>
+        <Access>Public</Access>
+        <Location left="98" top="78" />
+        <Size width="320" height="298" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private readonly IFileAdapter _file</Member>
+        <Member type="Property">public string this[string key] { get; set; }</Member>
+        <Member type="Constructor">public Config(IFileAdapter file)</Member>
+        <Member type="Method">public string Read(string key)</Member>
+        <Member type="Method">public T Read&lt;T&gt;(string key)</Member>
+        <Member type="Method">public Config Write(string key, string value, string comment)</Member>
+        <Member type="Method">public Config Write&lt;T&gt;(string key, T value, string comment)</Member>
+        <Member type="Method">public Config DeleteKey(string key)</Member>
+        <Member type="Method">public Config DeleteSection(string section)</Member>
+        <Member type="Method">public IDictionary&lt;string, string&gt; SettingsIn(string section)</Member>
+        <Member type="Method">public Config TransferTo(ITransferable destination)</Member>
+        <Member type="Method">public Config TransferTo(Config config)</Member>
+        <Member type="Method">public ITransferable AsTransferable()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Interface">
+        <Name>ITransferable</Name>
+        <Access>Public</Access>
+        <Location left="98" top="442" />
+        <Size width="320" height="95" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">IList&lt;Setting&gt; ReadAll()</Member>
+        <Member type="Method">void WriteAll(IList&lt;Setting&gt; settings)</Member>
+      </Entity>
+      <Entity type="Class">
+        <Name>Setting</Name>
+        <Access>Public</Access>
+        <Location left="500" top="442" />
+        <Size width="320" height="145" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public string Key { get; set; }</Member>
+        <Member type="Property">public string Value { get; set; }</Member>
+        <Member type="Property">public string Comment { get; set; }</Member>
+        <Member type="Constructor">public Setting(string key, string value, string comment)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Interface">
+        <Name>IFileAdapter</Name>
+        <Access>Public</Access>
+        <Location left="500" top="149" />
+        <Size width="320" height="146" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">string Read(string key)</Member>
+        <Member type="Method">void Write(string key, string value, string comment)</Member>
+        <Member type="Method">void DeleteKey(string key)</Member>
+        <Member type="Method">void DeleteSection(string section)</Member>
+        <Member type="Method">IDictionary&lt;string, string&gt; SettingsIn(string section)</Member>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="0" second="1">
         <Label>
         </Label>
         <StartOrientation>Vertical</StartOrientation>
@@ -548,22 +782,58 @@
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="12" second="13">
+      <Relationship type="Association" first="1" second="2">
         <Label>
         </Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="12" second="14">
+      <Relationship type="Association" first="0" second="3">
         <Label>
         </Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
     </Relationships>
+  </ProjectItem>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>ConfigAdapter.Xml</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>XmlConfig</Name>
+        <Access>Public</Access>
+        <Location left="101" top="86" />
+        <Size width="349" height="94" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public static Config From(string file)</Member>
+        <Modifier>Static</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>XmlFileAdapter</Name>
+        <Access>Public</Access>
+        <Location left="101" top="261" />
+        <Size width="349" height="281" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private readonly string _file</Member>
+        <Member type="Field">private static readonly string[] _formats</Member>
+        <Member type="Field">private readonly XElement _root</Member>
+        <Member type="Field">private string _thisFormat</Member>
+        <Member type="Constructor">public XmlFileAdapter(string file)</Member>
+        <Member type="Method">public string Read(string key)</Member>
+        <Member type="Method">public void Write(string key, string value, string comment)</Member>
+        <Member type="Method">public void DeleteKey(string key)</Member>
+        <Member type="Method">public void DeleteSection(string section)</Member>
+        <Member type="Method">IList&lt;Setting&gt; ITransferable.ReadAll()</Member>
+        <Member type="Method">void ITransferable.WriteAll(IList&lt;Setting&gt; settings)</Member>
+        <Member type="Method">public IDictionary&lt;string, string&gt; SettingsIn(string section)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships />
   </ProjectItem>
 </Project>
