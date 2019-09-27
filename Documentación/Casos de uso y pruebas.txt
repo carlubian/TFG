@@ -1,0 +1,37 @@
+Casos de uso
+
+1: Ver distribución de sensores
+    Abrir la aplicación sin tener ningún sensor conectado
+    Abrir la aplicación teniendo dos sensores en países diferentes
+    Abrir la aplicación teniendo dos sensores en el mismo país
+2: Ver listado de sensores
+    Ir al listado sin tener ningún sensor conectado
+    Ir al listado de todos los sensores
+    Ir al listado desde uno de los iconos de mapa
+3: Filtrar listado de sensores
+    Filtrar un listado vacío
+    Aplicar un criterio cumplido por todos los sensores
+    Aplicar un criterio cumplido por alguno de los sensores
+    Aplicar un criterio no cumplido por ningún sensor
+4: Modificar filtros de sensores
+    Aplicar la modificación sin hacer ningún cambio
+    Aplicar la modificación habiendo hecho cambios
+    Eliminar todos los filtros activos
+5: Ver estado de un sensor
+    Ver el estado de un sensor desconectado
+    Ver el estado de un sensor conectado
+6: Añadir un nuevo sensor
+    Añadir un sensor de forma correcta
+    Introducir mal los valores de conexión
+    Cancelar la operación antes de añadir el sensor
+7: Modificar sensor existente
+    Cambiar los valores de un sensor
+    Guardar los cambios manteniendo los valores anteriores
+    Cancelar la modificación
+8: Eliminar un sensor
+    Aceptar la confirmación
+    Denegar la confirmación
+9: Modificar la configuración del sistema
+    Aplicar la modificación sin hacer ningún cambio
+    Aplicar la modificación habiendo hecho cambios
+    Cancelar la modificación
