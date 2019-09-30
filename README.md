@@ -1,4 +1,6 @@
 # Código fuente TFG
+[![Build Status](https://carlubian.visualstudio.com/TFG/_apis/build/status/Build%20TFG?branchName=master)](https://carlubian.visualstudio.com/TFG/_build/latest?definitionId=23&branchName=master)
+
 Aquí aparece todo el código fuente para el TFG. Por el momento incluye los siguientes proyectos:
 
 * <strong>TFG.UWP</strong>: Interfaz cliente en forma de Aplicación Universal de Windows.
