@@ -17,8 +17,8 @@
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
-x64/
-x86/
+# x64/
+# x86/
 bld/
 [Bb]in/
 [Oo]bj/
@@ -198,11 +198,11 @@ ecf/
 rcf/
 
 # Windows Store app package directories and files
-AppPackages/
+# AppPackages/
 BundleArtifacts/
 Package.StoreAssociation.xml
 _pkginfo.txt
-*.appx
+# *.appx
 
 # Visual Studio cache files
 # files ending in .cache can be ignored

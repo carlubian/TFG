@@ -9,7 +9,7 @@
   <Identity
     Name="cf4a4c0b-7e15-46b8-807e-a5f767f67269"
     Publisher="CN=portflat"
-    Version="1.0.0.0" />
+    Version="1.0.1.0" />
 
   <mp:PhoneIdentity PhoneProductId="cf4a4c0b-7e15-46b8-807e-a5f767f67269" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
@@ -35,7 +35,7 @@
         DisplayName="TFG.UWP"
         Square150x150Logo="Assets\IconsUWP\Square150x150Logo.png"
         Square44x44Logo="Assets\IconsUWP\Square44x44Logo.png"
-        Description="TFG.UWP"
+        Description="Aplicación local del Sistema de Monitorización de Sensores."
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\IconsUWP\Wide310x150Logo.png" Square71x71Logo="Assets\IconsUWP\SmallTile.png" Square310x310Logo="Assets\IconsUWP\LargeTile.png"/>
         <uap:SplashScreen Image="Assets\IconsUWP\SplashScreen.png"  BackgroundColor="#003C92"/>
