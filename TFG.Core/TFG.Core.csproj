@@ -7,6 +7,10 @@
   <ItemGroup>
     <PackageReference Include="DotNet.Misc.Extensions" Version="1.2.1" />
     <PackageReference Include="Kaomi.Client" Version="0.6.3" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="System.Runtime.WindowsRuntime" Version="4.6.0" />
   </ItemGroup>
 

@@ -11,7 +11,8 @@ namespace TFG.Core.Model
         /// <summary>
         /// Indica dónde señalizar cada país en el mapa.
         /// </summary>
-        public static IDictionary<string, (double latitud, double longitud)> Country = new Dictionary<string, (double latitud, double longitud)>
+        public static IDictionary<string, (double latitud, double longitud)> Country { get; } = 
+            new Dictionary<string, (double latitud, double longitud)>
         {
             { "Albania", (41.33, 18.92) }, { "Alemania", (52.52, 13.38) },
             { "Andorra", (42.5, 1.5) }, { "Argentina", (-34.59, -58.38) },

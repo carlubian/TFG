@@ -20,7 +20,7 @@ namespace TFG.Core
         /// <returns></returns>
         public static Uri SensoresEnPais(IEnumerable<Sensor> sensores, string pais)
         {
-            var estados = sensores.Where(s => s.Pais.Equals(pais))
+            var estados = sensores.Where(s => s.Pais.Equals(pais, StringComparison.InvariantCulture))
                 .Select(s => s.Status)
                 .Distinct();
 

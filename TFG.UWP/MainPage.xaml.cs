@@ -33,11 +33,13 @@ namespace TFG.UWP
             this.InitializeComponent();
 
             UpdateMapIcons();
+#pragma warning disable IDE0067
             new Timer(_ =>
             {
                 _ = CoreApplication.MainView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
                 () => this.UpdateMapIcons());
             }, null, 1500, 30000);
+#pragma warning restore IDE0067
 
             this.MapControl1.Center = new Geopoint(new BasicGeoposition
             {

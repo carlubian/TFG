@@ -51,7 +51,9 @@ namespace TFG.UWP
 
             this.sensor = sensor;
 
-            new Timer(_ => this.UpdateProperties(), null, 0, 30000);
+#pragma warning disable IDE0067
+            _ = new Timer(_ => this.UpdateProperties(), null, 0, 30000);
+#pragma warning restore IDE0067
         }
 
         private void UpdateProperties()

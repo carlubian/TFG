@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kaomi.Legacy.Model
 {
@@ -16,8 +12,8 @@ namespace Kaomi.Legacy.Model
 
         public override void Initialize(string callingAssembly)
         {
-            fore = ConsoleColor.Gray;
-            back = ConsoleColor.Black;
+            this.fore = ConsoleColor.Gray;
+            this.back = ConsoleColor.Black;
         }
 
         public void WriteLine(object content, OutputKind kind = OutputKind.Info)
@@ -38,18 +34,18 @@ namespace Kaomi.Legacy.Model
 
             Console.WriteLine(content.ToString());
 
-            Console.ForegroundColor = fore;
-            Console.BackgroundColor = back;
+            Console.ForegroundColor = this.fore;
+            Console.BackgroundColor = this.back;
         }
 
-        internal void _WriteLine(object content)
+        internal void WriteLine(object content)
         {
             Console.ForegroundColor = ConsoleColor.DarkCyan;
 
             Console.WriteLine($"[SYSTEM] {content.ToString()}");
 
-            Console.ForegroundColor = fore;
-            Console.BackgroundColor = back;
+            Console.ForegroundColor = this.fore;
+            Console.BackgroundColor = this.back;
         }
     }
 

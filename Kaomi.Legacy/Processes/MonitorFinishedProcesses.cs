@@ -1,9 +1,6 @@
 ﻿using Kaomi.Legacy.Model;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kaomi.Legacy.Processes
 {
@@ -25,7 +22,7 @@ namespace Kaomi.Legacy.Processes
             base.IterationDelay = TimeSpan.FromSeconds(10);
 
             // Request Kaomi Plugin
-            ServerConsole = Request<KaomiPluginConsole>();
+            this.ServerConsole = this.Request<KaomiPluginConsole>();
         }
 
         public override void OnIteration()
@@ -38,15 +35,13 @@ namespace Kaomi.Legacy.Processes
             foreach (var pr in prToRemove)
             {
                 KaomiLoader.prcs.Remove(pr);
-                ServerConsole._WriteLine($"{pr} is being finalized and will be removed from memory.");
+                this.ServerConsole.WriteLine($"{pr} is being finalized and will be removed from memory.");
             }
         }
 
-        public override void OnFinalize()
-        {
+        public override void OnFinalize() =>
             // System processes should only finalize when shutting down Kaomi
-            ServerConsole._WriteLine($"System process {nameof(MonitorFinishedProcesses)} is being terminated.");
-        }
+            this.ServerConsole.WriteLine($"System process {nameof(MonitorFinishedProcesses)} is being terminated.");
 
         public override void OnUserMessage(string message)
         {

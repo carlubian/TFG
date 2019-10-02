@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -24,14 +22,14 @@ namespace Kaomi.Legacy.Model
         /// <param name="process">Instance of KaomiProcessd</param>
         public KaomiTaskHost(string assemblyId, KaomiProcess process)
         {
-            AssemblyId = assemblyId;
-            Process = process;
-            Finalize = false;
-            UserCommand = new Queue<string>();
-            Results = new Queue<string>();
+            this.AssemblyId = assemblyId;
+            this.Process = process;
+            this.Finalize = false;
+            this.UserCommand = new Queue<string>();
+            this.Results = new Queue<string>();
             process.TaskHost = this;
 
-            ScaffoldAndRun();
+            this.ScaffoldAndRun();
         }
 
         /// <summary>
@@ -39,8 +37,8 @@ namespace Kaomi.Legacy.Model
         /// </summary>
         private void ScaffoldAndRun()
         {
-            Task = new Task(RunProcess, TaskCreationOptions.LongRunning);
-            Task.Start();
+            this.Task = new Task(this.RunProcess, TaskCreationOptions.LongRunning);
+            this.Task.Start();
         }
 
         /// <summary>
@@ -49,61 +47,58 @@ namespace Kaomi.Legacy.Model
         private void RunProcess()
         {
             // Initialize the process
-            Process.OnInitialize();
+            this.Process.OnInitialize();
 
             // Main process loop
-            while (!Finalize)
+            while (!this.Finalize)
             {
                 // One-Time processes should iterate only once
-                if (Process is OneTimeProcess)
-                    Finalize = true;
+                if (this.Process is OneTimeProcess)
+                    this.Finalize = true;
 
-                CheckUserMessages();
+                this.CheckUserMessages();
 
                 // Do an iteration
-                Process.OnIteration();
+                this.Process.OnIteration();
 
-                if (Process.RequestFinalization)
-                    Finalize = true;
+                if (this.Process.RequestFinalization)
+                    this.Finalize = true;
 
                 // Wait for process iteration delay
-                if (Process.IterationDelay <= TimeSpan.FromSeconds(60))
-                    WaitForIteration(Process.IterationDelay);
+                if (this.Process.IterationDelay <= TimeSpan.FromSeconds(60))
+                    this.WaitForIteration(this.Process.IterationDelay);
                 else
                 {
                     // Break long intervals in several one minute pauses
-                    var interval = Process.IterationDelay;
+                    var interval = this.Process.IterationDelay;
 
                     while (interval.TotalMinutes > 0)
                     {
                         if (interval.TotalMinutes < 1)
-                            WaitForIteration(interval);
+                            this.WaitForIteration(interval);
                         else
-                            WaitForIteration(TimeSpan.FromMinutes(1));
+                            this.WaitForIteration(TimeSpan.FromMinutes(1));
 
                         interval -= TimeSpan.FromMinutes(1);
 
-                        CheckUserMessages();
+                        this.CheckUserMessages();
 
-                        if (Process.RequestFinalization)
-                            Finalize = true;
+                        if (this.Process.RequestFinalization)
+                            this.Finalize = true;
                     }
                 }
             }
 
             // Finalize the process
-            Process.OnFinalize();
+            this.Process.OnFinalize();
         }
 
         private void CheckUserMessages()
         {
-            if (UserCommand.Count > 0)
-                Process.OnUserMessage(UserCommand.Dequeue());
+            if (this.UserCommand.Count > 0)
+                this.Process.OnUserMessage(this.UserCommand.Dequeue());
         }
 
-        private void WaitForIteration(TimeSpan timeSpan)
-        {
-            Thread.Sleep(Convert.ToInt32(timeSpan.TotalMilliseconds));
-        }
+        private void WaitForIteration(TimeSpan timeSpan) => Thread.Sleep(Convert.ToInt32(timeSpan.TotalMilliseconds));
     }
 }

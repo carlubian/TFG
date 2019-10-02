@@ -1,9 +1,4 @@
 ﻿using Kaomi.Legacy.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kaomi.Legacy.Processes
 {
@@ -18,20 +13,21 @@ namespace Kaomi.Legacy.Processes
 
         public override void OnInitialize()
         {
-            ServerConsole = Request<KaomiPluginConsole>();
-            Config = Request<KaomiPluginConfiguration>();
-            ServerConsole._WriteLine("Looking for startup processes...");
+            this.ServerConsole = this.Request<KaomiPluginConsole>();
+            this.Config = this.Request<KaomiPluginConfiguration>();
+            this.ServerConsole.WriteLine("Looking for startup processes...");
         }
 
         public override void DoWork()
         {
-            foreach (var proc in Config.SettingsIn("Startup"))
+            foreach (var proc in this.Config.SettingsIn("Startup"))
             {
                 try
                 {
                     KaomiLoader.Load($"{proc.Key}.dll");
                 }
-                catch {
+                catch
+                {
                     try
                     {
                         KaomiLoader.Load($"{proc.Key}.exe");
@@ -41,7 +37,7 @@ namespace Kaomi.Legacy.Processes
                 KaomiLoader.InstanceProcess(proc.Key, proc.Value);
             }
 
-            ServerConsole._WriteLine("All startup processes initialized.");
+            this.ServerConsole.WriteLine("All startup processes initialized.");
         }
 
         public override void OnFinalize()

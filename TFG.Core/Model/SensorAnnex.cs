@@ -10,8 +10,10 @@ namespace TFG.Core.Model
     // Cosas que pertenecen a Sensor pero distraen.
     public partial class Sensor
     {
+#pragma warning disable CA2227
         public ObservableCollection<TextualProperty> TextualProperties { get; set; }
         public ObservableCollection<NumericProperty> NumericProperties { get; set; }
+#pragma warning restore CA2227
 
         private SolidColorBrush _brush = new SolidColorBrush(Color.FromArgb(255, 120, 128, 136));
 
@@ -54,7 +56,9 @@ namespace TFG.Core.Model
                         // El servidor dice que el sensor está desconectado
                         this._brush = new SolidColorBrush(Color.FromArgb(255, 170, 0, 0));
                 }
+#pragma warning disable CA1031
                 catch { }
+#pragma warning restore CA1031
                 return this._brush;
             }
         }

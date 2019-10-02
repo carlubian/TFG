@@ -1,6 +1,7 @@
 ﻿using DotNet.Misc.Extensions.Linq;
 using System;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,8 +21,6 @@ namespace TFG.Core.Model
         public string Pais { get; set; }
         public string Lugar { get; set; }
         public string Operaciones { get; set; }
-
-        private int intentos;
 
         public SensorStatus Status
         {
@@ -59,7 +58,9 @@ namespace TFG.Core.Model
                         return SensorStatus.Error;
                     }
                 }
+#pragma warning disable CA1031
                 catch
+#pragma warning restore CA1031
                 {
                     return SensorStatus.Offline;
                 }
@@ -70,14 +71,17 @@ namespace TFG.Core.Model
         {
             // Validar parámetros
             if (intentos <= 0 || intentos > 10)
+#pragma warning disable CA1303
                 throw new ArgumentException("Número de intentos incorrecto [0..10]", nameof(intentos));
             if (delay < 10 || delay > 600)
                 throw new ArgumentException("Intervalo de actualización incorrecto [10..600]", nameof(delay));
+#pragma warning restore CA1303
 
-            this.intentos = intentos;
             this.Deleted = false;
             this.StatusNotified = false;
-            new Timer(_ => Parallel.Invoke(this.TimerTick), null, 0, delay * 1000);
+#pragma warning disable CA2000, IDE0067
+            _ = new Timer(_ => Parallel.Invoke(this.TimerTick), null, 0, delay * 1000);
+#pragma warning restore CA2000, IDE0067
             this.TextualProperties = new ObservableCollection<TextualProperty>();
             this.NumericProperties = new ObservableCollection<NumericProperty>();
         }
@@ -89,9 +93,11 @@ namespace TFG.Core.Model
             if (this.Kaomi is null)
                 try
                 {
-                    this.Kaomi = KaomiClient.Connect(this.IP, int.Parse(this.Puerto));
+                    this.Kaomi = KaomiClient.Connect(this.IP, int.Parse(this.Puerto, CultureInfo.InvariantCulture));
                 }
+#pragma warning disable CA1031
                 catch
+#pragma warning restore CA1031
                 {
                     return;
                 }

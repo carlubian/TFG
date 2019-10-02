@@ -31,7 +31,9 @@ namespace TFG.UWP
             this.LabelCriteria.Text = this.Filters.ToString();
             this.ListaSensores.ItemsSource = this.Filters.Apply(SessionStorage.GetSensores());
 
+#pragma warning disable IDE0067 // Desechar (Dispose) objetos antes de perder el ámbito
             new Timer(_ => this.UpdateList(), null, 0, 30000);
+#pragma warning restore IDE0067 // Desechar (Dispose) objetos antes de perder el ámbito
         }
 
         private void UpdateList() => _ = CoreApplication.MainView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
@@ -50,19 +52,6 @@ namespace TFG.UWP
             this.LabelCriteria.Text = this.Filters.ToString();
 
             this.ListaSensores.ItemsSource = this.Filters.Apply(SessionStorage.GetSensores());
-        }
-
-        // Ver detalles del sensor seleccionado (Antiguo)
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            if (this.ListaSensores.SelectedItem is null)
-            {
-                this.Notification.Show("Debes seleccionar un sensor antes de poder ver sus detalles.", 2000);
-                return;
-            }
-
-            var sensor = this.ListaSensores.SelectedItem as Sensor;
-            this.Frame.Navigate(typeof(DetallesSensor), sensor);
         }
 
         // Ahora se ven detalles pulsando directamente sobre la lista

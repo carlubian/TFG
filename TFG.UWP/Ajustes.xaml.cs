@@ -64,23 +64,23 @@ namespace TFG.UWP
             var intentoss = -1;
             if (!int.TryParse(intentos, out intentoss))
             {
-                new ErrorValidacion("Intentos de conexión").ShowAsync();
+                _ = new ErrorValidacion("Intentos de conexión").ShowAsync();
                 return false;
             }
             var delayy = -1;
             if (!int.TryParse(delay, out delayy))
             {
-                new ErrorValidacion("Intervalo de actualización").ShowAsync();
+                _ = new ErrorValidacion("Intervalo de actualización").ShowAsync();
                 return false;
             }
             if (intentoss <= 0 || intentoss > 10)
             {
-                new ErrorRango("Intentos de conexión", 1, 10).ShowAsync();
+                _ = new ErrorRango("Intentos de conexión", 1, 10).ShowAsync();
                 return false;
             }
             if (delayy < 10 || delayy > 600)
             {
-                new ErrorRango("Intervalo de actualización", 10, 600).ShowAsync();
+                _ = new ErrorRango("Intervalo de actualización", 10, 600).ShowAsync();
                 return false;
             }
 
@@ -95,7 +95,7 @@ namespace TFG.UWP
             config.Write("Global:Attempts", this.FieldAttempts.Text);
             config.Write("Global:Delay", this.FieldWait.Text);
 
-            new AvisoReiniciar().ShowAsync();
+            _ = new AvisoReiniciar().ShowAsync();
         }
 
         // Exportar ajustes
@@ -136,7 +136,7 @@ namespace TFG.UWP
                     await FileIO.ReadLinesAsync(file) as IEnumerable<string>);
 
                 this.PopulateSettings();
-                new AvisoReiniciar().ShowAsync();
+                _ = new AvisoReiniciar().ShowAsync();
             }
         }
 

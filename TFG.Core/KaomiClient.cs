@@ -1,4 +1,5 @@
 ﻿using Kaomi.Client;
+using System;
 using System.Linq;
 
 namespace TFG.Core
@@ -26,7 +27,9 @@ namespace TFG.Core
                     server = KaomiServer.ConnectTo(ip, puerto)
                 };
             }
+#pragma warning disable CA1031
             catch
+#pragma warning restore CA1031
             {
                 return new KaomiClient();
             }
@@ -42,7 +45,9 @@ namespace TFG.Core
             {
                 return this.server.IsListening();
             }
+#pragma warning disable CA1031
             catch
+#pragma warning restore CA1031
             {
                 return false;
             }
@@ -55,7 +60,7 @@ namespace TFG.Core
         /// <param name="pid">Process ID</param>
         public void AttachProcess(string pid) => this.process = this.server.AllAssemblies().AssemblyList
                 .SelectMany(asm => asm.AllProcesses().ProcessList)
-                .FirstOrDefault(p => p.Id.ToUpperInvariant().Equals(pid.ToUpperInvariant()));
+                .FirstOrDefault(p => p.Id.ToUpperInvariant().Equals(pid.ToUpperInvariant(), StringComparison.InvariantCulture));
 
         /// <summary>
         /// Checks whether the process has results available.

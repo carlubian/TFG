@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kaomi.Legacy.Model
 {
@@ -28,9 +24,9 @@ namespace Kaomi.Legacy.Model
         public void NotifyResult(string result)
         {
             // Limit the amount of results per process
-            if (TaskHost.Results.Count > 200)
-                TaskHost.Results.Dequeue();
-            TaskHost.Results.Enqueue(result);
+            if (this.TaskHost.Results.Count > 200)
+                this.TaskHost.Results.Dequeue();
+            this.TaskHost.Results.Enqueue(result);
         }
 
         public abstract void OnInitialize();

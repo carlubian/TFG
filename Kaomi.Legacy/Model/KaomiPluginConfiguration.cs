@@ -1,10 +1,6 @@
 ﻿using ConfigAdapter;
 using ConfigAdapter.Xml;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kaomi.Legacy.Model
 {
@@ -16,15 +12,12 @@ namespace Kaomi.Legacy.Model
     {
         private Config config;
 
-        public override void Initialize(string callingAssembly)
-        {
-            config = XmlConfig.From($"{callingAssembly}.xml");
-        }
+        public override void Initialize(string callingAssembly) => this.config = XmlConfig.From($"{callingAssembly}.xml");
 
-        public string Read(string key) => config.Read(key);
+        public string Read(string key) => this.config.Read(key);
 
-        public void Write(string key, string value) => config.Write(key, value);
+        public void Write(string key, string value) => this.config.Write(key, value);
 
-        public IDictionary<string, string> SettingsIn(string section) => config.SettingsIn(section);
+        public IDictionary<string, string> SettingsIn(string section) => this.config.SettingsIn(section);
     }
 }
