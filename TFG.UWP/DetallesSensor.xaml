@@ -26,6 +26,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="6"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="6"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
@@ -44,27 +45,29 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Orientation="Vertical" Grid.Column="0">
+                    <TextBlock Text="Atributos de conexión" FontSize="24"
+                               HorizontalAlignment="Center"/>
 
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Nombre del sensor"
+                        <TextBlock Text="Tipo del sensor:"
                                Width="200" VerticalAlignment="Center"/>
-                        <TextBlock x:Name="FieldName" FontSize="20"/>
+                        <TextBlock x:Name="FieldType" FontSize="20"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Dirección IP"
+                        <TextBlock Text="Dirección IP:"
                                Width="200" VerticalAlignment="Center"/>
                         <TextBlock x:Name="FieldIP" FontSize="20"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Puerto"
+                        <TextBlock Text="Puerto:"
                                Width="200" VerticalAlignment="Center"/>
                         <TextBlock x:Name="FieldPort" FontSize="20"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Estado"
+                        <TextBlock Text="Estado:"
                                Width="200" VerticalAlignment="Center"/>
                         <Image x:Name="StatusIcon" Width="32" Height="32" 
                                Tapped="StatusIcon_Tapped" />
@@ -72,35 +75,52 @@
 
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Grid.Column="1">
+                    <TextBlock Text="Atributos de identificación" FontSize="24"
+                               HorizontalAlignment="Center"/>
 
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Tipo del sensor"
+                        <TextBlock Text="Nombre del sensor:"
                                Width="200" VerticalAlignment="Center"/>
-                        <TextBlock x:Name="FieldType" FontSize="20"/>
+                        <TextBlock x:Name="FieldName" FontSize="20"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="País"
+                        <TextBlock Text="País:"
                                Width="200" VerticalAlignment="Center"/>
                         <TextBlock x:Name="FieldCountry" FontSize="20"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Localización"
+                        <TextBlock Text="Ciudad:"
+                               Width="200" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="FieldCity" FontSize="20"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Localización:"
                                Width="200" VerticalAlignment="Center"/>
                         <TextBlock x:Name="FieldLocation" FontSize="20"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Operaciones"
+                        <TextBlock Text="Operaciones:"
                                Width="200" VerticalAlignment="Center"/>
                         <TextBlock x:Name="FieldOps" FontSize="20"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Comentarios:"
+                               Width="200" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="FieldComments" FontSize="18"
+                                   TextWrapping="WrapWholeWords"/>
                     </StackPanel>
 
                 </StackPanel>
             </Grid>
 
-            <Grid Grid.Row="3">
+            <Grid Grid.Row="3" x:Name="ColorBar2"/>
+
+            <Grid Grid.Row="4">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
@@ -137,7 +157,7 @@
                 </uwp:AdaptiveGridView>
             </Grid>
 
-            <uwp:InAppNotification Grid.Row="4"
+            <uwp:InAppNotification Grid.Row="5"
                                    VerticalAlignment="Bottom"
                                    HorizontalAlignment="Center"
                                    x:Name="Notification"/>

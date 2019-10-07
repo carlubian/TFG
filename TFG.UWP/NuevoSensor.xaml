@@ -42,18 +42,18 @@
                 <StackPanel Orientation="Vertical"
                             Grid.Column="1">
                     <TextBlock Foreground="#FFA0B0B8"
-                               Text="Datos básicos"/>
+                               Text="Conexión"/>
                     <Rectangle Height="4" Fill="#FF003C92"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical"
                             Grid.Column="2">
                     <TextBlock Foreground="#FFA0B0B8"
-                               Text="Clasificación"/>
+                               Text="Identificación"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical"
                             Grid.Column="3">
                     <TextBlock Foreground="#FFA0B0B8"
-                               Text="Otros detalles"/>
+                               Text="Datos adicionales"/>
                 </StackPanel>
             </Grid>
 
@@ -80,6 +80,11 @@
                                Width="200"/>
                     <TextBox PlaceholderText="5000"
                              x:Name="FieldPort" Width="160"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Tipo de sensor"
+                               Width="200"/>
+                    <ComboBox x:Name="FieldType" Width="192"/>
                 </StackPanel>
             </StackPanel>
         </Grid>
@@ -108,18 +113,18 @@
                 <StackPanel Orientation="Vertical"
                             Grid.Column="1">
                     <TextBlock Foreground="#FFA0B0B8"
-                               Text="Datos básicos"/>
+                               Text="Conexión"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical"
                             Grid.Column="2">
                     <TextBlock Foreground="#FFA0B0B8"
-                               Text="Clasificación"/>
+                               Text="Identificación"/>
                     <Rectangle Height="4" Fill="#FF003C92"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical"
                             Grid.Column="3">
                     <TextBlock Foreground="#FFA0B0B8"
-                               Text="Otros detalles"/>
+                               Text="Datos adicionales"/>
                 </StackPanel>
             </Grid>
 
@@ -142,14 +147,14 @@
                              x:Name="FieldName" Width="192"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Tipo de sensor"
-                               Width="200"/>
-                    <ComboBox x:Name="FieldType" Width="192"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
                     <TextBlock Text="País de origen"
                                Width="200"/>
                     <ComboBox x:Name="FieldCountry" Width="192"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Ciudad"
+                               Width="200"/>
+                    <TextBox x:Name="FieldCity" Width="192"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Lugar de instalación"
@@ -160,6 +165,11 @@
                     <TextBlock Text="Operaciones"
                                Width="200"/>
                     <ComboBox x:Name="FieldOps" Width="192"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Comentarios"
+                               Width="200"/>
+                    <TextBox x:Name="FieldComments" Width="192"/>
                 </StackPanel>
             </StackPanel>
         </Grid>
@@ -188,17 +198,17 @@
                 <StackPanel Orientation="Vertical"
                             Grid.Column="1">
                     <TextBlock Foreground="#FFA0B0B8"
-                               Text="Datos básicos"/>
+                               Text="Conexión"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical"
                             Grid.Column="2">
                     <TextBlock Foreground="#FFA0B0B8"
-                               Text="Clasificación"/>
+                               Text="Identificación"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical"
                             Grid.Column="3">
                     <TextBlock Foreground="#FFA0B0B8"
-                               Text="Otros detalles"/>
+                               Text="Datos adicionales"/>
                     <Rectangle Height="4" Fill="#FF003C92"/>
                 </StackPanel>
             </Grid>

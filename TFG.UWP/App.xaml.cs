@@ -88,12 +88,14 @@ namespace TFG.UWP
                                 SessionStorage.AddSensor(new Sensor(intentoss, delayy)
                                 {
                                     Nombre = config.Read($"{id}:Name"),
+                                    Ciudad = config.Read($"{id}:City"),
                                     IP = config.Read($"{id}:IP"),
                                     Puerto = config.Read($"{id}:Port"),
                                     Pais = config.Read($"{id}:Country"),
                                     Tipo = config.Read($"{id}:Type"),
                                     Lugar = config.Read($"{id}:Location"),
                                     Operaciones = config.Read($"{id}:Operations"),
+                                    Comentarios = config.Read($"{id}:Comments"),
                                     InternalID = id
                                 });
                             });
@@ -174,12 +176,14 @@ namespace TFG.UWP
                                 SessionStorage.AddSensor(new Sensor(intentoss, delayy)
                                 {
                                     Nombre = config.Read($"{id}:Name"),
+                                    Ciudad = config.Read($"{id}:City"),
                                     IP = config.Read($"{id}:IP"),
                                     Puerto = config.Read($"{id}:Port"),
                                     Pais = config.Read($"{id}:Country"),
                                     Tipo = config.Read($"{id}:Type"),
                                     Lugar = config.Read($"{id}:Location"),
                                     Operaciones = config.Read($"{id}:Operations"),
+                                    Comentarios = config.Read($"{id}:Comments"),
                                     InternalID = id,
                                     StatusNotified = true
                                 });

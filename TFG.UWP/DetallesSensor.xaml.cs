@@ -36,10 +36,12 @@ namespace TFG.UWP
             var sensor = e.Parameter as Sensor;
 
             this.FieldCountry.Text = sensor.Pais;
+            this.FieldCity.Text = sensor.Ciudad;
             this.FieldIP.Text = sensor.IP;
             this.FieldLocation.Text = sensor.Lugar;
             this.FieldName.Text = sensor.Nombre;
             this.FieldOps.Text = sensor.Operaciones;
+            this.FieldComments.Text = sensor.Comentarios;
             this.FieldPort.Text = sensor.Puerto;
             this.FieldType.Text = sensor.Tipo;
 
@@ -48,6 +50,7 @@ namespace TFG.UWP
             this.StatusIcon.Source = new BitmapImage(new Uri($"ms-appx:///Assets/Icons/{sensor.StatusIcon}"));
 
             this.ColorBar.Background = sensor.ColorEstado;
+            this.ColorBar2.Background = sensor.ColorEstado;
 
             this.sensor = sensor;
 

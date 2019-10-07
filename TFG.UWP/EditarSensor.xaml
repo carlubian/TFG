@@ -85,12 +85,30 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Ciudad"
+                               Width="150"/>
+                    <TextBox x:Name="FieldCity" Width="192"/>
+                    <TextBlock Foreground="#FFA0B0B8"
+                               TextWrapping="Wrap"
+                               Text="Usado únicamente para facilitar la identificación."/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Operaciones"
                                Width="150"/>
                     <ComboBox x:Name="FieldOps" Width="192"/>
                     <TextBlock Foreground="#FFA0B0B8"
                                TextWrapping="Wrap"
                                Text="Usado con fines de filtrado y clasificación en la interfaz."/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Comentarios"
+                               Width="150"/>
+                    <TextBox x:Name="FieldComments" Width="192"/>
+                    <TextBlock Foreground="#FFA0B0B8"
+                               TextWrapping="Wrap"
+                               Text="Texto arbitrario para añadir cualquier otro detalle útil.."/>
                 </StackPanel>
 
             </StackPanel>

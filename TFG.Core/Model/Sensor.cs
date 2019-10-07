@@ -19,8 +19,10 @@ namespace TFG.Core.Model
         public string Puerto { get; set; }
         public string Tipo { get; set; }
         public string Pais { get; set; }
+        public string Ciudad { get; set; }
         public string Lugar { get; set; }
         public string Operaciones { get; set; }
+        public string Comentarios { get; set; }
 
         public SensorStatus Status
         {

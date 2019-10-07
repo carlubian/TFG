@@ -126,8 +126,10 @@ namespace TFG.UWP
                 config.Write($"SN{thisID}:Port", this.FieldPort.Text);
                 config.Write($"SN{thisID}:Type", this.FieldType.SelectedItem as string);
                 config.Write($"SN{thisID}:Country", this.FieldCountry.SelectedItem as string);
+                config.Write($"SN{thisID}:City", this.FieldCity.Text);
                 config.Write($"SN{thisID}:Location", this.FieldLocation.SelectedItem as string);
                 config.Write($"SN{thisID}:Operations", this.FieldOps.SelectedItem as string);
+                config.Write($"SN{thisID}:Comments", this.FieldComments.Text);
 
                 var sensor = new Sensor(intentoss, delayy)
                 {
@@ -135,6 +137,8 @@ namespace TFG.UWP
                     IP = this.FieldIP.Text,
                     Lugar = this.FieldLocation.SelectedItem as string,
                     Nombre = this.FieldName.Text,
+                    Ciudad = this.FieldCity.Text,
+                    Comentarios = this.FieldComments.Text,
                     Operaciones = this.FieldOps.SelectedItem as string,
                     Pais = this.FieldCountry.SelectedItem as string,
                     Puerto = this.FieldPort.Text,

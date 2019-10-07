@@ -34,7 +34,7 @@ namespace TFG.UWP
             this.FieldName.Text = this.sensor.Nombre;
             this.FieldIP.Text = this.sensor.IP;
             this.FieldPort.Text = this.sensor.Puerto;
-
+            this.FieldCity.Text = this.sensor.Ciudad;
             this.FieldType.ItemsSource = ValoresCriterio.TipoSensor;
             this.FieldType.SelectedItem = this.sensor.Tipo;
             this.FieldCountry.ItemsSource = ValoresCriterio.Pais;
@@ -43,6 +43,7 @@ namespace TFG.UWP
             this.FieldLocation.SelectedItem = this.sensor.Lugar;
             this.FieldOps.ItemsSource = ValoresCriterio.Operaciones;
             this.FieldOps.SelectedItem = this.sensor.Operaciones;
+            this.FieldComments.Text = this.sensor.Comentarios;
         }
 
         // Cancelar modificaciones
@@ -69,18 +70,22 @@ namespace TFG.UWP
             config.Write($"{thisID}:Name", this.FieldName.Text);
             config.Write($"{thisID}:IP", this.FieldIP.Text);
             config.Write($"{thisID}:Port", this.FieldPort.Text);
+            config.Write($"{thisID}:City", this.FieldCity.Text);
             config.Write($"{thisID}:Type", this.FieldType.SelectedItem as string);
             config.Write($"{thisID}:Country", this.FieldCountry.SelectedItem as string);
             config.Write($"{thisID}:Location", this.FieldLocation.SelectedItem as string);
             config.Write($"{thisID}:Operations", this.FieldOps.SelectedItem as string);
+            config.Write($"{thisID}:Comments", this.FieldComments.Text);
 
             this.sensor.Nombre = this.FieldName.Text;
             this.sensor.IP = this.FieldIP.Text;
             this.sensor.Puerto = this.FieldPort.Text;
+            this.sensor.Ciudad = this.FieldCity.Text;
             this.sensor.Tipo = this.FieldType.SelectedItem as string;
             this.sensor.Pais = this.FieldCountry.SelectedItem as string;
             this.sensor.Lugar = this.FieldLocation.SelectedItem as string;
             this.sensor.Operaciones = this.FieldOps.SelectedItem as string;
+            this.sensor.Comentarios = this.FieldComments.Text;
 
             this.Frame.GoBack();
         }
