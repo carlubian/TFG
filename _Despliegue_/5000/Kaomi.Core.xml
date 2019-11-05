@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Configuration Format="A">
+  <Setting Key="Version">1</Setting>
+  <Startup>
+    <Setting Key="TFG.TestProcesses">TestGocator</Setting>
+  </Startup>
+</Configuration>

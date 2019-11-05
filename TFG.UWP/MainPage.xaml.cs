@@ -46,6 +46,7 @@ namespace TFG.UWP
                 Latitude = 40.42,
                 Longitude = -3.70
             });
+            this.MapControl1.MapServiceToken = "eWoeELiV1WcFmNuR4kou~qCQZAXCYRqacXKP2uaAbWg~AugO7XLtIKL-_0p4H7oxambFdWNbiL-Vnfotj3IEIqIJUFgjuDbugknIlRs-842f";
         }
 
         private void UpdateMapIcons()

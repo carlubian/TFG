@@ -1,0 +1,517 @@
+<Project>
+  <Name>TFG</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>TFG.UWP</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>App</Name>
+        <Access>Internal</Access>
+        <Location left="10" top="245" />
+        <Size width="335" height="162" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public App()</Member>
+        <Member type="Method">protected void OnLaunched(LaunchActivatedEventArgs args)</Member>
+        <Member type="Method">protected void OnActivated(IActivatedEventArgs args)</Member>
+        <Member type="Method">private void OnNavigationFailed(NavigationFailedEventArgs args)</Member>
+        <Member type="Method">private void OnSuspending(SuspendingEventArgs args)</Member>
+        <Modifier>Sealed</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>MainPage</Name>
+        <Access>Public</Access>
+        <Location left="430" top="245" />
+        <Size width="335" height="213" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Timer UpdateTimer</Member>
+        <Member type="Constructor">public MainPage()</Member>
+        <Member type="Method">private void UpdateMapIcons()</Member>
+        <Member type="Method">private void MapElementClick(MapElementClickEventArgs args)</Member>
+        <Member type="Method">private void NewSensorClick(RoutedEventArgs args)</Member>
+        <Member type="Method">private void SettingsClick(RoutedEventArgs args)</Member>
+        <Member type="Method">private void AllSensorsClick(RoutedEventArgs args)</Member>
+        <Member type="Method">private void QuickAccessClick(RoutedEventArgs args)</Member>
+        <Modifier>Sealed</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Ajustes</Name>
+        <Access>Public</Access>
+        <Location left="430" top="523" />
+        <Size width="335" height="247" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public Ajustes()</Member>
+        <Member type="Method">private void PopulateSettings()</Member>
+        <Member type="Method">private bool ValidateSettings()</Member>
+        <Member type="Method">private void SaveSettings()</Member>
+        <Member type="Method">private void GoBackClick(RoutedEventArgs args)</Member>
+        <Member type="Method">private void SaveClick(RoutedEventArgs args)</Member>
+        <Member type="Method">private void ExportClick(RoutedEventArgs args)</Member>
+        <Member type="Method">private void ImportClick(RoutedEventArgs args)</Member>
+        <Member type="Method">private void RestoreClick(RoutedEventArgs args)</Member>
+        <Member type="Method">private void QuickAccessClick(RoutedEventArgs args)</Member>
+        <Modifier>Sealed</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>NuevoSensor</Name>
+        <Access>Public</Access>
+        <Location left="850" top="523" />
+        <Size width="335" height="179" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private int Step</Member>
+        <Member type="Constructor">public NuevoSensor()</Member>
+        <Member type="Method">protected void OnNavigatedTo(NavigationEventArgs args)</Member>
+        <Member type="Method">private void CancelClick(RoutedEventArgs args)</Member>
+        <Member type="Method">private void NextClick(RoutedEventArgs args)</Member>
+        <Member type="Method">public void QuickAccessClick(RoutedEventArgs args)</Member>
+        <Modifier>Sealed</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>VistaListado</Name>
+        <Access>Public</Access>
+        <Location left="850" top="245" />
+        <Size width="335" height="213" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Visualization Filters</Member>
+        <Member type="Constructor">public VistaListado()</Member>
+        <Member type="Method">protected void OnNavigatedTo(NavigationEventArgs args)</Member>
+        <Member type="Method">private void UpdateList()</Member>
+        <Member type="Method">private void ListaItemClick(ItemClickEventArgs args)</Member>
+        <Member type="Method">private void GoBackClick(RoutedEventArgs args)</Member>
+        <Member type="Method">private void FilterClick(RoutedEventArgs args)</Member>
+        <Member type="Method">private void QuickAccessClick(RoutedEventArgs args)</Member>
+        <Modifier>Sealed</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>DetallesSensor</Name>
+        <Access>Public</Access>
+        <Location left="1265" top="245" />
+        <Size width="335" height="213" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Sensor Sensor</Member>
+        <Member type="Constructor">public DetallesSensor()</Member>
+        <Member type="Method">protected void OnNavigatedTo(NavigationEventArgs args)</Member>
+        <Member type="Method">private void UpdateProperties()</Member>
+        <Member type="Method">private void GoBackClick(RoutedEventArgs args)</Member>
+        <Member type="Method">private void EditClick(RoutedEventArgs args)</Member>
+        <Member type="Method">private void DeleteEventArgs(RoutedEventArgs args)</Member>
+        <Member type="Method">private void QuickAccessClick(RoutedEventArgs args)</Member>
+        <Modifier>Sealed</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>EditarSensor</Name>
+        <Access>Public</Access>
+        <Location left="1265" top="523" />
+        <Size width="335" height="179" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Sensor Sensor</Member>
+        <Member type="Constructor">public EditarSensor()</Member>
+        <Member type="Method">protected void OnNavigatedTo(NavigationEventArgs args)</Member>
+        <Member type="Method">private void CancelClick(RoutedEventArgs args)</Member>
+        <Member type="Method">private void SaveClick(RoutedEventArgs args)</Member>
+        <Member type="Method">private void QuickAccessClick(RoutedEventArgs args)</Member>
+        <Modifier>Sealed</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>SessionStorage</Name>
+        <Access>Internal</Access>
+        <Location left="10" top="523" />
+        <Size width="335" height="179" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">private static Collection&lt;Sensor&gt; Sensores { get; set; }</Member>
+        <Member type="Constructor">private SessionStorage()</Member>
+        <Member type="Method">internal static void AddSensor(Sensor sensor)</Member>
+        <Member type="Method">internal static void RemoveSensor(Sensor sensor)</Member>
+        <Member type="Method">internal static void ClearSensors()</Member>
+        <Member type="Method">internal static ReadOnlyCollection&lt;Sensor&gt; GetSensors()</Member>
+        <Modifier>Static</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="1" second="2">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="1" second="3">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="1" second="4">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="4" second="5">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="5" second="6">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="1">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>TFG.Core</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>KaomiClient</Name>
+        <Access>Public</Access>
+        <Location left="10" top="10" />
+        <Size width="274" height="196" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private KaomiServer Server</Member>
+        <Member type="Field">private KaomiProcess Process</Member>
+        <Member type="Method">public static KaomiClient Connect(string IP, string Puerto)</Member>
+        <Member type="Method">public bool Connected()</Member>
+        <Member type="Method">public void AttachProcess(string PID)</Member>
+        <Member type="Method">public bool? HasResults()</Member>
+        <Member type="Method">public string GetResults()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Estado</Name>
+        <Access>Public</Access>
+        <Location left="10" top="258" />
+        <Size width="274" height="94" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public static string SensoresEnPais(string pais)</Member>
+        <Modifier>Static</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Validate</Name>
+        <Access>Public</Access>
+        <Location left="362" top="10" />
+        <Size width="274" height="128" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public static bool IP(string IP)</Member>
+        <Member type="Method">public static bool Port(string Port)</Member>
+        <Member type="Method">public static bool ServerAt(string IP, string Port)</Member>
+        <Modifier>Static</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Visualization</Name>
+        <Access>Public</Access>
+        <Location left="362" top="202" />
+        <Size width="274" height="213" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public static Visualization Default</Member>
+        <Member type="Method">public override void ToString()</Member>
+        <Member type="Method">public Collection&lt;Sensor&gt; Apply()</Member>
+        <Member type="Property">public ICriterio TipoSensor { get; set; }</Member>
+        <Member type="Property">public ICriterio Pais { get; set; }</Member>
+        <Member type="Property">public ICriterio Localizacion { get; set; }</Member>
+        <Member type="Property">public ICriterio Operaciones { get; set; }</Member>
+        <Member type="Property">public Ordenacion Ordenacion { get; set; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Enum">
+        <Name>Ordenacion</Name>
+        <Access>Public</Access>
+        <Location left="706" top="202" />
+        <Size width="162" height="129" />
+        <Collapsed>False</Collapsed>
+        <Value>TipoSensor</Value>
+        <Value>Pais</Value>
+        <Value>Localizacion</Value>
+        <Value>Operaciones</Value>
+      </Entity>
+      <Entity type="Interface">
+        <Name>ICriterio</Name>
+        <Access>Public</Access>
+        <Location left="10" top="411" />
+        <Size width="274" height="61" />
+        <Collapsed>False</Collapsed>
+      </Entity>
+      <Entity type="Class">
+        <Name>AllEncompasingCriterio</Name>
+        <Access>Public</Access>
+        <Location left="10" top="526" />
+        <Size width="274" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public AllEncompasingCriterio()</Member>
+        <Member type="Method">public override void ToString()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>PredicateCriterio</Name>
+        <Access>Public</Access>
+        <Location left="362" top="478" />
+        <Size width="274" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public Predicate&lt;string&gt; Predicate { get; set; }</Member>
+        <Member type="Method">public override void ToString()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Sensor</Name>
+        <Access>Public</Access>
+        <Location left="932" top="10" />
+        <Size width="274" height="321" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private int Intentos</Member>
+        <Member type="Field">Collection&lt;ISensorListener&gt; Listeners</Member>
+        <Member type="Property">public string InternalID { get; set; }</Member>
+        <Member type="Property">public string Nombre { get; set; }</Member>
+        <Member type="Property">public string IP { get; set; }</Member>
+        <Member type="Property">public string Puerto { get; set; }</Member>
+        <Member type="Property">public string Tipo { get; set; }</Member>
+        <Member type="Property">public string Pais { get; set; }</Member>
+        <Member type="Property">public string Ciudad { get; set; }</Member>
+        <Member type="Property">public string Lugar { get; set; }</Member>
+        <Member type="Property">public string Operaciones { get; set; }</Member>
+        <Member type="Property">public string Comentarios { get; set; }</Member>
+        <Member type="Property">public SensorStatus Status { get; set; }</Member>
+        <Member type="Method">private void TimerTick()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Enum">
+        <Name>SensorStatus</Name>
+        <Access>Public</Access>
+        <Location left="706" top="10" />
+        <Size width="162" height="112" />
+        <Collapsed>False</Collapsed>
+        <Value>Online</Value>
+        <Value>Offline</Value>
+        <Value>Error</Value>
+      </Entity>
+      <Entity type="Interface">
+        <Name>ISensorListener</Name>
+        <Access>Public</Access>
+        <Location left="706" top="388" />
+        <Size width="248" height="78" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">void OnStatusChanged(Sensor sender)</Member>
+      </Entity>
+      <Entity type="Class">
+        <Name>KaomiResponseParser</Name>
+        <Access>Internal</Access>
+        <Location left="1020" top="370" />
+        <Size width="411" height="94" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public static Tuple&lt;Collection&lt;TextProperty&gt;, Collection&lt;NumberProperty&gt;&gt; Parse()</Member>
+        <Modifier>Static</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>TextProperty</Name>
+        <Access>Public</Access>
+        <Location left="859" top="526" />
+        <Size width="248" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public string Key { get; set; }</Member>
+        <Member type="Property">public string Value { get; set; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>NumberProperty</Name>
+        <Access>Public</Access>
+        <Location left="1182" top="526" />
+        <Size width="248" height="145" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public string Key { get; set; }</Member>
+        <Member type="Property">public int Min { get; set; }</Member>
+        <Member type="Property">public int Current { get; set; }</Member>
+        <Member type="Property">public int Max { get; set; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="3" second="4">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Dependency" first="6" second="5">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Dependency" first="7" second="5">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="8" second="9">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="8" second="10">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="11" second="12">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="11" second="13">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Kaomi.Core</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>KaomiLoadContext</Name>
+        <Access>Public</Access>
+        <Location left="10" top="10" />
+        <Size width="286" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public KaomiLoadContext()</Member>
+        <Member type="Method">protected Assembly Load(AssemblyName name)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>KaomiLoader</Name>
+        <Access>Public</Access>
+        <Location left="366" top="10" />
+        <Size width="286" height="230" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public static Map&lt;string, Assembly&gt; Assemblies { get; set; }</Member>
+        <Member type="Property">public static Map&lt;string, TaskHost&gt; Processes { get; set; }</Member>
+        <Member type="Method">public static void PullFromUri(string Uri)</Member>
+        <Member type="Method">public static string Load(string Path)</Member>
+        <Member type="Method">public static Collection&lt;string&gt; ListAssemblies()</Member>
+        <Member type="Method">public static void Unload(string Id)</Member>
+        <Member type="Method">public static void Instance(string Assembly, string PID)</Member>
+        <Member type="Method">public static Collection&lt;string&gt; ListProcesses()</Member>
+        <Member type="Method">public static void SendMessage(string PID, string Message)</Member>
+        <Modifier>Static</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>TaskHost</Name>
+        <Access>Public</Access>
+        <Location left="727" top="10" />
+        <Size width="286" height="196" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public string Assembly { get; set; }</Member>
+        <Member type="Property">public KaomiProcess Process { get; set; }</Member>
+        <Member type="Property">public Queue&lt;string&gt; Messages { get; set; }</Member>
+        <Member type="Property">public Queue&lt;string&gt; Results { get; set; }</Member>
+        <Member type="Method">public void RunProcess()</Member>
+        <Member type="Method">public void CheckMessages()</Member>
+        <Member type="Method">public void AwaitIteration(TimeSpan Span)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>KaomiProcess</Name>
+        <Access>Public</Access>
+        <Location left="1086" top="10" />
+        <Size width="286" height="230" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private TaskHost Container</Member>
+        <Member type="Property">public TimeSpan IterationDelay { get; set; }</Member>
+        <Member type="Method">public void RequestFinalization()</Member>
+        <Member type="Method">public T Request&lt;T&gt;()</Member>
+        <Member type="Method">public void NotifyResult(string Result)</Member>
+        <Member type="Method">public abstract void OnInitialize()</Member>
+        <Member type="Method">public abstract void OnIteration()</Member>
+        <Member type="Method">public abstract void OnUserMessage(string Message)</Member>
+        <Member type="Method">public abstract void OnFinalize()</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Interface">
+        <Name>IKaomiPlugin</Name>
+        <Access>Public</Access>
+        <Location left="1086" top="295" />
+        <Size width="286" height="78" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">void Initialize()</Member>
+      </Entity>
+      <Entity type="Class">
+        <Name>KaomiPluginConfiguration</Name>
+        <Access>Public</Access>
+        <Location left="727" top="295" />
+        <Size width="286" height="145" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Config Config</Member>
+        <Member type="Method">public override void Initialize()</Member>
+        <Member type="Method">public string Read(string Key)</Member>
+        <Member type="Method">public void Write(string Key, string Value)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="1" second="2">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Dependency" first="5" second="4">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="3" second="4">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="2" second="3">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>

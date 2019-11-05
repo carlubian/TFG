@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Configuration Format="CAv2">
+    <Server>
+        <!--Indicates the port used by the web server-->
+        <Port>5009</Port>
+    </Server>
+</Configuration>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration Format="CAv2">
+  <!--Skip New User Experience when launching app. Setting value is ignored.-->
+  <ExistingUser>True</ExistingUser>
+  <ActiveSensors>|SN637069936707191633|SN637069937007671711|SN637069937334470285|SN637069937938232070|SN637069938361030093|SN637069938941989152|SN637069939491117576|SN637069940329031118|SN637069940862248092|SN637069941324448615</ActiveSensors>
+  <SN637069936707191633>
+    <Name>Sensor de prueba 1</Name>
+    <IP>127.0.0.1</IP>
+    <Port>5000</Port>
+    <Type>TestGocator</Type>
+    <Country>España</Country>
+    <City>Oviedo</City>
+    <Location>Oficinas</Location>
+    <Operations>Pruebas</Operations>
+    <Comments>Servidor 5000</Comments>
+  </SN637069936707191633>
+  <SN637069937007671711>
+    <Name>Sensor de prueba 2</Name>
+    <IP>127.0.0.1</IP>
+    <Port>5001</Port>
+    <Type>TestGocator</Type>
+    <Country>España</Country>
+    <City>Oviedo</City>
+    <Location>Laboratorio</Location>
+    <Operations>Pruebas</Operations>
+    <Comments>Servidor 5001</Comments>
+  </SN637069937007671711>
+  <SN637069937334470285>
+    <Name>Sensor de prueba 3</Name>
+    <IP>127.0.0.1</IP>
+    <Port>5002</Port>
+    <Type>TestGocator</Type>
+    <Country>España</Country>
+    <City>Avilés</City>
+    <Location>Oficinas</Location>
+    <Operations>Produccion</Operations>
+    <Comments>Servidor 5002</Comments>
+  </SN637069937334470285>
+  <SN637069937938232070>
+    <Name>Sensor de prueba 5</Name>
+    <IP>127.0.0.1</IP>
+    <Port>5004</Port>
+    <Type>TestGocator</Type>
+    <Country>Portugal</Country>
+    <City>Lisboa</City>
+    <Location>Planta</Location>
+    <Operations>Produccion</Operations>
+    <Comments>Servidor 5004</Comments>
+  </SN637069937938232070>
+  <SN637069938361030093>
+    <Name>Sensor de prueba 4</Name>
+    <IP>127.0.0.1</IP>
+    <Port>5003</Port>
+    <Type>TestGocator</Type>
+    <Country>Alemania</Country>
+    <City>Hamburgo</City>
+    <Location>Laboratorio</Location>
+    <Operations>Pruebas</Operations>
+    <Comments>Servidor 5003</Comments>
+  </SN637069938361030093>
+  <SN637069938941989152>
+    <Name>Sensor de prueba 6</Name>
+    <IP>127.0.0.1</IP>
+    <Port>5005</Port>
+    <Type>TestGocator</Type>
+    <Country>Polonia</Country>
+    <City>Dofasco</City>
+    <Location>Planta</Location>
+    <Operations>Pruebas</Operations>
+    <Comments>Servidor 5005</Comments>
+  </SN637069938941989152>
+  <SN637069939491117576>
+    <Name>Sensor de prueba 7</Name>
+    <IP>127.0.0.1</IP>
+    <Port>5006</Port>
+    <Type>TestGocator</Type>
+    <Country>Canadá</Country>
+    <City>Ontario</City>
+    <Location>Oficinas</Location>
+    <Operations>Pruebas</Operations>
+    <Comments>Servidor 5006</Comments>
+  </SN637069939491117576>
+  <SN637069940329031118>
+    <Name>Sensor de prueba 8</Name>
+    <IP>127.0.0.1</IP>
+    <Port>5007</Port>
+    <Type>TestGocator</Type>
+    <Country>Canadá</Country>
+    <City>Vancouver</City>
+    <Location>Laboratorio</Location>
+    <Operations>Produccion</Operations>
+    <Comments>Servidor 5007</Comments>
+  </SN637069940329031118>
+  <SN637069940862248092>
+    <Name>Sensor de prueba 9</Name>
+    <IP>127.0.0.1</IP>
+    <Port>5008</Port>
+    <Type>TestGocator</Type>
+    <Country>Bulgaria</Country>
+    <City>Klow</City>
+    <Location>Planta</Location>
+    <Operations>Produccion</Operations>
+    <Comments>Servidor 5008</Comments>
+  </SN637069940862248092>
+  <SN637069941324448615>
+    <Name>Sensor de prueba 10</Name>
+    <IP>127.0.0.1</IP>
+    <Port>5009</Port>
+    <Type>TestGocator</Type>
+    <Country>Grecia</Country>
+    <City>Atenas</City>
+    <Location>Oficinas</Location>
+    <Operations>Produccion</Operations>
+    <Comments>Servidor 5009</Comments>
+  </SN637069941324448615>
+</Configuration>
