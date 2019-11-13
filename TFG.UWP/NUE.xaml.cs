@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using TFG.UWP.Dialogs;
 using TFG.UWP.Dialogs.Assistant;
 using Windows.Storage;
 using Windows.Storage.Pickers;
@@ -44,15 +45,7 @@ namespace TFG.UWP
                 await FileIO.WriteLinesAsync(await ApplicationData.Current.LocalFolder.GetFileAsync("Settings.xml"),
                     await FileIO.ReadLinesAsync(file) as IEnumerable<string>);
 
-                var dialog = new ContentDialog
-                {
-                    Title = "Configuración importada",
-                    Content = "Los ajustes anteriores han sido restaurados correectamente. Todo debería estar justo como lo dejaste.",
-                    CloseButtonText = "Aceptar"
-                };
-                await dialog.ShowAsync();
-
-                this.Frame.Navigate(typeof(MainPage));
+                _ = new AvisoReiniciar().ShowAsync();
             }
         }
 

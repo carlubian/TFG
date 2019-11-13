@@ -91,7 +91,7 @@
         <Grid Grid.Column="0"
               Background="Transparent"
               x:Name="GridStep2"
-              Visibility="Collapsed">
+              Visibility="Visible">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -169,14 +169,15 @@
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Comentarios"
                                Width="200"/>
-                    <TextBox x:Name="FieldComments" Width="192"/>
+                    <TextBox x:Name="FieldComments" Width="192"
+                             Height="96" TextWrapping="Wrap"/>
                 </StackPanel>
             </StackPanel>
         </Grid>
         <Grid Grid.Column="0"
               Background="Transparent"
               x:Name="GridStep3"
-              Visibility="Visible">
+              Visibility="Collapsed">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>

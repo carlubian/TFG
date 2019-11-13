@@ -9,7 +9,7 @@
   <Identity
     Name="cf4a4c0b-7e15-46b8-807e-a5f767f67269"
     Publisher="CN=portflat"
-    Version="1.0.2.0" />
+    Version="1.0.4.0" />
 
   <mp:PhoneIdentity PhoneProductId="cf4a4c0b-7e15-46b8-807e-a5f767f67269" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 

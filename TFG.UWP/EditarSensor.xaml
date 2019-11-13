@@ -105,10 +105,12 @@
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Comentarios"
                                Width="150"/>
-                    <TextBox x:Name="FieldComments" Width="192"/>
+                    <TextBox x:Name="FieldComments" Width="192"
+                             Height="96" TextWrapping="Wrap"/>
                     <TextBlock Foreground="#FFA0B0B8"
                                TextWrapping="Wrap"
-                               Text="Texto arbitrario para añadir cualquier otro detalle útil.."/>
+                               Text="Texto arbitrario para añadir cualquier otro detalle útil."
+                               VerticalAlignment="Center"/>
                 </StackPanel>
 
             </StackPanel>
