@@ -1,7 +1,7 @@
 # Código fuente TFG
 [![Build Status](https://carlubian.visualstudio.com/TFG/_apis/build/status/Build%20TFG?branchName=master)](https://carlubian.visualstudio.com/TFG/_build/latest?definitionId=23&branchName=master)
 
-Aquí aparece todo el código fuente para el TFG. Iincluye los siguientes proyectos:
+Aquí aparece todo el código fuente para el TFG. Incluye los siguientes proyectos:
 
 * <strong>TFG.UWP</strong>: Interfaz cliente en forma de Aplicación Universal de Windows.
 * <strong>TFG.Core</strong>: Clases del modelo, validación de datos, cliente Kaomi y métodos de extensión.
@@ -28,7 +28,7 @@ Nota: Es posible hacer que la aplicación se conecte a un servidor Kaomi que apu
 
 # Ejecutar la aplicación
 Es posible ejecutar la aplicación en modo depuración desde Visual Studio, o instalarla de forma local mediante el paquete de despliegue. Para ello, se recomienda seguir los siguientes pasos:
-* Navegar al directorio \_Despliegue\_/TFG.UWP_1.0.2.0
+* Navegar al directorio \_Despliegue\_/TFG.UWP_1.0.4.0
 * Ejecutar el script Add-AppDevPackage.ps1 con Powershell.
 
 Ese script se encargará de instalar las dependencias y registrar el certificado de pruebas necesario para desplegar y ejecutar la aplicación.
